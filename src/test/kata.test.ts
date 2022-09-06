@@ -1,5 +1,7 @@
+import kata from './../kata';
+
 describe('Kata', () => {
-  test('sharp C is C#', () => {
-    expect(true).toBe(false);
+  test('kata value should be zero', () => {
+    expect(kata).toBe(1);
   });
 });
