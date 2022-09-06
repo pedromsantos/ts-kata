@@ -1,0 +1,14 @@
+{
+  "collectCoverageFrom": ["src/**/*.ts", "!lib/**/*.*", "!src/**/*.test.ts"],
+  "coverageThreshold": {
+    "global": {
+      "branches": 75,
+      "functions": 85,
+      "lines": 85,
+      "statements": 85
+    }
+  },
+  "transform": {
+    "^.+\\.(ts)$": "ts-jest"
+  }
+}

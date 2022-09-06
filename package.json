@@ -1,0 +1,58 @@
+{
+  "name": "ts-kata",
+  "version": "1.0.0",
+  "description": "Typescript kata starting project",
+  "author": "Pedro Moreira Santos",
+  "homepage": "https://github.com/pedromsantos/ts-kata",
+  "keywords": [
+    "kata",
+    "dojo",
+    "code",
+    "practice",
+    "tdd"
+  ],
+  "license": "MIT",
+  "main": "./lib/kata.js",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "watch": "jest --watch",
+    "clean": "rm -r ./lib",
+    "test": "jest --watchAll=false",
+    "precommit": "npm-run-all -p clean lint types test build",
+    "test:ci": "jest test --watchAll=false --coverage=true",
+    "mutants": "stryker run",
+    "build": "tsc -p tsconfig.json && tsc -p tsconfig-cjs.json",
+    "lint": "eslint . --color --ext .ts --ignore-pattern 'node_modules/'",
+    "lint:fix": "eslint . --ext .ts --ignore-pattern 'node_modules/' --fix",
+    "types": "type-coverage -at-least 99",
+    "types-report": "typescript-coverage-report --threshold 99",
+    "prepare": "husky install"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^28.1.7",
+    "@stryker-mutator/core": "^6.1.2",
+    "@stryker-mutator/jest-runner": "^6.1.2",
+    "eslint": "^8.23.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jest": "^27.0.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-simple-import-sort": "^7.0.0",
+    "eslint-plugin-sonarjs": "^0.15.0",
+    "@typescript-eslint/eslint-plugin": "^5.36.1",
+    "@typescript-eslint/parser": "^5.36.1",
+    "fast-check": "^3.1.2",
+    "husky": "^8.0.1",
+    "jest": "^28.1.3",
+    "npm-run-all": "^4.1.5",
+    "prettier": "^2.7.1",
+    "ts-coverage": "^0.1.5",
+    "ts-jest": "^28.0.8",
+    "type-coverage": "^2.22.0",
+    "typescript": "^4.8.2",
+    "typescript-coverage-report": "^0.6.4"
+  }
+}
