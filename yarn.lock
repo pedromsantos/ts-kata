@@ -786,15 +786,6 @@
     prop-types "^15.7.2"
     react-is "^16.6.3"
 
-"@stryker-mutator/api@6.2.2":
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-6.2.2.tgz#683cfab1638b80d33cac5573c7ab24ff7cbfd89d"
-  integrity sha512-ZMR3ubUh059Xb769ryE1LkwZR7PWbt5TITYYkHZd7pG5yLVzPMDP0d29CQBJW2H7YjlopgImVL8sw8U/RgDcGg==
-  dependencies:
-    mutation-testing-metrics "1.7.10"
-    mutation-testing-report-schema "1.7.10"
-    tslib "~2.4.0"
-
 "@stryker-mutator/api@6.2.3":
   version "6.2.3"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-6.2.3.tgz#27a34c8b2b1f3f52d5dcd5ae557bd398511fd458"
@@ -857,22 +848,15 @@
     angular-html-parser "~2.0.0"
     weapon-regex "~1.0.2"
 
-"@stryker-mutator/jest-runner@^6.1.2":
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-6.2.2.tgz#758b69575d4087c722011ff32cf679a4763588c6"
-  integrity sha512-xWuzuBUIB2MQVJBCdK5K8/SRV4fu2+wAd9FoZY6AIkKCVv0Od0eYZ6MB78V6jSG9R2/KF9I+zzrQ94PEnp5zaQ==
+"@stryker-mutator/jest-runner@^6.2.3":
+  version "6.2.3"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-6.2.3.tgz#294994c3c96f4b080d069905d83e1f4396fba578"
+  integrity sha512-mt9xqY4fFhnqcIZT23DZ/FENrJmeuv50dcnbTRjftLNVcLS0zNaGIF7X8MOnY8D08g/f3lYtBHPGW9gsKsHgoA==
   dependencies:
-    "@stryker-mutator/api" "6.2.2"
-    "@stryker-mutator/util" "6.2.2"
+    "@stryker-mutator/api" "6.2.3"
+    "@stryker-mutator/util" "6.2.3"
     semver "~7.3.7"
     tslib "~2.4.0"
-
-"@stryker-mutator/util@6.2.2":
-  version "6.2.2"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-6.2.2.tgz#d9e8564d2cc922a5c8fc32f4e454bf26c154a0e9"
-  integrity sha512-BjE9wP8V8Vh4VMr/pReNLlMNxSzl25OHJBDK1Y4WN/b+HY9gVy7PiX2HEYiXg7LniHIZ54vX5VLuLzJOfb6pGQ==
-  dependencies:
-    lodash.flatmap "~4.5.0"
 
 "@stryker-mutator/util@6.2.3":
   version "6.2.3"
