@@ -12,7 +12,7 @@ jobs:
           fetch-depth: --unshallow
 
       - name: Cache node modules
-        uses: actions/cache@v3.2.1
+        uses: actions/cache@v3.2.2
         env:
           cache-name: cache-node-modules
         with:
