@@ -21,6 +21,7 @@
     "clean": "rm -r ./lib",
     "test": "jest --watchAll=false",
     "precommit": "npm-run-all -p lint types test build",
+    "ci": "npm-run-all -p lint types test:ci build",
     "test:ci": "jest test --watchAll=false --coverage=true",
     "mutants": "stryker run",
     "build": "tsc -p tsconfig.json",
