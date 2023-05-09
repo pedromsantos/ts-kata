@@ -35,6 +35,6 @@
     "strictPropertyInitialization": true,
     "target": "es2020"
   },
-  "exclude": ["node_modules/**/*", "src/test/*"],
+  "exclude": ["node_modules/**/*", "src/**/*.test.*"],
   "include": ["src/**/*.ts"]
 }

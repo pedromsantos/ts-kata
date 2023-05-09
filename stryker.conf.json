@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
   "coverageAnalysis": "perTest",
-  "mutate": ["src/**/*.ts"],
+  "mutate": ["src/**/*.kata.ts"],
   "reporters": ["progress", "dots", "dashboard", "html"],
   "testRunner": "jest",
   "checkers": ["typescript"],
