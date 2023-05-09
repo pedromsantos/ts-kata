@@ -1,30 +1,45 @@
 {
+  "parser": "@typescript-eslint/parser",
   "env": {
     "es2021": true,
+    "jest": true,
     "node": true
   },
   "extends": [
     "plugin:@typescript-eslint/eslint-recommended",
     "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "plugin:prettier/recommended",
     "plugin:sonarjs/recommended",
     "plugin:jest/recommended",
     "plugin:jest/style"
   ],
-  "parser": "@typescript-eslint/parser",
+  "ignorePatterns": [".eslintrc.js"],
   "parserOptions": {
     "ecmaVersion": 2021,
     "project": "./tsconfig.eslint.json",
     "sourceType": "module"
   },
-  "plugins": ["prettier", "sonarjs", "jest", "@typescript-eslint", "simple-import-sort", "import"],
+  "plugins": [
+    "@typescript-eslint/eslint-plugin",
+    "simple-import-sort",
+    "import",
+    "hexagonal-architecture"
+  ],
   "rules": {
+    "no-console": 1,
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-duplicates": "error",
-    "no-console": 1,
-    "no-unused-vars": 1,
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": "error"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["contexts/{backend,frontend}/*/src/**/*.ts"],
+      "rules": {
+        "hexagonal-architecture/enforce": ["error"]
+      }
+    }
+  ]
 }

@@ -1,14 +1,14 @@
 {
-  "collectCoverageFrom": ["src/**/*.ts", "!lib/**/*.*", "!src/**/*.test.ts"],
+  "collectCoverageFrom": ["src/**/*.ts", "!lib/**/*", "!src/__test__/**/*", "!src/index.ts"],
+  "coverageReporters": ["json", "lcov", "text", "html"],
   "coverageThreshold": {
     "global": {
-      "branches": 75,
-      "functions": 85,
-      "lines": 85,
-      "statements": 85
+      "branches": 90,
+      "functions": 95,
+      "lines": 95,
+      "statements": 95
     }
   },
-  "transform": {
-    "^.+\\.(ts)$": "ts-jest"
-  }
+  "preset": "ts-jest",
+  "testTimeout": 10000
 }

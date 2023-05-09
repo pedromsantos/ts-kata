@@ -1,8 +1,25 @@
 {
   "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
-  "_comment": "This config was auto-generated. Please see the guide for more information: https://stryker-mutator.io/docs/stryker-js/guides/react",
-  "coverageAnalysis": "off",
-  "mutate": ["src//**/*.ts"],
-  "reporters": ["progress", "html"],
-  "testRunner": "jest"
+  "coverageAnalysis": "perTest",
+  "mutate": ["src/**/*.ts"],
+  "reporters": ["progress", "dots", "dashboard", "html"],
+  "testRunner": "jest",
+  "checkers": ["typescript"],
+  "tsconfigFile": "tsconfig.json",
+  "ignoreStatic": true,
+  "jest": {
+    "projectType": "custom",
+    "configFile": "./jest.config.json",
+    "enableFindRelatedTests": true
+  },
+  "clearTextReporter": {
+    "allowColor": true,
+    "allowEmojis": true,
+    "logTests": true,
+    "maxTestsToLog": 3
+  },
+  "mutator": {
+    "plugins": null,
+    "excludedMutations": ["StringLiteral"]
+  }
 }
