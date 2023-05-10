@@ -1,4 +1,4 @@
-import { fibonacci } from './fibonacci.kata';
+import { fibonacci } from './kata';
 
 describe('Fibonacci should', () => {
   test('start at zero', () => {

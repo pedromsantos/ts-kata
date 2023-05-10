@@ -1,4 +1,4 @@
-import { GildedRose, Item } from './gildedRose.kata';
+import { GildedRose, Item } from './kata';
 
 describe('Gilded Rose inventary should', () => {
   test('exist', () => {

@@ -1,4 +1,4 @@
-import { winner } from './ticTacToe.kata';
+import { winner } from './kata';
 
 describe('TicTacToe should', () => {
   test('have a winner', () => {

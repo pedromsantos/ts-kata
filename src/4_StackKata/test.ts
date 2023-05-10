@@ -1,4 +1,4 @@
-import { stack } from './stack.kata';
+import { stack } from './kata';
 
 describe('Stack should', () => {
   test('be zero', () => {

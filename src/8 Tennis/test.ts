@@ -3,7 +3,7 @@
 import * as fs from 'fs';
 import * as path from 'path';
 
-import { TennisGame, TennisGame1 } from './tennis.kata';
+import { TennisGame, TennisGame1 } from './kata';
 
 function getAllScores(): Array<[number, number, string]> {
   const testCases = path.resolve(__dirname, 'scores.json');

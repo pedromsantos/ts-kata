@@ -30,7 +30,14 @@ Write characterization tests to describe the code as is.
 - Use mutation tests to further increase the confidence on your tests
 - Add any missing tests the mutation tool uncovers
 
-### Add approval tests
+### Add approval (aka golden master/snapshot) tests
 
 - Use approval tests to test the solution instead of characterization tests
 - Note the advantages/disadvantages of using one approach or the other
+
+Jest extension tyo support combinations
+<https://github.com/nicoespeon/jest-extended-snapshot#readme>
+
+### Refactor design
+
+- Refactor the design of t the Gilded Rose app

@@ -1,4 +1,4 @@
-import { rover } from './marsRover.kata';
+import { rover } from './kata';
 
 describe('Rover should', () => {
   test('be at Mars plateau', () => {

@@ -20,6 +20,7 @@
     "watch": "jest --watch",
     "clean": "rm -r ./lib",
     "test": "jest --watchAll=false",
+    "test:fizzBuzz": "jest - t 'Fizz Buzz should' --watchAll=false",
     "precommit": "npm-run-all -p lint types test build",
     "ci": "npm-run-all -p lint types test:ci build",
     "test:ci": "jest test --watchAll=false --coverage=true",
