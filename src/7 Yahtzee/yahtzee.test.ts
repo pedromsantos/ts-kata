@@ -1,7 +1,7 @@
 import { yahtzee } from './yahtzee.kata';
 
-describe('TicTacToe should', () => {
-  test('have a winner', () => {
+describe('Yahtzee should', () => {
+  test('have a score of zero when game starts', () => {
     expect(yahtzee).toBe(0);
   });
 });

@@ -1,7 +1,7 @@
 import { leapYear } from './leapYear.kata';
 
 describe('Leap year should', () => {
-  test('be true', () => {
+  test('be allways', () => {
     expect(leapYear).toBe(true);
   });
 });

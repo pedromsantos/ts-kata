@@ -1,7 +1,7 @@
 import { rover } from './marsRover.kata';
 
 describe('Rover should', () => {
-  test('be at', () => {
-    expect(rover).toBe('Mars');
+  test('be at Mars plateau', () => {
+    expect(rover).toBe('Mars plateau');
   });
 });

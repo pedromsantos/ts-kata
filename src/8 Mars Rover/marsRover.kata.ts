@@ -1,1 +1,1 @@
-export const rover = 'Mars';
+export const rover = 'Mars plateau';
