@@ -1,0 +1,29 @@
+# Code Smells kata
+
+## The problem
+
+We created a very smelly implementation of TicTacToe.
+There are a number of code smells in the implementation:
+
+- Primitive obsession
+- Feature envy
+- Data class
+- Message chain
+- Long method
+- Comments
+- Long parameter list
+- Shotgun surgery
+- Duplicated code
+- Large class
+- Divergent change
+- Data clump
+- Lazy class
+- Dead code
+
+## Your task
+
+1. Start by identifying the code smells, add comments where you find code smells.
+2. Refactor the code to remove the identified code smells using the specific code smell refactoring guidelines.
+   1. Remember to keep the tests passing at all times during the refactor.
+   2. For every refactor run the tests and if they pass commit.
+   3. It's ok to revert back to a previous working state at any moment.
