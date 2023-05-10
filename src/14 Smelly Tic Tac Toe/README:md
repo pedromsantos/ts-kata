@@ -20,7 +20,7 @@ There are a number of code smells in the implementation:
 - Lazy class
 - Dead code
 
-## Your task
+## Your tasks
 
 1. Start by identifying the code smells, add comments where you find code smells.
 2. Refactor the code to remove the identified code smells using the specific code smell refactoring guidelines.
