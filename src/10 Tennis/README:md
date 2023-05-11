@@ -18,11 +18,11 @@ Refactor the code to improve its readability.
 - Commit as often as possible
 
 1. Extract smaller private methods from long methods
-2. Return from methods as soon as possible.
-3. Encapsulate cryptic code in private methods.
-4. Extract private methods from deep conditionals.
-5. Encapsulate where we find missing encapsulation.
-6. Remove duplication.
+2. Return from methods as soon as possible
+3. Encapsulate cryptic code in private methods
+4. Extract private methods from deep conditionals
+5. Encapsulate code to increase it's resilience
+6. Remove duplication
 7. Remove dead code
 8. Reorder methods, properties …
 
