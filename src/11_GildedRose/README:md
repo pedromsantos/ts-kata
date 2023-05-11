@@ -15,6 +15,8 @@ Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime
 
 Write characterization tests to describe the code as is.
 
+More on characterizations <https://michaelfeathers.silvrback.com/characterization-testing>
+
 #### Guidelines
 
 - Write an assertion that you know will fail

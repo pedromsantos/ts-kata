@@ -74,3 +74,13 @@ Expected Output:
 ```text
 5 1 E
 ```
+
+## First run
+
+Implement the Marr Rover as best as you can using TDD.
+
+## Second run
+
+Refactor the code you produced in the first run using design patterns, namely Command, State and Strategy.
+
+Additional reading after completing the exercise <https://www.codurance.com/publications/2019/01/22/mars-rover-kata-refactoring-to-patterns>
