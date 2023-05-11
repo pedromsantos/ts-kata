@@ -25,3 +25,7 @@ Refactor the code to improve its readability.
 6. Remove duplication.
 7. Remove dead code
 8. Reorder methods, properties …
+
+## Useful tools
+
+- <https://github.com/nicoespeon/abracadabra>
