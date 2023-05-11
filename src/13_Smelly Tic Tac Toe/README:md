@@ -27,3 +27,30 @@ There are a number of code smells in the implementation:
    1. Remember to keep the tests passing at all times during the refactor.
    2. For every refactor run the tests and if they pass commit.
    3. It's ok to revert back to a previous working state at any moment.
+
+### Refactoring Priority Premise
+
+- Refactor readability
+  - Comments
+  - Dead code
+  - Magic strings and numbers
+  - Scope (variables, blocks)
+- Reduce complexity
+  - Duplicated code
+  - Long method
+- Reorder responsibilities
+  - Data class
+  - Message chain
+  - Feature Envy
+  - Inappropriate Intimacy
+  - Large class
+- Refine abstractions
+  - Long parameter list
+  - Data clump
+  - Primitive obsession
+  - Middle man
+- Refactor to design patterns
+  - Strategy
+  - State
+  - Command
+  - others
