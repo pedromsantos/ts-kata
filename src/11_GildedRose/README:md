@@ -42,22 +42,13 @@ Jest extension tyo support combinations
 
 ### Refactor design
 
-- Refactor the design of the Gilded Rose app using the "List uf conditional" refactoring.
-  - Pull whole body of for loop in “UpdateQuality” method into a new method “DoUpdateQuality”
-  - Identify and copy condition to liftup ex “Aged brie”
-  - Select all body of method and extract method “foo”
-  - On “DoUpdateQuality” method paste the condition you copied with “Aged brie” and call “foo ” and on the else call “foo” as well.
-  - Inline both calls to “foo”
-  - Use coverage to delete dead code on “DoUpdateQuality”.
-  - Repeat
-
-More on Pull up conditional
-
-- <https://github.com/nicoespeon/abracadabra/blob/main/REFACTORINGS.md#lift-up-conditional>
-- <https://www.eficode.com/blog/advanced-testing-refactoring-techniques-2>
-- <https://www.youtube.com/watch?v=0bhfWtZocF8>
-- <https://sourcery.ai/blog/refactoring-gilded-rose/>
-- <https://alcor.academy/p/2023-01-25-CSSCH-Code_Renovation-PhilippEichenberger>
+- Refactor the design of the Gilded Rose app using the "Lift-Up conditional" refactoring.
+  - More on Lift-Up conditional
+    - <https://www.youtube.com/watch?v=0bhfWtZocF8>
+    - <https://github.com/nicoespeon/abracadabra/blob/main/REFACTORINGS.md#lift-up-conditional>
+    - <https://www.eficode.com/blog/advanced-testing-refactoring-techniques-2>
+    - <https://sourcery.ai/blog/refactoring-gilded-rose/>
+    - <https://alcor.academy/p/2023-01-25-CSSCH-Code_Renovation-PhilippEichenberger>
 
 ## Useful tools
 
