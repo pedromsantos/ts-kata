@@ -1,4 +1,4 @@
-import { fizzBuzz } from './fizzBuz.kata';
+import { fizzBuzz } from './kata';
 
 describe('Fizz Buzz should', () => {
   test('be "something"', () => {
