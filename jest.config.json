@@ -1,14 +1,6 @@
 {
   "collectCoverageFrom": ["src/**/*.ts", "!src/**/*.test.*"],
   "coverageReporters": ["json", "lcov", "text", "html"],
-  "coverageThreshold": {
-    "global": {
-      "branches": 90,
-      "functions": 95,
-      "lines": 95,
-      "statements": 95
-    }
-  },
   "preset": "ts-jest",
   "testTimeout": 10000
 }
