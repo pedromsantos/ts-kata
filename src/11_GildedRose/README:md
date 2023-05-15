@@ -11,7 +11,7 @@ Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime
 
 ## Your tasks
 
-### Add Characterization tests
+### First run - Add Characterization tests
 
 Write characterization tests to describe the code as is.
 
@@ -27,12 +27,12 @@ More on characterizations <https://michaelfeathers.silvrback.com/characterizatio
 
 Write characterization tests to describe the code as is.
 
-### Add mutation tests
+### Second run - Configure mutation testing
 
 - Use mutation tests to further increase the confidence on your tests
 - Add any missing tests the mutation tool uncovers
 
-### Add approval (aka golden master/snapshot) tests
+### Third run - Add approval (aka golden master/snapshot) tests
 
 - Use approval tests to test the solution instead of characterization tests
 - Note the advantages/disadvantages of using one approach or the other
@@ -40,7 +40,7 @@ Write characterization tests to describe the code as is.
 Jest extension tyo support combinations
 <https://github.com/nicoespeon/jest-extended-snapshot#readme>
 
-### Refactor design
+### Fourth run - Refactor design
 
 - Refactor the design of the Gilded Rose app using the "Lift-Up conditional" refactoring.
   - More on Lift-Up conditional

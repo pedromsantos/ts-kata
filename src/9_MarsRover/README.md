@@ -34,9 +34,13 @@ Assume that NASA will never send invalid messages to the rover, nor will it send
 
 The output for the rover should be its final co-ordinates and heading.
 
+```text
+1 3 N
+```
+
 ## Examples
 
-Input:
+### Input
 
 ```text
 5 5
@@ -44,13 +48,13 @@ Input:
 LMLMLMLMM
 ```
 
-Expected Output:
+### Expected Output
 
 ```text
 1 3 N
 ```
 
-Input:
+### Input
 
 ```text
 5 5
@@ -58,7 +62,7 @@ Input:
 MMRMMRMRRM
 ```
 
-Expected Output:
+### Expected Output
 
 ```text
 5 1 E
