@@ -35,7 +35,7 @@ yarn test:ci
 #### Execute mutation tests
 
 ```sh
-yarn test
+yarn mutants
 ```
 
 #### Run the tests in watch mode
