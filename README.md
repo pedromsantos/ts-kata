@@ -44,7 +44,7 @@ yarn test
 yarn watch
 ```
 
-#### There are scrips to run each kata test suite on its own
+#### There are scripts to run each kata test suite on its own
 
 ```sh
 yarn fizz
