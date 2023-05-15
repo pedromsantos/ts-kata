@@ -4,3 +4,4 @@ coverage
 src/.DS_Store
 .DS_Store
 yarn-error.log
+reports

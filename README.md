@@ -10,7 +10,7 @@
 
 ### Sonar
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata)[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=bugs)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) 
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata)[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=bugs)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata)
 
 ### Code Scene
 
@@ -26,13 +26,13 @@ Just run the test suite
 yarn test
 ```
 
-#### Run the test suit with code coverage
+#### Run the test suit with code coverage
 
 ```sh
 yarn test:ci
 ```
 
-#### Execute mutation tests
+#### Execute mutation tests
 
 ```sh
 yarn mutants
