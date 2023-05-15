@@ -37,11 +37,16 @@ Refactor the code to remove the identified code smells using the specific code s
 
 ### Refactoring Priority Premise
 
+Try to follow these guidelines that prioritize what code smells to tackle first.
+
 - Refactor readability
   - Comments
   - Dead code
   - Magic strings and numbers
   - Scope (variables, blocks)
+  - Clutter
+  - Implicit knowledge
+  - Naming
 - Reduce complexity
   - Duplicated code
   - Long method
@@ -57,7 +62,14 @@ Refactor the code to remove the identified code smells using the specific code s
   - Primitive obsession
   - Middle man
 - Refactor to design patterns
+  - Switch statments
   - Strategy
   - State
   - Command
   - others
+- Refactor to SOLID
+  - Refused bequest
+  - Divergent change
+  - Shotgun surgery
+  - Speculative generality
+  - Paralell inheritance
