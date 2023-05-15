@@ -4,7 +4,7 @@
 
 ### GitHub
 
-[![Build Status](https://github.com/pedromsantos/ts-kata/actions/workflows/build.yml/badge.svg)](https://github.com/pedromsantos/ts-kata/actions/workflows/build.yml) [![CodeQL](https://github.com/pedromsantos/ts-kata/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/pedromsantos/ts-kata/actions/workflows/codeql-analysis.yml)
+[![Build Status](https://github.com/pedromsantos/ts-kata/actions/workflows/build.yml/badge.svg)](https://github.com/pedromsantos/ts-kata/actions/workflows/main.yml) [![CodeQL](https://github.com/pedromsantos/ts-kata/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/pedromsantos/ts-kata/actions/workflows/codeql-analysis.yml)
 ![GitHub commit activity](https://img.shields.io/github/commit-activity/w/pedromsantos/ts-kata) ![GitHub last commit](https://img.shields.io/github/last-commit/pedromsantos/ts-kata) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/pedromsantos/glenn)
 ![GitHub top language](https://img.shields.io/github/languages/top/pedromsantos/ts-kata) ![GitHub](https://img.shields.io/github/license/pedromsantos/ts-kata)
 
