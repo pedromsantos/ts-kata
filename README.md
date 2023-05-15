@@ -5,7 +5,7 @@
 ### GitHub
 
 [![Build Status](https://github.com/pedromsantos/ts-kata/actions/workflows/main.yml/badge.svg)](https://github.com/pedromsantos/ts-kata/actions/workflows/main.yml)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/pedromsantos/ts-kata) ![GitHub last commit](https://img.shields.io/github/last-commit/pedromsantos/ts-kata) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/pedromsantos/glenn)
+![GitHub commit activity](https://img.shields.io/github/commit-activity/w/pedromsantos/ts-kata) ![GitHub last commit](https://img.shields.io/github/last-commit/pedromsantos/ts-kata) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/pedromsantos/ts-kata)
 ![GitHub top language](https://img.shields.io/github/languages/top/pedromsantos/ts-kata) ![GitHub](https://img.shields.io/github/license/pedromsantos/ts-kata)
 
 ### Sonar
