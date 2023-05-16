@@ -14,8 +14,30 @@ Refactor the code to improve its readability.
 
 ### Guidelines
 
+#### Before you start
+
+- Make sure the tests have a good coverage
+  - Use a code coverage tool to make sure code coverage by tests is very high
+  - For this exercise code coverage is high (100%)
+    - Run `yarn test:ci` and check for yourself
+
+```txt
+--------------------------|---------|----------|---------|---------|-------------------
+File                      | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s
+--------------------------|---------|----------|---------|---------|-------------------
+All files                 |   86.28 |    67.74 |   96.61 |   86.03 |
+ 10_Tennis                |     100 |      100 |     100 |     100 |
+  kata.ts                 |     100 |      100 |     100 |     100 |
+...
+```
+
+#### While refactoring
+
 - Stay in the green while refactoring
-- Commit as often as possible
+  - Run the tests after each refactor
+    - Check all tests still pass
+    - Check code coverage has not dropped
+- Commit after each refactor
 
 #### Improve readability
 
@@ -28,8 +50,7 @@ Refactor the code to improve its readability.
    - Deleting useless comments
    - Deleting useful comments by extracting a method named after them
    - Deleting dead code
-     - Don’t make the reader waste time trying to figure out code that is not in
-       use anymore
+     - Don’t make the reader waste time figuring out code that is not used
 3. Tackle implicit knowledge by
    - Extracting constants from magic numbers and strings
    - Extracting complex conditional expressions
