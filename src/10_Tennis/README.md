@@ -17,14 +17,34 @@ Refactor the code to improve its readability.
 - Stay in the green while refactoring
 - Commit as often as possible
 
-1. Extract smaller private methods from long methods
-2. Return from methods as soon as possible
-3. Encapsulate cryptic code in private methods
-4. Extract private methods from deep conditionals
-5. Encapsulate code to increase it's resilience
-6. Remove duplication
-7. Remove dead code
-8. Reorder methods, properties …
+#### Improve readability
+
+1. Tackle clutter by
+   - Formatting the code, a simple and very effective technique.
+     - Format consistently and don’t force the reader to waste timed due to inconsistent formatting.
+   - Renaming bad names on variables, arguments, instance variables, methods, and classes.
+   - Renaming abbreviations to make them explicit.
+2. Tackle Comments and Dead Code by
+   - Deleting useless comments
+   - Deleting useful comments by extracting a method named after them
+   - Deleting dead code. Don’t make the reader waste time trying to figure out code that is not in
+     use anymore
+3. Tackle implicit knowledge by
+   - Extracting constants from magic numbers and strings
+   - Extracting complex conditional expressions
+4. Tackle scattering by
+   - Refinining the scope for variables
+   - Ensuring variables are declared close to where they are used
+   - Grouping public methods at the top of the class to show first what matters the most
+
+#### Reduce complexity
+
+1. Tackle complexity by
+   - Extracting smaller private methods from long methods, and encapsulate cryptic code in private methods.
+   - Extracting private methods from nested code blocks.
+   - Returning from methods as soon as possible.
+2. Tackle duplication by
+   - Removing duplicated knowledge.
 
 ## Useful tools
 
