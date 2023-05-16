@@ -20,15 +20,16 @@ Refactor the code to improve its readability.
 #### Improve readability
 
 1. Tackle clutter by
-   - Formatting the code, a simple and very effective technique.
-     - Format consistently and don’t force the reader to waste timed due to inconsistent formatting.
-   - Renaming bad names on variables, arguments, instance variables, methods, and classes.
-   - Renaming abbreviations to make them explicit.
+   - Formatting the code, a simple and very effective technique
+     - Format consistently and don’t force the reader to waste timed due to inconsistent formatting
+   - Renaming bad names on variables, arguments, instance variables, methods, and classes
+   - Renaming abbreviations to make them explicit
 2. Tackle Comments and Dead Code by
    - Deleting useless comments
    - Deleting useful comments by extracting a method named after them
-   - Deleting dead code. Don’t make the reader waste time trying to figure out code that is not in
-     use anymore
+   - Deleting dead code
+     - Don’t make the reader waste time trying to figure out code that is not in
+       use anymore
 3. Tackle implicit knowledge by
    - Extracting constants from magic numbers and strings
    - Extracting complex conditional expressions
@@ -40,11 +41,12 @@ Refactor the code to improve its readability.
 #### Reduce complexity
 
 1. Tackle complexity by
-   - Extracting smaller private methods from long methods, and encapsulate cryptic code in private methods.
-   - Extracting private methods from nested code blocks.
-   - Returning from methods as soon as possible.
+   - Extracting smaller private methods from long methods
+     - Also encapsulate any cryptic code (that cannot be made more explicit) in private methods
+   - Extracting private methods from nested code blocks
+   - Returning from methods as soon as possible
 2. Tackle duplication by
-   - Removing duplicated knowledge.
+   - Removing duplicated knowledge
 
 ## Useful tools
 
