@@ -40,7 +40,7 @@ The output for the rover should be its final co-ordinates and heading.
 
 ## Examples
 
-### Input
+### Input 1
 
 ```text
 5 5
@@ -48,13 +48,13 @@ The output for the rover should be its final co-ordinates and heading.
 LMLMLMLMM
 ```
 
-### Expected Output
+### Expected Output 1
 
 ```text
 1 3 N
 ```
 
-### Input
+### Input 2
 
 ```text
 5 5
@@ -62,7 +62,7 @@ LMLMLMLMM
 MMRMMRMRRM
 ```
 
-### Expected Output
+### Expected Output 2
 
 ```text
 5 1 E

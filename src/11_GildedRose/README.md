@@ -14,6 +14,9 @@ Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime
 ### First run - Add Characterization tests
 
 Write characterization tests to describe the code as is.
+Characterization tests are about describing the code **as is**, including any strange behaviour or possible bugs.
+Characterization tests do not verify the correct behavior of the code, which can be impossible to determine.
+Instead they verify the behavior that was observed when they were written.
 
 More on characterizations <https://michaelfeathers.silvrback.com/characterization-testing>
 
