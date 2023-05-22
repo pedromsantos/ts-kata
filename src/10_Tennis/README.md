@@ -38,6 +38,7 @@ All files                 |   86.28 |    67.74 |   96.61 |   86.03 |
     - Check all tests still pass
     - Check code coverage has not dropped
 - Commit after each refactor
+- In case of persistent test fails, use `git reset` to go back to green
 
 #### Improve readability
 
