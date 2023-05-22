@@ -16,6 +16,31 @@
 
 [![CodeScene Code Health](https://codescene.io/projects/39302/status-badges/code-health)](https://codescene.io/projects/39302) [![CodeScene System Mastery](https://codescene.io/projects/39302/status-badges/system-mastery)](https://codescene.io/projects/39302)
 
+## About
+
+This project contains a number of katas with instructions ordered in a proven path describe in my book [Agile Technical Practices Distilled](https://leanpub.com/agiletechnicalpracticesdistilled)
+
+## Tools
+
+There are a few tools preconfigured in the project
+
+- Syntax
+  - ESLint with Typescript extensions
+  - Prettier
+  - Type coverage
+- Git
+  - Commit Lint
+    - Semantic git messages (convention)
+  - Husky
+    - Git hooks
+- Testing
+  - Jest
+    - Test runner
+  - Fast check
+    - Property based testing
+  - Stryker mutator
+    - Mutation Tests runner
+
 ## Instructions
 
 ### Execute tests
