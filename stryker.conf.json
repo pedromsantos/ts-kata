@@ -19,7 +19,6 @@
     "maxTestsToLog": 3
   },
   "mutator": {
-    "plugins": null,
-    "excludedMutations": ["StringLiteral"]
+    "plugins": null
   }
 }
