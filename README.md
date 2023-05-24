@@ -18,7 +18,7 @@
 
 ## About
 
-This project contains a number of katas with instructions ordered in a proven path describe in my book [Agile Technical Practices Distilled](https://leanpub.com/agiletechnicalpracticesdistilled)
+This project contains a number of katas with instructions ordered in a proven path described in my book [Agile Technical Practices Distilled](https://leanpub.com/agiletechnicalpracticesdistilled)
 
 ## Instructions
 
@@ -160,7 +160,7 @@ ChatGPT generated documentation
 - `removeComments`: Removes all comments from the emitted code.
 - `skipLibCheck`: Skips type checking of declaration files (\*.d.ts) from the `lib` option.
 
-**exclude**: Specifies file and directory patterns to be excluded from the compilation process (in this case, `node_modules` and files matching the pattern `src/**/*.test.*`).
+**exclude**: Specifies file and directory patterns to be excluded from the compilation process (in this case, `node_modules`).
 
 **include**: Specifies file and directory patterns to be included in the compilation process (in this case, files matching the pattern `src/**/*.ts`).
 
