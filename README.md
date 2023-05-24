@@ -138,8 +138,6 @@ ChatGPT generated documentation
 
 - `alwaysStrict`: Enables strict mode semantics in all TypeScript files.
 - `baseUrl`: Specifies the base directory for resolving module names.
-- `declaration`: Generates corresponding `.d.ts` declaration files for the TypeScript files.
-- `declarationMap`: Generates source map files for the declaration files.
 - `downlevelIteration`: Enables emitting down-level iteration for `for...of` loops.
 - `emitDecoratorMetadata`: Enables emitting decorator metadata for design-time type checking of decorators.
 - `esModuleInterop`: Enables interoperability between CommonJS and ES modules by using default imports and exports.
@@ -161,7 +159,6 @@ ChatGPT generated documentation
 - `outDir`: Specifies the output directory for emitted files (in this case, "./lib").
 - `removeComments`: Removes all comments from the emitted code.
 - `skipLibCheck`: Skips type checking of declaration files (\*.d.ts) from the `lib` option.
-- `sourceMap`: Generates corresponding source map files for the emitted JavaScript files.
 
 **exclude**: Specifies file and directory patterns to be excluded from the compilation process (in this case, `node_modules` and files matching the pattern `src/**/*.test.*`).
 

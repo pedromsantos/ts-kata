@@ -2,8 +2,6 @@
   "compilerOptions": {
     "alwaysStrict": true,
     "baseUrl": "./",
-    "declaration": true,
-    "declarationMap": true,
     "downlevelIteration": true,
     "emitDecoratorMetadata": false,
     "esModuleInterop": true,
@@ -24,8 +22,7 @@
     "noUnusedParameters": true,
     "outDir": "./lib",
     "removeComments": true,
-    "skipLibCheck": true,
-    "sourceMap": true
+    "skipLibCheck": true
   },
   "exclude": ["node_modules/**/*", "src/**/*.test.*"],
   "include": ["src/**/*.ts"]
