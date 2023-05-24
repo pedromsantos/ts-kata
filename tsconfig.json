@@ -1,34 +1,88 @@
 {
+  // Compiler options
   "compilerOptions": {
+    // Specify whether unreachable code is allowed
     "allowUnreachableCode": false,
+
+    // Specify whether unused labels are allowed
     "allowUnusedLabels": false,
+
+    // Enable strict mode to enforce stricter type checking
     "alwaysStrict": true,
+
+    // Set the base directory for resolving non-relative module names
     "baseUrl": "./",
-    "downlevelIteration": true,
+
+    // Disable emitting decorator metadata
     "emitDecoratorMetadata": false,
-    "esModuleInterop": true,
+
+    // Enable exact optional property types
     "exactOptionalPropertyTypes": true,
+
+    // Force consistent casing in file names
     "forceConsistentCasingInFileNames": true,
+
+    // Ensure all modules are isolated and don't share state
     "isolatedModules": true,
+
+    // Specify the library files to be included
     "lib": ["es2020"],
+
+    // Set the module system to CommonJS
     "module": "commonjs",
+
+    // Specify the module resolution strategy as Node.js style
     "moduleResolution": "Node",
+
+    // Disable emitting output files
     "noEmit": true,
+
+    // Enable stricter switch statement checks
     "noFallthroughCasesInSwitch": true,
+
+    // Disallow implicit 'any' type declarations
     "noImplicitAny": true,
+
+    // Disallow implicit overrides of methods
     "noImplicitOverride": true,
+
+    // Enable stricter checking for functions with no return statements
     "noImplicitReturns": true,
+
+    // Disallow the use of 'this' in expressions without an explicit type
     "noImplicitThis": true,
+
+    // Disallow property access from index signatures
     "noPropertyAccessFromIndexSignature": true,
+
+    // Disallow unchecked indexed access to objects
     "noUncheckedIndexedAccess": true,
+
+    // Disallow unused local variables
     "noUnusedLocals": true,
+
+    // Disallow unused parameters
     "noUnusedParameters": true,
+
+    // Specify the output directory for emitted files
     "outDir": "./lib",
+
+    // Pretty-print the output
     "pretty": true,
+
+    // Remove all comments from the emitted output
     "removeComments": true,
+
+    // Skip type checking of declaration files
     "skipLibCheck": true,
+
+    // Enable strict mode
     "strict": true
   },
+
+  // Specify the files to be included in compilation
   "include": ["src/**/*.ts"],
+
+  // Specify the files to be excluded from compilation
   "exclude": ["node_modules/**"]
 }
