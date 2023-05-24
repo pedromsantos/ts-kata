@@ -168,8 +168,6 @@ ChatGPT generated documentation
 
 ESLint is a popular JavaScript and TypeScript linter. Here's an explanation of each key in the configuration:
 
-ESLint is a popular JavaScript and TypeScript linter. Here's an explanation of each key in the configuration:
-
 - `"parser": "@typescript-eslint/parser`: Specifies the parser to be used for parsing TypeScript code. In this case, it uses the @typescript-eslint/parser parser.
 - `"env": { "es2021": true, "jest": true, "node": true }`: Specifies the environments in which the code will run. It indicates that the code is targeting ES2021, using Jest for testing, and running in a Node.js environment.
 - `"extends": [...]`: Extends various ESLint configurations and plugins to enhance the linting rules and enforce coding standards. Here are the extensions used:
@@ -208,6 +206,8 @@ Stryker is a mutation testing framework for JavaScript and TypeScript. Here's an
 - `"jest": {...}`: Configures specific options for Jest, such as the project type, the path to the Jest configuration file, and enabling the feature to find related tests.
 - `"clearTextReporter": {...}`: Configures options for the clear text reporter, including allowing colors, emojis, logging tests, and specifying the maximum number of tests to log.
 - `"mutator": {...}`: Configures options for the mutator, such as plugins to use (set to null in this case) and excluded mutations (specifically, the "StringLiteral" mutation is excluded).
+
+Overall, this configuration sets up Stryker Mutator with the specified options to perform mutation testing on the defined files using the Jest test runner and generate various reports and output formats.
 
 ### Commitlint
 
