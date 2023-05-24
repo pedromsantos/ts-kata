@@ -11,7 +11,6 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "lib": ["es2020"],
-    "listFiles": true,
     "module": "commonjs",
     "moduleResolution": "Node",
     "noEmit": true,
