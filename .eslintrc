@@ -1,88 +1,42 @@
 {
-  // Specify the parser to be used for TypeScript code
-  "parser": "@typescript-eslint/parser",
+  "parser": "@typescript-eslint/parser", // Specify the parser to be used for TypeScript code
 
-  // Configure the environments where the code will run
   "env": {
-    // Enable ES2021 syntax
-    "es2021": true,
-
-    // Enable Jest global variables
-    "jest": true,
-
-    // Enable Node.js global variables
-    "node": true
+    "es2021": true, // Enable ES2021 syntax
+    "jest": true, // Enable Jest global variables
+    "node": true // Enable Node.js global variables
   },
 
-  // Extend the default ESLint rules with additional TypeScript-specific rules
   "extends": [
-    // Use the recommended rules from @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/eslint-recommended",
-
-    // Use additional recommended rules from @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/recommended",
-
-    // Use recommended rules that require type checking from @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/recommended-requiring-type-checking",
-
-    // Use the recommended prettier configuration
-    "plugin:prettier/recommended",
-
-    // Use recommended rules from the SonarJS plugin
-    "plugin:sonarjs/recommended",
-
-    // Use recommended rules for Jest tests
-    "plugin:jest/recommended",
-
-    // Use the recommended style guide for Jest tests
-    "plugin:jest/style"
+    "plugin:@typescript-eslint/eslint-recommended", // Use the recommended rules from @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/recommended", // Use additional recommended rules from @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/recommended-requiring-type-checking", // Use recommended rules that require type checking from @typescript-eslint/eslint-plugin
+    "plugin:prettier/recommended", // Use the recommended prettier configuration
+    "plugin:sonarjs/recommended", // Use recommended rules from the SonarJS plugin
+    "plugin:jest/recommended", // Use recommended rules for Jest tests
+    "plugin:jest/style" // Use the recommended style guide for Jest tests
   ],
 
-  // Specify patterns of files to be ignored during linting
-  "ignorePatterns": ["node_modules/**"],
+  "ignorePatterns": ["node_modules/**"], // Specify patterns of files to be ignored during linting
 
-  // Configure the parser options
   "parserOptions": {
-    // Set the ECMAScript version to 2021
-    "ecmaVersion": 2021,
-
-    // Specify the TypeScript configuration file for linting
-    "project": "./tsconfig.eslint.json",
-
-    // Set the source type to module (ECMAScript modules)
-    "sourceType": "module"
+    "ecmaVersion": 2021, // Set the ECMAScript version to 2021
+    "project": "./tsconfig.json", // Specify the TypeScript configuration file for linting
+    "sourceType": "module" // Set the source type to module (ECMAScript modules)
   },
 
-  // Specify the plugins to be used
   "plugins": [
-    // Use the ESLint plugin for TypeScript
-    "@typescript-eslint/eslint-plugin",
-
-    // Use the plugin for sorting imports
-    "simple-import-sort",
-
-    // Use the plugin for import-related rules
-    "import"
+    "@typescript-eslint/eslint-plugin", // Use the ESLint plugin for TypeScript
+    "simple-import-sort", // Use the plugin for sorting imports
+    "import" // Use the plugin for import-related rules
   ],
 
-  // Configure the ESLint rules
   "rules": {
-    // Warn about using console.log and similar functions
-    "no-console": 1,
-
-    // Enforce imports to be placed before other statements
-    "import/first": "error",
-
-    // Enforce newline after import statements
-    "import/newline-after-import": "error",
-
-    // Disallow duplicate imports
-    "import/no-duplicates": "error",
-
-    // Enforce sorting of exports in import statements
-    "simple-import-sort/exports": "error",
-
-    // Enforce sorting of imports in import statements
-    "simple-import-sort/imports": "error"
+    "no-console": 1, // Warn about using console.log and similar functions
+    "import/first": "error", // Enforce imports to be placed before other statements
+    "import/newline-after-import": "error", // Enforce newline after import statements
+    "import/no-duplicates": "error", // Disallow duplicate imports
+    "simple-import-sort/exports": "error", // Enforce sorting of exports in import statements
+    "simple-import-sort/imports": "error" // Enforce sorting of imports in import statements
   }
 }
