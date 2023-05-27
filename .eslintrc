@@ -2,13 +2,14 @@
   "parser": "@typescript-eslint/parser", // Specify the parser to be used for TypeScript code
 
   "env": {
+    // environment provides predefined global variables
     "es2021": true, // Enable ES2021 syntax
     "jest": true, // Enable Jest global variables
     "node": true // Enable Node.js global variables
   },
 
   "extends": [
-    "plugin:@typescript-eslint/eslint-recommended", // Use the recommended rules from @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/strict", // Use additional strict rules from @typescript-eslint/eslint-plugin
     "plugin:@typescript-eslint/recommended", // Use additional recommended rules from @typescript-eslint/eslint-plugin
     "plugin:@typescript-eslint/recommended-requiring-type-checking", // Use recommended rules that require type checking from @typescript-eslint/eslint-plugin
     "plugin:prettier/recommended", // Use the recommended prettier configuration
