@@ -1,4 +1,5 @@
-/* eslint-disable jest/no-disabled-tests */
+/* eslint-disable */
+
 import 'jest-extended-snapshot';
 
 import { GildedRose, Item } from './kata';
