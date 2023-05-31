@@ -25,7 +25,7 @@ export class Takehomecalculator {
   }
 
   netAmount(first: Money, ...rest: Money[]): Money {
-    const monies: Array<Money> = Array.from(rest);
+    const monies: Money[] = Array.from(rest);
     let total: Money = first;
 
     for (const next of monies) {
