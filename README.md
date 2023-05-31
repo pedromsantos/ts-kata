@@ -113,6 +113,7 @@ There are a few tools preconfigured in the project
     - `@stryker-mutator/core`: Core library for Stryker Mutator, a mutation testing framework for JavaScript and TypeScript.
     - `@stryker-mutator/jest-runner`: Stryker Mutator plugin for running mutation tests with Jest.
     - `@stryker-mutator/typescript-checker`: Stryker Mutator plugin for type checking TypeScript code during mutation testing.
+    - `jest-extended-snapshot`: Additional Jest matchers for snapshot testing
 - CI/CD
   - Commit Lint
     - `@commitlint/cli`: Command-line interface for commitlint, a tool to enforce commit message conventions.

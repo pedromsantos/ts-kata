@@ -5,3 +5,4 @@ src/.DS_Store
 .DS_Store
 yarn-error.log
 reports
+**/__snapshots__

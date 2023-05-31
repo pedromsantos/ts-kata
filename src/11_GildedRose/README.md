@@ -43,6 +43,23 @@ Write characterization tests to describe the code as is.
 Jest extension tyo support combinations
 <https://github.com/nicoespeon/jest-extended-snapshot#readme>
 
+#### Usefull code snipets
+
+```typescript
+function doUpdateQuality(name: string, sellIn: number, quality: number): Item {
+  const gildedRose = new GildedRose([new Item(name, sellIn, quality)]);
+  return gildedRose.updateQuality()[0];
+}
+
+test('should update quality', () => {
+  expect(doUpdateQuality).toVerifyAllCombinations(
+    ['foo', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert', 'Sulfuras, Hand of Ragnaros'],
+    [-1, 0, 1, 11],
+    [0, 1, 2, 49, 50]
+  );
+});
+```
+
 ### Fourth run - Refactor design
 
 - Refactor the design of the Gilded Rose app using the "Lift-Up conditional" refactoring.
