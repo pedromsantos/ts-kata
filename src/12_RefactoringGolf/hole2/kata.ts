@@ -18,7 +18,7 @@ export class Takehomecalculator {
   }
 
   netAmount(first: Pair<number, string>, ...rest: Pair<number, string>[]): Pair<number, string> {
-    const pairs: Array<Pair<number, string>> = Array.from(rest);
+    const pairs: Pair<number, string>[] = Array.from(rest);
     let total: Pair<number, string> = first;
 
     for (const next of pairs) {
@@ -32,7 +32,7 @@ export class Takehomecalculator {
     }
 
     const amount: number = total.first * (this.percent / 100.0);
-    const tax: Pair<number, string> = new Pair(Math.trunc(amount), first.second);
+    const tax = new Pair<number, string>(Math.trunc(amount), first.second);
 
     if (total.second !== tax.second) {
       throw new Incalculable();
