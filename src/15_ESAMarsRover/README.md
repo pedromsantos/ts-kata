@@ -100,3 +100,20 @@ IT\n
 SASASASAA\n
 1994-11-05T08:32:20.10Z
 ```
+
+## Implementation
+
+### Interfaces
+
+```typescript
+interface Rover {
+  execute(): void;
+}
+
+interface Radio {
+  send(message: string): void;
+  receive(): void;
+}
+```
+
+You don’t have to implement the radio, it’s being implemented by another team.
