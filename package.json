@@ -53,7 +53,7 @@
     "@stryker-mutator/core": "^6.3.1",
     "@stryker-mutator/jest-runner": "^6.3.1",
     "@stryker-mutator/typescript-checker": "^6.3.1",
-    "@types/jest": "^29.5.1",
+    "@types/jest": "^29.5.2",
     "@typescript-eslint/eslint-plugin": "^5.59.8",
     "@typescript-eslint/parser": "^5.59.8",
     "eslint": "^8.41.0",
