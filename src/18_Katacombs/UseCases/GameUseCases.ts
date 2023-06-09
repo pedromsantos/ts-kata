@@ -2,7 +2,7 @@ import { Id, PlayerData } from './Requests';
 import { ListOfPlayers } from './Responses';
 
 export interface ListPlayersUseCase {
-  execute(): ListOfPlayers;
+  query(): ListOfPlayers;
 }
 
 export interface CreatePlayerUseCase {

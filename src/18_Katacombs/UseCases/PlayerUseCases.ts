@@ -2,19 +2,19 @@ import { Action, Direction, Id } from './Requests';
 import { Bag, Help, Item, Location } from './Responses';
 
 export interface GetHelpAndHintsuseCase {
-  execute(playerId: Id): Help;
+  query(playerId: Id): Help;
 }
 
 export interface LookArroundUseCase {
-  execute(playerId: Id): Location;
+  query(playerId: Id): Location;
 }
 
 export interface GetDirectionDescriptionSeCase {
-  execute(playerId: Id, direction: Direction): Location;
+  query(playerId: Id, direction: Direction): Location;
 }
 
 export interface GetBagUseCase {
-  execute(playerId: Id): Bag;
+  query(playerId: Id): Bag;
 }
 
 export interface UseItemUseCase {
@@ -26,5 +26,5 @@ export interface MoveUseCase {
 }
 
 export interface GetItemDescriptionUseCase {
-  execute(itemId: Id): Item;
+  query(itemId: Id): Item;
 }
