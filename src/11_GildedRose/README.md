@@ -40,7 +40,8 @@ Write characterization tests to describe the code as is.
 - Use approval tests to test the solution instead of characterization tests
 - Note the advantages/disadvantages of using one approach or the other
 
-Jest extension tyo support combinations
+#### Jest extension tyo support combinations
+
 <https://github.com/nicoespeon/jest-extended-snapshot#readme>
 
 #### Usefull code snipets
@@ -60,15 +61,24 @@ test('should update quality', () => {
 });
 ```
 
-### Fourth run - Refactor design
+### Fourth run - Refactor code
 
-- Refactor the design of the Gilded Rose app using the "Lift-Up conditional" refactoring.
+- Refactor the code of the Gilded Rose app using the "Lift-Up conditional" refactoring.
   - More on Lift-Up conditional
     - <https://www.youtube.com/watch?v=0bhfWtZocF8>
     - <https://github.com/nicoespeon/abracadabra/blob/main/REFACTORINGS.md#lift-up-conditional>
     - <https://www.eficode.com/blog/advanced-testing-refactoring-techniques-2>
     - <https://sourcery.ai/blog/refactoring-gilded-rose/>
     - <https://alcor.academy/p/2023-01-25-CSSCH-Code_Renovation-PhilippEichenberger>
+
+### Fifth run - Refactor design
+
+- Refactor the design of the Gilded Rose code using the "Replace Conditional with Polymorphism" refactor
+  - Step 1 Replace Type Code with Subclasses
+  - Step 2 Use the factory pattern and the strategy pattern.
+  - Links:
+    - <https://refactoring.guru/replace-conditional-with-polymorphism>
+    - <https://www.youtube.com/watch?v=NADVhSjeyJA>
 
 #### Useful tools
 
