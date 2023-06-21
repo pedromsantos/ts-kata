@@ -80,6 +80,6 @@ test('should update quality', () => {
     - <https://refactoring.guru/replace-conditional-with-polymorphism>
     - <https://www.youtube.com/watch?v=NADVhSjeyJA>
 
-#### Useful tools
+### Useful tools
 
 - <https://github.com/nicoespeon/abracadabra>
