@@ -6137,10 +6137,10 @@ typed-styles@^0.0.7:
   resolved "https://registry.yarnpkg.com/typed-styles/-/typed-styles-0.0.7.tgz#93392a008794c4595119ff62dde6809dbc40a3d9"
   integrity sha512-pzP0PWoZUhsECYjABgCGQlRGL1n7tOHsgwYv3oIiEpJwGhFTuty/YNeduxQYzXXa3Ge5BdT6sHYIQYpl4uJ+5Q==
 
-typescript-coverage-report@^0.7.0:
-  version "0.7.0"
-  resolved "https://registry.yarnpkg.com/typescript-coverage-report/-/typescript-coverage-report-0.7.0.tgz#ed3898d9f196478945520f7110fab1f6bc109e03"
-  integrity sha512-ODeA510qAN2C76NjDCoZj2wcGGkkuaf2FQJElyJS9ABmGbpkgrhtoWOfiKkoeaPHkvysqOfhFEVUWNrOUlww7w==
+typescript-coverage-report@^0.8.0:
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/typescript-coverage-report/-/typescript-coverage-report-0.8.0.tgz#d189f7074c1c91ea5c4014c2c7b507037975ff91"
+  integrity sha512-qYUrPt2CISyXTzwwyD7g6lciovvb2qQGMZKC7zHf2TiLg8QJ6cybYKX1/TETB/BzxaSU7+2FVjiIq3q1TG8A0w==
   dependencies:
     chalk "^4.0.0"
     cli-table3 "^0.6.1"
