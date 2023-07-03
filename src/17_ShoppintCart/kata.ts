@@ -3,5 +3,9 @@ export interface AddProductToCartUseCase {
 }
 
 export interface CreateEmptyCartUseCase {
-  execute(id: string, customerName: string): void;
+  execute(cartId: string, customerName: string): void;
+}
+
+export interface CalculateCartPriceUseCase {
+  query(cartId: string): number;
 }
