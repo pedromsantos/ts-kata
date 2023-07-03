@@ -112,7 +112,7 @@ interface Rover {
 
 interface Radio {
   send(message: string): void;
-  receive(): void;
+  receive(): string;
 }
 ```
 
