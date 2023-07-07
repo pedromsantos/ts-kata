@@ -3019,10 +3019,10 @@ fast-diff@^1.1.2:
   resolved "https://registry.yarnpkg.com/fast-diff/-/fast-diff-1.2.0.tgz#73ee11982d86caaf7959828d519cfe927fac5f03"
   integrity sha512-xJuoT5+L99XlZ8twedaRf6Ax2TgQVxvgZOYoPKqZufmJib0tL2tegPBOZb1pVNgIhlqDlA0eO0c3wBvQcmzx4w==
 
-fast-glob@3, fast-glob@^3.2.12, fast-glob@^3.2.9:
-  version "3.2.12"
-  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.2.12.tgz#7f39ec99c2e6ab030337142da9e0c18f37afae80"
-  integrity sha512-DVj4CQIYYow0BlaelwK1pHl5n5cRSJfM60UA0zK891sVInoPri2Ekj7+e1CT3/3qxXenpI+nBBmQAcJPJgaj4w==
+fast-glob@3, fast-glob@^3.2.9, fast-glob@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/fast-glob/-/fast-glob-3.3.0.tgz#7c40cb491e1e2ed5664749e87bfb516dbe8727c0"
+  integrity sha512-ChDuvbOypPuNjO8yIDf36x7BlZX1smcUMTTcyoIjycexOxd6DFsKsg21qVBzEmr3G7fUKIRy2/psii+CIUt7FA==
   dependencies:
     "@nodelib/fs.stat" "^2.0.2"
     "@nodelib/fs.walk" "^1.2.3"
@@ -5009,15 +5009,15 @@ onetime@^6.0.0:
   dependencies:
     mimic-fn "^4.0.0"
 
-openapi-typescript@^6.2.8:
-  version "6.2.8"
-  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-6.2.8.tgz#71f43e932b1405a22a6fd5b94bcb37a90698a834"
-  integrity sha512-yA+y5MHiu6cjmtsGfNLavzVuvGCKzjL3H+exgHDPK6bnp6ZVFibtAiafenNSRDWL0x+7Sw/VPv5SbaqiPLW46w==
+openapi-typescript@^6.3.2:
+  version "6.3.2"
+  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-6.3.2.tgz#457d9443faa99060a49c00a580c4182bedcca708"
+  integrity sha512-cvMRbO8vBQo+mdkY3vWtH3iCWw8D5MBvkZ3Mnpgk8AEqabhDMV6gu0TE2BrvG4RmEeajFRo1iornhOPxLm7PMg==
   dependencies:
     ansi-colors "^4.1.3"
-    fast-glob "^3.2.12"
+    fast-glob "^3.3.0"
     js-yaml "^4.1.0"
-    supports-color "^9.3.1"
+    supports-color "^9.4.0"
     undici "^5.22.1"
     yargs-parser "^21.1.1"
 
@@ -5971,10 +5971,10 @@ supports-color@^8.0.0:
   dependencies:
     has-flag "^4.0.0"
 
-supports-color@^9.3.1:
-  version "9.3.1"
-  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.3.1.tgz#34e4ad3c71c9a39dae3254ecc46c9b74e89e15a6"
-  integrity sha512-knBY82pjmnIzK3NifMo3RxEIRD9E0kIzV4BKcyTZ9+9kWgLMxd4PrsTSMoFQUabgRBbF8KOLRDCyKgNV+iK44Q==
+supports-color@^9.4.0:
+  version "9.4.0"
+  resolved "https://registry.yarnpkg.com/supports-color/-/supports-color-9.4.0.tgz#17bfcf686288f531db3dea3215510621ccb55954"
+  integrity sha512-VL+lNrEoIXww1coLPOmiEmK/0sGigko5COxI09KzHc2VJXJsQ37UaQ+8quuxjDeA7+KnLGTWRyOXSLLR2Wb4jw==
 
 supports-preserve-symlinks-flag@^1.0.0:
   version "1.0.0"
