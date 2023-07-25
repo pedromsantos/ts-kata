@@ -1,5 +1,7 @@
 # Roman numerals kata
 
+## First run
+
 - Implement a Roman numeral converter.
 - The code must be able to take numbers up to 3999 and convert to their roman equivalent.
 
@@ -35,3 +37,46 @@
 | **1000**          | M                 |
 | **2000**          | MM                |
 | **3000**          | MMM               |
+
+## Second run
+
+Use the Transformation Priority Premise table to evolve your code
+
+### TPP table
+
+| #   | Transformation               | Start code         | End code                                 |
+| --- | ---------------------------- | ------------------ | ---------------------------------------- |
+| 1   | {} -> nil                    | {}                 | [return] nil                             |
+| 2   | Nil -> constant              | [return] nil       | [return] “1”                             |
+| 3   | Constant -> constant+        | [return] “1”       | [return] “1” + “2”                       |
+| 4   | Constant -> scalar           | [return] “1” + “2” | [return] argument                        |
+| 5   | Statement -> statements      | [return] argument  | [return] min(max(0, argument), 10)       |
+| 6   | Unconditional -> conditional | [return] argument  | if(condition) [return] 1 else [return] 0 |
+| 7   | Scalar -> array              | dog                | [dog, cat]                               |
+| 8   | Array -> container           | [dog, cat]         | {dog=”DOG”, cat=”CAT”}                   |
+| 9   | Statement -> tail recursion  | a + b              | a + recursion                            |
+| 10  | If -> loop                   | if(condition)      | loop(condition)                          |
+| 11  | Statement -> recursion       | a + recursion      | recursion                                |
+| 12  | Expression -> function       | today – birth      | CalculateBirthDate()                     |
+| 13  | Variable -> mutation         | day                | var Day = 10; Day = 11;                  |
+
+Transformations at the top of the list have priority over those at the bottom. It is better (or simpler) to change a constant into a variable than it is to add an `if` statement. So when making a test pass, favor simpler transformations (top of the list) over those more complicated (bottom of the list).
+
+Another way to use the Transformation Priority Premise is to keep writing new code using obvious implementation. Whenever duplication is detected, refactor to the next transformation to remove it. When refactoring, first try to use a simpler one. That does not always work; sometimes, you must move to a more complicated transformation or a mix of both.
+
+### Example using Transformation Priority Premise on Fibonacci sequence
+
+| Input | Expected output | Transformation               | Implementation                                                          |
+| ----- | --------------- | ---------------------------- | ----------------------------------------------------------------------- |
+| 0     | 0               | {} -> nil                    | Does not work                                                           |
+| 0     | 0               | Nil -> constant              | `return 0`                                                              |
+| 1     | 1               | Constant -> scalar           | `return index`                                                          |
+| 2     | 1               | Unconditional -> conditional | `if number < 2 then return index else return index - 1`                 |
+| 3     | 2               | Unconditional -> conditional | No change                                                               |
+| 4     | 3               | Unconditional -> conditional | No change                                                               |
+| 5     | 5               | Scalar -> array              | `var fibs = [0, 1, 1, 2, 3, 5]; return fibs[index]`                     |
+| 6     | 8               | Scalar -> array              | `var fibs = [0, 1, 1, 2, 3, 5, 8]; return fibs[index]`                  |
+| 7     | 13              | Scalar -> array(duplication) | `var fibs = [0, 1, 1, 2, 3, 5, 8, 13]; return fibs[index]`              |
+| 8     | 21              | Statement -> tail recursion  | `if index < 2 return index else return fib(index - 1) + fib(index - 2)` |
+
+The idea of Transformation Priority Premise is to evolve code while keeping complexity under control.
