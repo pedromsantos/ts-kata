@@ -40,7 +40,7 @@
 
 ## Second run
 
-Use the Transformation Priority Premise table to evolve your code
+Use the Transformation Priority Premise table to evolve your code.
 
 ### TPP table
 
@@ -68,7 +68,7 @@ Another way to use the Transformation Priority Premise is to keep writing new co
 
 | Input | Expected output | Transformation               | Implementation                                                          |
 | ----- | --------------- | ---------------------------- | ----------------------------------------------------------------------- |
-| 0     | 0               | {} -> nil                    | Does not work                                                           |
+| 0     | 0               | {} -> nil                    | :warning: Does not work                                                 |
 | 0     | 0               | Nil -> constant              | `return 0`                                                              |
 | 1     | 1               | Constant -> scalar           | `return index`                                                          |
 | 2     | 1               | Unconditional -> conditional | `if number < 2 then return index else return index - 1`                 |
@@ -79,4 +79,4 @@ Another way to use the Transformation Priority Premise is to keep writing new co
 | 7     | 13              | Scalar -> array(duplication) | `var fibs = [0, 1, 1, 2, 3, 5, 8, 13]; return fibs[index]`              |
 | 8     | 21              | Statement -> tail recursion  | `if index < 2 return index else return fib(index - 1) + fib(index - 2)` |
 
-The idea of Transformation Priority Premise is to evolve code while keeping complexity under control.
+The Transformation Priority Premise aims to evolve code while keeping complexity under control.
