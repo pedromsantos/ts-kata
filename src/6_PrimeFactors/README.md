@@ -4,9 +4,9 @@ Factorize a positive integer number into its prime factors.
 
 For example:
 
-| **Input** | Output** |
-| --------- | -------- |
-|  2        | [2]      |
+| **Input** | **Output** |
+| --------- | ---------- |
+|  2        | ```[2]```  |
 
 | Input | Output |
 | -------------- |
