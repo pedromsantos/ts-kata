@@ -4,6 +4,10 @@ Factorize a positive integer number into its prime factors.
 
 For example:
 
+| **Input** | Output** |
+| --------- | -------- |
+| **1**     | I        |
+
 | Input | Output |
 | -------------- |
 |  2    | [2]    | 
