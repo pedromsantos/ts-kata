@@ -1,5 +1,8 @@
 export class Copier {
-  constructor(private readonly source: Source, private readonly destination: Destination) {}
+  constructor(
+    private readonly source: Source,
+    private readonly destination: Destination
+  ) {}
 
   copy(): void {
     // eslint-disable-next-line no-console
