@@ -27,11 +27,11 @@ Implement Tic Tac Toe striclly applying object calisthenics rules.
   - Do not write dog.Body.Tail.Wag() write dog.ExpressHappiness() - Law of Demeter
 - No getters/setters/properties, no access to private data, none! - TELL DON’T ASK!
 - Don't abbreviate names
+- Only one level of indentation per method
+- Don't use the ELSE keyword
+- No classes with more than two instance variables
 - Keep all entities small
   - 10 files per package/namespace
   - 50 lines per class
   - 5 lines per method
   - 2-3? arguments per method
-- Only one level of indentation per method
-- Don't use the ELSE keyword
-- No classes with more than two instance variables

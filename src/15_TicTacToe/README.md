@@ -43,8 +43,12 @@ export interface Play {
   player: Player;
 }
 
+export interface TicTacToe {
+  play(play: Play): void;
+}
+
 export interface Output {
-  printCell(play: Play): void;
+  printPlay(play: Play): void;
   printWinner(player: Player): void;
   printError(errorMessag: string): void;
 }

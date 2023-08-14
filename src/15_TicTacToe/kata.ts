@@ -23,21 +23,14 @@ export interface Cell {
 export interface Play {
   cell: Cell;
   player: Player;
+}
 
-  get row(): Row;
-  get column(): Column;
+export interface TicTacToe {
+  play(play: Play): void;
 }
 
 export interface Output {
-  printCell(play: Play): void;
+  printPlay(play: Play): void;
   printWinner(player: Player): void;
   printError(errorMessag: string): void;
-}
-
-export interface Application {
-  play(play: Play): void;
-}
-
-export interface Game {
-  play(play: Play): void;
 }
