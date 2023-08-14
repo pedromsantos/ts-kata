@@ -45,6 +45,7 @@
     "golf": "jest -i src/12_RefactoringGolf/*",
     "smelly": "jest -i src/13_SmellyTicTacToe/test.ts",
     "copier": "jest -i src/14_CharacterCopier/test.ts",
+    "tac": "jest -i src/15_TicTacToe/test.ts",
     "esa": "jest -i src/16_ESAMarsRover/test.ts"
   },
   "dependencies": {},
