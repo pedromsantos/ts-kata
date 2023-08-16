@@ -29,10 +29,8 @@ export class Game {
   }
 
   private validateFirstMove(player: Player) {
-    if (this._lastPlayer == noPlayer) {
-      if (player == playerO) {
-        throw new Error('Invalid first player');
-      }
+    if (this._lastPlayer == noPlayer && player == playerO) {
+      throw new Error('Invalid first player');
     }
   }
 
