@@ -1,5 +1,3 @@
-/* eslint-disable */
-
 type Row = 0 | 1 | 2;
 type Column = 0 | 1 | 2;
 type Player = ' ' | 'X' | 'O';
@@ -129,7 +127,11 @@ class Board {
   }
 
   private findTileByCoordinate(tile: Tile) {
-    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile))!;
+    const foundTile = this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile));
+
+    if (foundTile) return foundTile;
+
+    throw 'tile not found';
   }
 
   private playerAt(coordinate: Coordinate) {
