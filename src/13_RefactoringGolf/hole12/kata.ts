@@ -57,7 +57,7 @@ export class Game {
   }
 
   public Winner() {
-    return this._board.findRowFullWithSamePlayer();
+    return this._board.findFullRowWithSamePlayerOrNoPlayer();
   }
 }
 
@@ -121,7 +121,7 @@ class Board {
     this.findTile(tile).updatePlayer(tile.Player);
   }
 
-  public findRowFullWithSamePlayer() {
+  public findFullRowWithSamePlayerOrNoPlayer() {
     if (this.isRowFull(firstRow) && this.isRowFullWithSameSymbol(firstRow)) {
       return this.playerAt(new Coordinate(firstRow, firstColumn));
     }
