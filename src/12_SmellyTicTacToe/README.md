@@ -23,4 +23,4 @@ There are a number of code smells in the implementation namely:
 
 ## Your task
 
-Start by identifying the code smells, add comments where you find code smells.
+Identify the code smells, add comments where you find code smells.

@@ -11,7 +11,7 @@ const playerO = 'O';
 const emptyPlay = ' ';
 
 export class Game {
-  private _lastSymbol = ' ';
+  private _lastSymbol = emptyPlay;
   private _board: Board = new Board();
 
   public Play(symbol: string, x: number, y: number): void {
