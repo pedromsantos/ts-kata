@@ -1,42 +1,131 @@
-export class Incalculable extends Error {}
+/* eslint-disable */
 
-export class Money {
-  public value: number;
-  public currency: string;
+export class Game {
+  private _lastSymbol = ' ';
+  private _board: Board = new Board();
 
-  constructor(value: number, currency: string) {
-    this.value = value;
-    this.currency = currency;
+  public Play(symbol: string, x: number, y: number): void {
+    this.validateFirstMove(symbol);
+    this.validatePlayer(symbol);
+    this.validatePositionIsEmpty(x, y);
+
+    this.updateLastPlayer(symbol);
+    this.updateBoard(symbol, x, y);
+  }
+
+  private validateFirstMove(player: string) {
+    if (this._lastSymbol == ' ') {
+      if (player == 'O') {
+        throw new Error('Invalid first player');
+      }
+    }
+  }
+
+  private validatePlayer(player: string) {
+    if (player == this._lastSymbol) {
+      throw new Error('Invalid next player');
+    }
+  }
+
+  private validatePositionIsEmpty(x: number, y: number) {
+    if (this._board.TileAt(x, y).Symbol != ' ') {
+      throw new Error('Invalid position');
+    }
+  }
+
+  private updateLastPlayer(player: string) {
+    this._lastSymbol = player;
+  }
+
+  private updateBoard(player: string, x: number, y: number) {
+    this._board.AddTileAt(player, x, y);
+  }
+
+  public Winner(): string {
+    if (this.isFirstRowFull() && this.isFirstRowFullWithSameSymbol()) {
+      return this._board.TileAt(0, 0)!.Symbol;
+    }
+
+    if (this.isSecondRowFull() && this.isSecondRowFullWithSameSymbol()) {
+      return this._board.TileAt(1, 0)!.Symbol;
+    }
+
+    if (this.isThirdRowFull() && this.isThirdRowFullWithSameSymbol()) {
+      return this._board.TileAt(2, 0)!.Symbol;
+    }
+
+    return ' ';
+  }
+
+  private isFirstRowFull() {
+    return (
+      this._board.TileAt(0, 0)!.Symbol != ' ' &&
+      this._board.TileAt(0, 1)!.Symbol != ' ' &&
+      this._board.TileAt(0, 2)!.Symbol != ' '
+    );
+  }
+
+  private isFirstRowFullWithSameSymbol() {
+    return (
+      this._board.TileAt(0, 0)!.Symbol == this._board.TileAt(0, 1)!.Symbol &&
+      this._board.TileAt(0, 2)!.Symbol == this._board.TileAt(0, 1)!.Symbol
+    );
+  }
+
+  private isSecondRowFull() {
+    return (
+      this._board.TileAt(1, 0)!.Symbol != ' ' &&
+      this._board.TileAt(1, 1)!.Symbol != ' ' &&
+      this._board.TileAt(1, 2)!.Symbol != ' '
+    );
+  }
+
+  private isSecondRowFullWithSameSymbol() {
+    return (
+      this._board.TileAt(1, 0)!.Symbol == this._board.TileAt(1, 1)!.Symbol &&
+      this._board.TileAt(1, 2)!.Symbol == this._board.TileAt(1, 1)!.Symbol
+    );
+  }
+
+  private isThirdRowFull() {
+    return (
+      this._board.TileAt(2, 0)!.Symbol != ' ' &&
+      this._board.TileAt(2, 1)!.Symbol != ' ' &&
+      this._board.TileAt(2, 2)!.Symbol != ' '
+    );
+  }
+
+  private isThirdRowFullWithSameSymbol() {
+    return (
+      this._board.TileAt(2, 0)!.Symbol == this._board.TileAt(2, 1)!.Symbol &&
+      this._board.TileAt(2, 2)!.Symbol == this._board.TileAt(2, 1)!.Symbol
+    );
   }
 }
 
-export class Takehomecalculator {
-  private percent: number;
+interface Tile {
+  X: number;
+  Y: number;
+  Symbol: string;
+}
 
-  constructor(percent: number) {
-    this.percent = percent;
-  }
+class Board {
+  private _plays: Tile[] = [];
 
-  netAmount(first: Money, ...rest: Money[]): Money {
-    const monies: Money[] = Array.from(rest);
-    let total: Money = first;
-
-    for (const next of monies) {
-      if (next.currency !== total.currency) {
-        throw new Incalculable();
+  constructor() {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        const tile: Tile = { X: i, Y: j, Symbol: ' ' };
+        this._plays.push(tile);
       }
     }
+  }
 
-    for (const next of monies) {
-      total = new Money(total.value + next.value, next.currency);
-    }
+  public TileAt(x: number, y: number): Tile {
+    return this._plays.find((t: Tile) => t.X == x && t.Y == y)!;
+  }
 
-    const amount: number = total.value * (this.percent / 100.0);
-    const tax: Money = new Money(Math.trunc(amount), first.currency);
-
-    if (total.currency !== tax.currency) {
-      throw new Incalculable();
-    }
-    return new Money(total.value - tax.value, first.currency);
+  public AddTileAt(symbol: string, x: number, y: number): void {
+    this._plays.find((t: Tile) => t.X == x && t.Y == y)!.Symbol = symbol;
   }
 }

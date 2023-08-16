@@ -1,43 +1,107 @@
-export class Incalculable extends Error {}
+/* eslint-disable */
 
-export class Pair<A, B> {
-  public first: A;
-  public second: B;
+export class Game {
+  private _lastSymbol = ' ';
+  private _board: Board = new Board();
 
-  constructor(first: A, second: B) {
-    this.first = first;
-    this.second = second;
+  public Play(symbol: string, x: number, y: number): void {
+    //if first move
+    if (this._lastSymbol == ' ') {
+      //if player is X
+      if (symbol == 'O') {
+        throw new Error('Invalid first player');
+      }
+    }
+    //if not first move but player repeated
+    else if (symbol == this._lastSymbol) {
+      throw new Error('Invalid next player');
+    }
+    //if not first move but play on an already played tile
+    else if (this._board.TileAt(x, y).Symbol != ' ') {
+      throw new Error('Invalid position');
+    }
+
+    // update game state
+    this._lastSymbol = symbol;
+    this._board.AddTileAt(symbol, x, y);
   }
-}
 
-export class Takehomecalculator {
-  private percent: number;
-
-  constructor(percent: number) {
-    this.percent = percent;
-  }
-
-  netAmount(first: Pair<number, string>, ...rest: Pair<number, string>[]): Pair<number, string> {
-    const pairs: Pair<number, string>[] = Array.from(rest);
-    let total: Pair<number, string> = first;
-
-    for (const next of pairs) {
-      if (next.second != total.second) {
-        throw new Incalculable();
+  public Winner(): string {
+    //if the positions in first row are taken
+    if (
+      this._board.TileAt(0, 0)!.Symbol != ' ' &&
+      this._board.TileAt(0, 1)!.Symbol != ' ' &&
+      this._board.TileAt(0, 2)!.Symbol != ' '
+    ) {
+      //if first row is full with same symbol
+      if (
+        this._board.TileAt(0, 0)!.Symbol == this._board.TileAt(0, 1)!.Symbol &&
+        this._board.TileAt(0, 2)!.Symbol == this._board.TileAt(0, 1)!.Symbol
+      ) {
+        return this._board.TileAt(0, 0)!.Symbol;
       }
     }
 
-    for (const next of pairs) {
-      total = new Pair<number, string>(total.first + next.first, next.second);
+    //if the positions in first row are taken
+    if (
+      this._board.TileAt(1, 0)!.Symbol != ' ' &&
+      this._board.TileAt(1, 1)!.Symbol != ' ' &&
+      this._board.TileAt(1, 2)!.Symbol != ' '
+    ) {
+      //if middle row is full with same symbol
+      if (
+        this._board.TileAt(1, 0)!.Symbol == this._board.TileAt(1, 1)!.Symbol &&
+        this._board.TileAt(1, 2)!.Symbol == this._board.TileAt(1, 1)!.Symbol
+      ) {
+        return this._board.TileAt(1, 0)!.Symbol;
+      }
     }
 
-    const amount: number = total.first * (this.percent / 100.0);
-    const tax = new Pair<number, string>(Math.trunc(amount), first.second);
-
-    if (total.second == tax.second) {
-      return new Pair(total.first - tax.first, first.second);
-    } else {
-      throw new Incalculable();
+    //if the positions in first row are taken
+    if (
+      this._board.TileAt(2, 0)!.Symbol != ' ' &&
+      this._board.TileAt(2, 1)!.Symbol != ' ' &&
+      this._board.TileAt(2, 2)!.Symbol != ' '
+    ) {
+      //if middle row is full with same symbol
+      if (
+        this._board.TileAt(2, 0)!.Symbol == this._board.TileAt(2, 1)!.Symbol &&
+        this._board.TileAt(2, 2)!.Symbol == this._board.TileAt(2, 1)!.Symbol
+      ) {
+        return this._board.TileAt(2, 0)!.Symbol;
+      }
     }
+
+    return ' ';
+  }
+}
+
+interface Tile {
+  X: number;
+  Y: number;
+  Symbol: string;
+}
+
+class Board {
+  private _plays: Tile[] = [];
+
+  constructor() {
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 3; j++) {
+        const tile: Tile = { X: i, Y: j, Symbol: ' ' };
+        this._plays.push(tile);
+      }
+    }
+  }
+
+  public TileAt(x: number, y: number): Tile {
+    return this._plays.find((t: Tile) => t.X == x && t.Y == y)!;
+  }
+
+  public AddTileAt(symbol: string, x: number, y: number): void {
+    //@ts-ignore
+    const tile: Tile = { X: x, Y: y, Symbol: symbol };
+
+    this._plays.find((t: Tile) => t.X == x && t.Y == y)!.Symbol = symbol;
   }
 }

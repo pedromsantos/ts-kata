@@ -1,16 +1,10 @@
-# Hole 3 to Hole 4
+# Hole 4 to Hole 5
 
-Change the code in hole 3 to be identical to the code on hole 4, both implenentation and tests can change.
+Change the code in hole 4 to be identical to the code on hole 5, both implenentation and tests can change.
 
 ## Refactorings
 
-- Consolidate loops
-- Extract method
-- Move method
-- Rename
-- Search and replace
-- Delete parameter
-- Delete dead code
+- Replace Constructor with Factory Method
 
 ## Tips
 

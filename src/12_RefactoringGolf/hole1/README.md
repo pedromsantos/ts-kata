@@ -2,11 +2,6 @@
 
 Change the code in hole 1 to be identical to the code on hole 2, both implenentation and tests can change.
 
-## Refactorings
-
-- Replace Nested Conditional with Guard Clauses
-  - <https://refactoring.guru/replace-nested-conditional-with-guard-clauses>
-
 ## Tips
 
 - Use a diff tool to identify the code changes you need to perform
