@@ -19,9 +19,9 @@ export class Game {
   private _board: Board = new Board();
 
   public Play(player: Player, x: Row, y: Row) {
-    const coordinate = new Coordinate(x, y);
     this.validateFirstMove(player);
     this.validatePlayer(player);
+    const coordinate = new Coordinate(x, y);
     this.validatePositionIsEmpty(coordinate);
 
     this.updateLastPlayer(player);
@@ -114,11 +114,11 @@ class Board {
   }
 
   public isTilePlayedAt(coordinate: Coordinate) {
-    return this.findTileAt(new Tile(noPlayer, coordinate))!.isNotEmpty;
+    return this.findTile(new Tile(noPlayer, coordinate)).isNotEmpty;
   }
 
   public AddTileAt(tile: Tile) {
-    this.findTileAt(tile)!.updatePlayer(tile.Player);
+    this.findTile(tile).updatePlayer(tile.Player);
   }
 
   public findRowFullWithSamePlayer() {
@@ -137,20 +137,12 @@ class Board {
     return noPlayer;
   }
 
-  private findTileAt(tile: Tile) {
-    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile));
-  }
-
-  private hasSamePlayer(coordinate: Coordinate, otherCoordinate: Coordinate) {
-    return this.TileAt(coordinate)!.hasSamePlayerAs(this.TileAt(otherCoordinate)!);
+  private findTile(tile: Tile) {
+    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile))!;
   }
 
   private playerAt(coordinate: Coordinate) {
-    return this.TileAt(coordinate)!.Player;
-  }
-
-  private TileAt(coordinate: Coordinate) {
-    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(new Tile(noPlayer, coordinate)))!;
+    return this.findTile(new Tile(noPlayer, coordinate)).Player;
   }
 
   private isRowFull(row: Row) {
@@ -165,6 +157,12 @@ class Board {
     return (
       this.hasSamePlayer(new Coordinate(row, firstColumn), new Coordinate(row, secondColumn)) &&
       this.hasSamePlayer(new Coordinate(row, secondColumn), new Coordinate(row, thirdColumn))
+    );
+  }
+
+  private hasSamePlayer(coordinate: Coordinate, otherCoordinate: Coordinate) {
+    return this.findTile(new Tile(noPlayer, coordinate)).hasSamePlayerAs(
+      this.findTile(new Tile(noPlayer, otherCoordinate))
     );
   }
 }
