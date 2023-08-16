@@ -20,7 +20,7 @@ export class Game {
     this.validatePositionIsEmpty(x, y);
 
     this.updateLastPlayer(player);
-    this.updateBoard(player, x, y);
+    this.updateBoard(new Tile(x, y, player));
   }
 
   private validateFirstMove(player: string) {
@@ -47,8 +47,8 @@ export class Game {
     this._lastPlayer = player;
   }
 
-  private updateBoard(player: string, x: number, y: number) {
-    this._board.AddTileAt(new Tile(x, y, player));
+  private updateBoard(tile: Tile) {
+    this._board.AddTileAt(tile);
   }
 
   public Winner(): string {
@@ -100,12 +100,11 @@ class Board {
   }
 
   public isTilePlayedAt(x: number, y: number) {
-    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(new Tile(x, y, noPlayer)))!
-      .isNotEmpty;
+    return this.findTileAt(new Tile(x, y, noPlayer))!.isNotEmpty;
   }
 
   public AddTileAt(tile: Tile): void {
-    this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile))!.updatePlayer(tile.Player);
+    this.findTileAt(tile)!.updatePlayer(tile.Player);
   }
 
   public findRowFullWithSamePlayer(): string {
@@ -122,6 +121,10 @@ class Board {
     }
 
     return noPlayer;
+  }
+
+  private findTileAt(tile: Tile) {
+    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile));
   }
 
   private hasSamePlayer(x: number, y: number, otherX: number, otherY: number) {

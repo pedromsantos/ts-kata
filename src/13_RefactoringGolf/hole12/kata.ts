@@ -19,12 +19,13 @@ export class Game {
   private _board: Board = new Board();
 
   public Play(player: Player, x: Row, y: Row) {
+    const coordinate = new Coordinate(x, y);
     this.validateFirstMove(player);
     this.validatePlayer(player);
-    this.validatePositionIsEmpty(x, y);
+    this.validatePositionIsEmpty(coordinate);
 
     this.updateLastPlayer(player);
-    this.updateBoard(new Tile(x, y, player));
+    this.updateBoard(new Tile(player, coordinate));
   }
 
   private validateFirstMove(player: Player) {
@@ -41,8 +42,8 @@ export class Game {
     }
   }
 
-  private validatePositionIsEmpty(x: Row, y: Row) {
-    if (this._board.isTilePlayedAt(x, y)) {
+  private validatePositionIsEmpty(coordinate: Coordinate) {
+    if (this._board.isTilePlayedAt(coordinate)) {
       throw new Error('Invalid position');
     }
   }
@@ -60,14 +61,23 @@ export class Game {
   }
 }
 
+class Coordinate {
+  constructor(
+    private readonly x: Row,
+    private readonly y: Column
+  ) {}
+
+  equal(other: Coordinate) {
+    return this.x === other.x && this.y === other.y;
+  }
+}
+
 class Tile {
-  private x: Row = 0;
-  private y: Row = 0;
+  private coordinate: Coordinate = new Coordinate(0, 0);
   private player: Player = ' ';
 
-  constructor(x: Row, y: Row, player: Player) {
-    this.x = x;
-    this.y = y;
+  constructor(player: Player, coordinate: Coordinate) {
+    this.coordinate = coordinate;
     this.player = player;
   }
 
@@ -84,7 +94,7 @@ class Tile {
   }
 
   hasSameCoordinatesAs(other: Tile) {
-    return this.x == other.x && this.y == other.y;
+    return this.coordinate.equal(other.coordinate);
   }
 
   updatePlayer(newPlayer: Player) {
@@ -98,13 +108,13 @@ class Board {
   constructor() {
     for (let x = firstRow; x <= thirdRow; x++) {
       for (let y = firstColumn; y <= thirdColumn; y++) {
-        this._plays.push(new Tile(x, y, noPlayer));
+        this._plays.push(new Tile(noPlayer, new Coordinate(x, y)));
       }
     }
   }
 
-  public isTilePlayedAt(x: Row, y: Column) {
-    return this.findTileAt(new Tile(x, y, noPlayer))!.isNotEmpty;
+  public isTilePlayedAt(coordinate: Coordinate) {
+    return this.findTileAt(new Tile(noPlayer, coordinate))!.isNotEmpty;
   }
 
   public AddTileAt(tile: Tile) {
@@ -113,15 +123,15 @@ class Board {
 
   public findRowFullWithSamePlayer() {
     if (this.isRowFull(firstRow) && this.isRowFullWithSameSymbol(firstRow)) {
-      return this.playerAt(firstRow, firstColumn);
+      return this.playerAt(new Coordinate(firstRow, firstColumn));
     }
 
     if (this.isRowFull(secondRow) && this.isRowFullWithSameSymbol(secondRow)) {
-      return this.playerAt(secondRow, firstColumn);
+      return this.playerAt(new Coordinate(secondRow, firstColumn));
     }
 
     if (this.isRowFull(thirdRow) && this.isRowFullWithSameSymbol(thirdRow)) {
-      return this.playerAt(thirdRow, firstColumn);
+      return this.playerAt(new Coordinate(thirdRow, firstColumn));
     }
 
     return noPlayer;
@@ -131,30 +141,30 @@ class Board {
     return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile));
   }
 
-  private hasSamePlayer(x: Row, y: Column, otherX: Row, otherY: Column) {
-    return this.TileAt(x, y)!.hasSamePlayerAs(this.TileAt(otherX, otherY)!);
+  private hasSamePlayer(coordinate: Coordinate, otherCoordinate: Coordinate) {
+    return this.TileAt(coordinate)!.hasSamePlayerAs(this.TileAt(otherCoordinate)!);
   }
 
-  private playerAt(x: Row, y: Column) {
-    return this.TileAt(x, y)!.Player;
+  private playerAt(coordinate: Coordinate) {
+    return this.TileAt(coordinate)!.Player;
   }
 
-  private TileAt(x: Row, y: Column) {
-    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(new Tile(x, y, noPlayer)))!;
+  private TileAt(coordinate: Coordinate) {
+    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(new Tile(noPlayer, coordinate)))!;
   }
 
   private isRowFull(row: Row) {
     return (
-      this.isTilePlayedAt(row, firstColumn) &&
-      this.isTilePlayedAt(row, secondColumn) &&
-      this.isTilePlayedAt(row, thirdColumn)
+      this.isTilePlayedAt(new Coordinate(row, firstColumn)) &&
+      this.isTilePlayedAt(new Coordinate(row, secondColumn)) &&
+      this.isTilePlayedAt(new Coordinate(row, thirdColumn))
     );
   }
 
   private isRowFullWithSameSymbol(row: Row) {
     return (
-      this.hasSamePlayer(row, firstColumn, row, secondColumn) &&
-      this.hasSamePlayer(row, secondColumn, row, thirdColumn)
+      this.hasSamePlayer(new Coordinate(row, firstColumn), new Coordinate(row, secondColumn)) &&
+      this.hasSamePlayer(new Coordinate(row, secondColumn), new Coordinate(row, thirdColumn))
     );
   }
 }

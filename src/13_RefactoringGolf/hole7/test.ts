@@ -1,4 +1,4 @@
-import { Game } from '../hole8/kata';
+import { Game } from '../hole6/kata';
 
 describe('TicTacToe game', () => {
   let game: Game;

@@ -38,7 +38,7 @@ export class Game {
   }
 
   private validatePositionIsEmpty(x: number, y: number) {
-    if (this._board.TileAt(x, y).Symbol != emptyPlay) {
+    if (this._board.TileAt(x, y).isNotEmpty) {
       throw new Error('Invalid position');
     }
   }
@@ -56,30 +56,57 @@ export class Game {
   }
 }
 
-interface Tile {
-  X: number;
-  Y: number;
-  Symbol: string;
+class Tile {
+  private x: number = 0;
+  private y: number = 0;
+  private symbol: string = ' ';
+
+  constructor(x: number, y: number, symbol: string) {
+    this.x = x;
+    this.y = y;
+    this.symbol = symbol;
+  }
+
+  get Symbol() {
+    return this.symbol;
+  }
+
+  get isNotEmpty() {
+    return this.Symbol !== emptyPlay;
+  }
+
+  hasSameSymbolAs(other: Tile) {
+    return this.Symbol === other.Symbol;
+  }
+
+  hasSameCoordinatesAs(other: Tile) {
+    return this.x == other.x && this.y == other.y;
+  }
+
+  updateSymbol(newSymbol: string) {
+    this.symbol = newSymbol;
+  }
 }
 
 class Board {
   private _plays: Tile[] = [];
 
   constructor() {
-    for (let i = firstRow; i <= thirdRow; i++) {
-      for (let j = firstColumn; j <= thirdColumn; j++) {
-        const tile: Tile = { X: i, Y: j, Symbol: emptyPlay };
-        this._plays.push(tile);
+    for (let x = firstRow; x <= thirdRow; x++) {
+      for (let y = firstColumn; y <= thirdColumn; y++) {
+        this._plays.push(new Tile(x, y, emptyPlay));
       }
     }
   }
 
   public TileAt(x: number, y: number): Tile {
-    return this._plays.find((t: Tile) => t.X == x && t.Y == y)!;
+    return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(new Tile(x, y, emptyPlay)))!;
   }
 
   public AddTileAt(symbol: string, x: number, y: number): void {
-    this._plays.find((t: Tile) => t.X == x && t.Y == y)!.Symbol = symbol;
+    this._plays
+      .find((t: Tile) => t.hasSameCoordinatesAs(new Tile(x, y, symbol)))!
+      .updateSymbol(symbol);
   }
 
   public findRowFullWithSamePlayer(): string {
@@ -100,16 +127,16 @@ class Board {
 
   private isRowFull(row: number) {
     return (
-      this.TileAt(row, firstColumn)!.Symbol != emptyPlay &&
-      this.TileAt(row, secondColumn)!.Symbol != emptyPlay &&
-      this.TileAt(row, thirdColumn)!.Symbol != emptyPlay
+      this.TileAt(row, firstColumn)!.isNotEmpty &&
+      this.TileAt(row, secondColumn)!.isNotEmpty &&
+      this.TileAt(row, thirdColumn)!.isNotEmpty
     );
   }
 
   private isRowFullWithSameSymbol(row: number) {
     return (
-      this.TileAt(row, firstColumn)!.Symbol == this.TileAt(row, secondColumn)!.Symbol &&
-      this.TileAt(row, thirdColumn)!.Symbol == this.TileAt(row, secondColumn)!.Symbol
+      this.TileAt(row, firstColumn)!.hasSameSymbolAs(this.TileAt(row, secondColumn)!) &&
+      this.TileAt(row, thirdColumn)!.hasSameSymbolAs(this.TileAt(row, secondColumn)!)
     );
   }
 }
