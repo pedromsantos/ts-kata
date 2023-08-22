@@ -1,11 +1,10 @@
-# Hole 1 to Hole 2
+# Hole 10 to Hole 11
 
-Change the code in hole 1 to be identical to the code on hole 2, both implenentation and tests can change.
+Change the code in hole 10 to be identical to the code on hole 11, both implenentation and tests can change.
 
 ## Refactorings
 
-- Tackle code comments, long method and large class
-  - Extract method
+- Tackle primitive obssesion
 
 ## Tips
 

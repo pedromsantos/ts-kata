@@ -4,8 +4,8 @@ Change the code in hole 2 to be identical to the code on hole 3, both implenenta
 
 ## Refactorings
 
-- Rename type, property, parameter, variable
-- Search and replace
+- Tackle dead code
+  - Delete dead code
 
 ## Tips
 

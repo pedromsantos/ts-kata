@@ -1,11 +1,11 @@
-# Hole 1 to Hole 2
+# Hole 5 to Hole 6
 
-Change the code in hole 1 to be identical to the code on hole 2, both implenentation and tests can change.
+Change the code in hole 5 to be identical to the code on hole 6, both implenentation and tests can change.
 
 ## Refactorings
 
-- Tackle code comments, long method and large class
-  - Extract method
+- Tackle feature envy
+  - Move method
 
 ## Tips
 

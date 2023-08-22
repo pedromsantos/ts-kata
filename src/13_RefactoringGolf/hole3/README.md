@@ -1,10 +1,11 @@
-# Hole 4 to Hole 5
+# Hole 3 to Hole 4
 
-Change the code in hole 4 to be identical to the code on hole 5, both implenentation and tests can change.
+Change the code in hole 3 to be identical to the code on hole 4, both implenentation and tests can change.
 
 ## Refactorings
 
-- Replace Constructor with Factory Method
+- Remove magic strings and numbers
+  - Introduce constant
 
 ## Tips
 
