@@ -14,9 +14,9 @@ Change the code in hole 1 to be identical to the code on hole 2, both implenenta
 
 ### While refactoring
 
-- Stay in the green while refactoring
+- Stay in the green while refactoring, no failing tests
   - Run the tests after each refactor
     - Check all tests still pass
     - Check code coverage has not dropped
 - Commit after each refactor
-- In case of persistent test fails, use `git reset` to go back to green
+- In case of persistent compilation errors or test fails, use `git reset` to go back to green
