@@ -1,6 +1,6 @@
 # Hole 1 to Hole 2
 
-Change the code in hole 1 to be identical to the code on hole 2, both implenentation and tests can change.
+Change the code in hole 1 to be identical to the code in hole 2; implementation and tests can change.
 
 ## Refactorings
 
@@ -14,7 +14,7 @@ Change the code in hole 1 to be identical to the code on hole 2, both implenenta
 
 ### While refactoring
 
-- Stay in the green while refactoring, no failing tests
+- Stay in the green while refactoring; no failing tests
   - Run the tests after each refactor
     - Check all tests still pass
     - Check code coverage has not dropped
