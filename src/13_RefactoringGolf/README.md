@@ -18,21 +18,21 @@
 ## First run
 
 - Refactor the code as best as you can.
-  - Using pen and pencil take note of the foolowing:
+  - Using pen and pencil take note of the folowing:
     - For every compilation error you get during or after a refactor count 1 strike.
     - For every failing test during or after a refactor count 2 strikes.
 
 ## Second run
 
 - Refactor the code following the treatment available for each code smell in <https://refactoring.guru/smells>.
-  - Using pen and pencil take note of the foolowing:
+  - Using pen and pencil take note of the folowing:
     - For every compilation error you get during or after a refactor count 1 strike.
     - For every failing test during or after a refactor count 2 strikes.
 
 ## Third run
 
 - Refactor the code following the treatment available for each code smell in <https://refactoring.guru/smells>. Use automated IDE refactoring as much as possibe.
-  - Using pen and pencil take note of the foolowing:
+  - Using pen and pencil take note of the folowing:
     - For every manual edit count 1 strike.
       - Any code formating applied does not count as a manual edit
       - Deleting blank lines or blank spaces does not count as a manual edit
