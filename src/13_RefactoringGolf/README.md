@@ -24,14 +24,14 @@
 
 ## Second run
 
-- Refactor the code following the treatment available for each code smell in <https://refactoring.guru/smells>.
+- Refactor the code following the treatment available for each code smell in <https://refactoring.guru/refactoring/smells>.
   - Using pen and pencil, take note of the following:
     - For every compilation error you get during or after a refactor, count 1 strike.
     - For every failing test during or after a refactor, count 2 strikes.
 
 ## Third run
 
-- Refactor the code following the treatment available for each code smell in <https://refactoring.guru/smells>. Use automated IDE refactoring as much as possible.
+- Refactor the code following the treatment available for each code smell in <https://refactoring.guru/refactoring/smells>. Use automated IDE refactoring as much as possible.
   - Using pen and pencil, take note of the following:
     - For every manual edit, count 1 strike.
       - Any code formatting applied does not count as a manual edit
