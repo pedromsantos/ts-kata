@@ -34,6 +34,8 @@
 - Refactor the code following the treatment available for each code smell in <https://refactoring.guru/smells>. Use automated IDE refactoring as much as possibe.
   - Using pen and pencil take note of the foolowing:
     - For every manual edit count 1 strike.
+      - Any code formating applied does not count as a manual edit
+      - Deleting blank lines or blank spaces does not count as a manual edit
     - For every compilation error you get during or after a refactor count 1 strike.
     - For every failing test during or after a refactor count 2 strikes.
 
