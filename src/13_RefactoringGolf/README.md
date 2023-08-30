@@ -39,6 +39,30 @@
     - For every compilation error you get during or after a refactor, count 1 strike.
     - For every failing test during or after a refactor, count 2 strikes.
 
+### Course records
+
+These are the best known scores, achieved using IntelliJ:
+
+| Hole | Best score | Notes |
+| ---- | ---------- | ----- |
+| 1    | TBD        |       |
+| 2    | TBD        |       |
+| 3    | TBD        |       |
+| 4    | TBD        |       |
+| 5    | TBD        |       |
+| 6    | TBD        |       |
+| 7    | TBD        |       |
+| 8    | TBD        |       |
+| 9    | TBD        |       |
+| 10   | TBD        |       |
+| 11   | TBD        |       |
+| 12   | TBD        |       |
+| 13   | TBD        |       |
+
+#### Course Record
+
+TBD
+
 ## Refactoring Priority Premise
 
 ### The kata uses the following order of code smells to refactor
