@@ -2,9 +2,9 @@
 
 ## Your job
 
-Implement the game using both Domain Driven Design and Hexagonal architecture.
-Start from the use cases, we will not be implementing the transport layer for this project.
-Use a in-memory database implementation.
+- Implement the game using both Domain Driven Design and Hexagonal architecture.
+- Start from the use cases, we will not be implementing the transport layer for this project.
+- Use a in-memory database implementation.
 
 ## The game
 

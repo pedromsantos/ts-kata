@@ -1,5 +1,16 @@
 # Shopping cart kata
 
+## Goal
+
+- Implement the shopping cart use cases for this company using a Domain Driven Design and Hexagonal architecture approach.
+- Start from the use cases, we will not be implementing the transport layer for this project.
+- Use a in-memory database implementation.
+
+- Create a testing suite that can be confidently used to test your code.
+  - Acceptance tests (Scenarios covering everything except repositories)
+  - Unit Tests (Unit testing Entities, use cases, and domain services)
+  - Integration tests (Testing the real repository implementation)
+
 ## Overview
 
 A company wants to sell their products online, one of the core features is the shopping cart.
@@ -19,17 +30,6 @@ MUG          | AcME Coffee Mug          |   7.50 €
 Items: VOUCHER, TSHIRT, MUG
 Subtotal: 32.50€
 ```
-
-## Goal
-
-Implement the shopping cart use cases for this company using a Domain Driven Design and Hexagonal architecture approach.
-Start from the use cases, we will not be implementing the transport layer for this project.
-Use a in-memory database implementation.
-
-- Create a testing suite that can be confidently used to test your code.
-  - Acceptance tests (Scenarios covering everything except repositories)
-  - Unit Tests (Unit testing Entities, use cases, and domain services)
-  - Integration tests (Testing the real repository implementation)
 
 ## Requirements
 

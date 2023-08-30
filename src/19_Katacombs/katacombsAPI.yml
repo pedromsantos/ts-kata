@@ -48,7 +48,7 @@ paths:
       tags:
         - Game
       summary: Help
-      description: Returns avaible commands and game hints for player
+      description: Returns available commands and game hints for player
       operationId: getHelpAndHints
       parameters:
         - in: path
@@ -80,7 +80,7 @@ paths:
             $ref: "#/components/schemas/Sid"
       responses:
         "200":
-          description: Game finshed
+          description: Game finished
         "404":
           description: Player with Sid playerSid not found
 
@@ -90,7 +90,7 @@ paths:
         - Player
       summary: Player location
       description: Returns information about a location
-      operationId: lookArround
+      operationId: lookAround
       parameters:
         - in: path
           name: playerSid
@@ -243,7 +243,7 @@ paths:
             $ref: "#/components/schemas/Sid"
       responses:
         "200":
-          description: Item desctiption
+          description: Item description
           content:
             application/json:
               schema:
