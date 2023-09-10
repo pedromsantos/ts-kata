@@ -18,7 +18,7 @@ Characterization tests are about describing the code **as is**, including any st
 Characterization tests do not verify the correct behavior of the code, which can be impossible to determine.
 Instead they verify the behavior that was observed when they were written.
 
-More on characterizations <https://michaelfeathers.silvrback.com/characterization-testing>
+More on characterization tests <https://michaelfeathers.silvrback.com/characterization-testing>
 
 #### Guidelines
 
@@ -74,6 +74,16 @@ test('should update quality', () => {
     - <https://www.eficode.com/blog/advanced-testing-refactoring-techniques-2>
     - <https://sourcery.ai/blog/refactoring-gilded-rose/>
     - <https://alcor.academy/p/2023-01-25-CSSCH-Code_Renovation-PhilippEichenberger>
+
+#### Lift up conditional algorithm
+
+1. Extract code to refactor into new method "bar"
+2. Identify and copy condition to lift-up
+3. Select all body of extracted method ("bar") and extract temporary method “foo”
+4. On extracted method ("bar") paste the condition you copied and call “foo”. On the else call “foo” as well
+5. Inline both calls to “foo” and delete "foo"
+6. Use coverage to delete dead code on method "bar"
+7. Repeat (GoTo 1)
 
 ### Fifth run - Refactor design
 

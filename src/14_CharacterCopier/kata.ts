@@ -1,15 +1,5 @@
 export class Copier {
-  constructor(
-    private readonly source: Source,
-    private readonly destination: Destination
-  ) {}
-
-  copy(): void {
-    // eslint-disable-next-line no-console
-    console.log(this.source);
-    // eslint-disable-next-line no-console
-    console.log(this.destination);
-  }
+  copy(): void {}
 }
 
 export interface Source {
