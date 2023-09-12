@@ -25,7 +25,7 @@ The kata consists of creating the rules to score rolls, calculate player totals 
 ### Implement
 
 - Player assigns final roll to a category (see catagory list below)
-- Cannot assign to already assigned category
+- Player cannot assign to already assigned category
 - Calculate score for player/roll/category
   - If roll is compatible score
   - If roll is not compatible score zero

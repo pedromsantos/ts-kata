@@ -2,10 +2,11 @@
 
 ## Rules
 
+- The game is played on a grid that's 3 squares by 3 squares
+- Players alternate placing X’s and O’s in empty squares
 - X always plays first
-- Players alternate placing X’s and O’s on the board
-- Players cannot play on a played position
-- A Player wins when it has three in a row
+- Players cannot play on a played square
+- A Player wins when it has three squares in a row
   - Horizontally
   - Vertically
   - Diagonally
@@ -20,16 +21,16 @@ Implement Tic Tac Toe as best as you can using TDD.
 Implement Tic Tac Toe striclly applying object calisthenics rules.
 
 - Wrap all primitives and strings
-  - Wrap primitives in a type, if it has behaviour or it’s an important domain concept
+  - Wrap primitives in a type, specially if it has behaviour or it’s an important domain concept
 - First class collections
-  - Wrap collections in a type, if it has behaviour or it’s an important domain concept
+  - Wrap collections in a type, specially if it has behaviour or it’s an important domain concept
 - One dot per line
   - Do not write dog.Body.Tail.Wag() write dog.ExpressHappiness() - Law of Demeter
 - No getters/setters/properties, no access to private data, none! - TELL DON’T ASK!
-- Don't abbreviate names
+- No classes with more than two instance variables
 - Only one level of indentation per method
 - Don't use the ELSE keyword
-- No classes with more than two instance variables
+- Don't abbreviate names
 - Keep all entities small
   - 10 files per package/namespace
   - 50 lines per class

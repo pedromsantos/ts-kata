@@ -43,8 +43,8 @@ All files                 |   86.28 |    67.74 |   96.61 |   86.03 |
 #### Improve readability
 
 1. Tackle clutter by
-   - Formatting the code, a simple and very effective technique
-     - Format consistently and don’t force the reader to waste timed due to inconsistent formatting
+   - Formatting the code
+     - Format consistently, don’t force the reader to waste timed due to inconsistent formatting
    - Renaming bad names on variables, arguments, instance variables, methods, and classes
    - Renaming abbreviations to make them explicit
 2. Tackle Comments and Dead Code by
