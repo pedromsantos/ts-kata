@@ -9,8 +9,8 @@
     "forceConsistentCasingInFileNames": true, // Force consistent casing in file names
     "isolatedModules": true, // Ensure all modules are isolated and don't share state
     "lib": ["ESNext"], // Specify the library files to be included
-    "module": "ESNext", // Set the module system to CommonJS
-    "moduleResolution": "Node", // Specify the module resolution strategy as Node.js style
+    "module": "NodeNext", // Set the module system to CommonJS
+    "moduleResolution": "NodeNext", // Specify the module resolution strategy as Node.js style
     "noEmit": true, // Disable emitting output files
     "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
     "noImplicitOverride": true, // Force functions designed to override their parent class to be specified as `override`
