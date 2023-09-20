@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "allowJs": false,
     "allowUnreachableCode": false, // Specify whether unreachable code is allowed
     "allowUnusedLabels": false, // Specify whether unused labels are allowed
     "baseUrl": "./", // Set the base directory for resolving non-relative module names
@@ -11,9 +12,9 @@
     "module": "commonjs", // Set the module system to CommonJS
     "moduleResolution": "Node", // Specify the module resolution strategy as Node.js style
     "noEmit": true, // Disable emitting output files
-    "noFallthroughCasesInSwitch": true, // Enable stricter switch statement checks
-    "noImplicitOverride": true, // Disallow implicit overrides of methods
-    "noImplicitReturns": true, // Enable stricter checking for functions with no return statements
+    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
+    "noImplicitOverride": true, // Force functions designed to override their parent class to be specified as `override`
+    "noImplicitReturns": true, // Force functions to specify that they can return `undefined` if a possible code path does not return a value
     "noPropertyAccessFromIndexSignature": true, // Disallow property access from index signatures
     "noUncheckedIndexedAccess": true, // Disallow unchecked indexed access to objects
     "noUnusedLocals": true, // Disallow unused local variables
