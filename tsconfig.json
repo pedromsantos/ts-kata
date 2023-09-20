@@ -8,7 +8,7 @@
     "exactOptionalPropertyTypes": true, // Enable exact optional property types
     "forceConsistentCasingInFileNames": true, // Force consistent casing in file names
     "isolatedModules": true, // Ensure all modules are isolated and don't share state
-    "lib": ["es2020"], // Specify the library files to be included
+    "lib": ["ESNext"], // Specify the library files to be included
     "module": "ESNext", // Set the module system to CommonJS
     "moduleResolution": "Node", // Specify the module resolution strategy as Node.js style
     "noEmit": true, // Disable emitting output files
