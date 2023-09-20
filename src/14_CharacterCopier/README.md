@@ -10,3 +10,9 @@ The exercise is to implement the character copier using Test Doubles for the sou
 Try using Spies – manually written Mocks – and Mocks written with a mocking framework.
 
 Start from these definitions provided in kata.ts.
+
+| **GetChar** | **SetChar** |
+| ----------- | ----------- |
+| 'a'         | 'a'         |
+| 'b'         | 'b'         |
+| '\n'        | NA          |
