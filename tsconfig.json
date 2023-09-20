@@ -9,7 +9,7 @@
     "forceConsistentCasingInFileNames": true, // Force consistent casing in file names
     "isolatedModules": true, // Ensure all modules are isolated and don't share state
     "lib": ["es2020"], // Specify the library files to be included
-    "module": "commonjs", // Set the module system to CommonJS
+    "module": "ESNext", // Set the module system to CommonJS
     "moduleResolution": "Node", // Specify the module resolution strategy as Node.js style
     "noEmit": true, // Disable emitting output files
     "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
@@ -23,7 +23,8 @@
     "pretty": true, // Pretty-print the output
     "removeComments": true, // Remove all comments from the emitted output
     "skipLibCheck": true, // Skip type checking of declaration files
-    "strict": true // Enable strict mode
+    "strict": true, // Enable strict mode
+    "target": "ESNext"
   },
   "exclude": ["node_modules/"], // Specify the files to be excluded from compilation
   "include": ["src/**/*.ts"] // Specify the files to be included in compilation
