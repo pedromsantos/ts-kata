@@ -2,7 +2,6 @@
   "compilerOptions": {
     "allowUnreachableCode": false, // Specify whether unreachable code is allowed
     "allowUnusedLabels": false, // Specify whether unused labels are allowed
-    "alwaysStrict": true, // Enable strict mode to enforce stricter type checking
     "baseUrl": "./", // Set the base directory for resolving non-relative module names
     "emitDecoratorMetadata": false, // Disable emitting decorator metadata
     "exactOptionalPropertyTypes": true, // Enable exact optional property types
@@ -13,10 +12,8 @@
     "moduleResolution": "Node", // Specify the module resolution strategy as Node.js style
     "noEmit": true, // Disable emitting output files
     "noFallthroughCasesInSwitch": true, // Enable stricter switch statement checks
-    "noImplicitAny": true, // Disallow implicit 'any' type declarations
     "noImplicitOverride": true, // Disallow implicit overrides of methods
     "noImplicitReturns": true, // Enable stricter checking for functions with no return statements
-    "noImplicitThis": true, // Disallow the use of 'this' in expressions without an explicit type
     "noPropertyAccessFromIndexSignature": true, // Disallow property access from index signatures
     "noUncheckedIndexedAccess": true, // Disallow unchecked indexed access to objects
     "noUnusedLocals": true, // Disallow unused local variables
@@ -27,6 +24,6 @@
     "skipLibCheck": true, // Skip type checking of declaration files
     "strict": true // Enable strict mode
   },
-  "include": ["src/**/*.ts"], // Specify the files to be included in compilation
-  "exclude": ["node_modules/"] // Specify the files to be excluded from compilation
+  "exclude": ["node_modules/"], // Specify the files to be excluded from compilation
+  "include": ["src/**/*.ts"] // Specify the files to be included in compilation
 }
