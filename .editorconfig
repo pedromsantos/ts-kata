@@ -3,7 +3,7 @@ root = true
 [*]
 charset = utf-8
 
-[*.{js,ts}]
+[*.{ts}]
 end_of_line = lf
 indent_style = space
 indent_size = 2
