@@ -20,6 +20,10 @@ Implement Tic Tac Toe as best as you can using TDD.
 
 Implement Tic Tac Toe striclly applying object calisthenics rules.
 
+## Object calisthenics
+
+### In order of importance (defined by Pedro)
+
 - Wrap all primitives and strings
   - Wrap primitives in a type, specially if it has behaviour or it’s an important domain concept
 - First class collections
@@ -36,3 +40,8 @@ Implement Tic Tac Toe striclly applying object calisthenics rules.
   - 50 lines per class
   - 5 lines per method
   - 2-3? arguments per method
+
+## Resources
+
+<https://levelup.gitconnected.com/learn-these-9-rules-to-start-writing-clean-code-immediately-a7ee40fe1e1b>
+<https://williamdurand.fr/2013/06/03/object-calisthenics/>
