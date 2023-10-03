@@ -59,7 +59,7 @@ export class Game {
 class Coordinate {
   constructor(
     private readonly x: Row,
-    private readonly y: Column
+    private readonly y: Column,
   ) {}
 
   equal(other: Coordinate) {
@@ -155,7 +155,7 @@ class Board {
 
   private hasSamePlayer(coordinate: Coordinate, otherCoordinate: Coordinate) {
     return this.findTileByCoordinate(new Tile(noPlayer, coordinate)).hasSamePlayerAs(
-      this.findTileByCoordinate(new Tile(noPlayer, otherCoordinate))
+      this.findTileByCoordinate(new Tile(noPlayer, otherCoordinate)),
     );
   }
 }
