@@ -62,7 +62,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "^17.7.1",
+    "@commitlint/cli": "^17.7.2",
     "@commitlint/config-conventional": "^17.7.0",
     "@commitlint/format": "^17.4.4",
     "@stryker-mutator/core": "^7.1.1",
@@ -74,7 +74,7 @@
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-import": "^2.28.1",
-    "eslint-plugin-jest": "^27.4.0",
+    "eslint-plugin-jest": "^27.4.2",
     "eslint-plugin-prettier": "^5.0.0",
     "eslint-plugin-simple-import-sort": "^10.0.0",
     "eslint-plugin-sonarjs": "^0.21.0",
