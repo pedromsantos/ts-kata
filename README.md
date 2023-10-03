@@ -98,7 +98,6 @@ There are a few tools preconfigured in the project
     - `eslint-plugin-jest`: ESLint plugin with additional rules for Jest tests.
     - `eslint-plugin-sonarjs`: ESLint plugin that provides additional rules for detecting code smells and security vulnerabilities.
     - `eslint-plugin-prettier`: ESLint plugin that integrates Prettier into ESLint, enabling automatic formatting.
-    - `eslint-config-prettier`: ESLint configuration that disables conflicting rules with Prettier, a code formatter.
     - `eslint-plugin-import`: ESLint plugin that provides linting rules for importing modules.
     - `eslint-plugin-simple-import-sort`: ESLint plugin for sorting imports using a simple convention.
   - Prettier
@@ -118,7 +117,7 @@ There are a few tools preconfigured in the project
 - CI/CD
   - Commit Lint
     - `@commitlint/cli`: Command-line interface for commitlint, a tool to enforce commit message conventions.
-    - `@commitlint/config-conventional`: Configuration preset for commitlint that enforces conventional commit message format.
+    - `@commitlint/config-conventional`: Configuration preset for commitlint that enforces conventional commit message format. See: <https://github.com/conventional-changelog/commitlint/blob/master/%40commitlint/config-conventional/README.md>
     - `@commitlint/format`: Utility to format commitlint messages for printing.
   - Husky
     - `husky`: Git hooks management tool that allows running scripts before committing or pushing code.
