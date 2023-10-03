@@ -9,9 +9,8 @@
   },
 
   "extends": [
-    "plugin:@typescript-eslint/strict", // Use additional strict rules from @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/recommended", // Use additional recommended rules from @typescript-eslint/eslint-plugin
-    "plugin:@typescript-eslint/recommended-requiring-type-checking", // Use recommended rules that require type checking from @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/strict-type-checked", // Use additional strict rules from @typescript-eslint/eslint-plugin
+    "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:prettier/recommended", // Use the recommended prettier configuration
     "plugin:sonarjs/recommended", // Use recommended rules from the SonarJS plugin
     "plugin:jest/recommended", // Use recommended rules for Jest tests

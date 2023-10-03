@@ -131,7 +131,7 @@ class Board {
 
     if (foundTile) return foundTile;
 
-    throw 'tile not found';
+    throw new Error('tile not found');
   }
 
   private playerAt(coordinate: Coordinate) {

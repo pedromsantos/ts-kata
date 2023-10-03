@@ -1,5 +1,7 @@
 export class Copier {
-  copy(): void {}
+  copy() {
+    return;
+  }
 }
 
 export interface Source {
