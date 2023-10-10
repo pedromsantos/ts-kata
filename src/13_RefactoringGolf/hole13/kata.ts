@@ -69,7 +69,7 @@ class Coordinate {
 
 class Tile {
   private coordinate: Coordinate = new Coordinate(0, 0);
-  private player: Player = ' ';
+  private player: Player = noPlayer;
 
   constructor(player: Player, coordinate: Coordinate) {
     this.coordinate = coordinate;
@@ -118,7 +118,7 @@ class Board {
 
   public findFullRowWithSamePlayerOrNoPlayer() {
     for (let r = firstRow; r <= thirdRow; r++) {
-      if (this.isRowFull(r) && this.isRowFullWithSameSymbol(r)) {
+      if (this.isRowFull(r) && this.isRowFullWithSamePlayer(r)) {
         return this.playerAt(new Coordinate(r, firstColumn));
       }
     }
@@ -146,7 +146,7 @@ class Board {
     );
   }
 
-  private isRowFullWithSameSymbol(row: Row) {
+  private isRowFullWithSamePlayer(row: Row) {
     return (
       this.hasSamePlayer(new Coordinate(row, firstColumn), new Coordinate(row, secondColumn)) &&
       this.hasSamePlayer(new Coordinate(row, secondColumn), new Coordinate(row, thirdColumn))

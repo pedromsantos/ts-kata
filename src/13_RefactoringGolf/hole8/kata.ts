@@ -59,7 +59,7 @@ export class Game {
 class Tile {
   private x: number = 0;
   private y: number = 0;
-  private player: string = ' ';
+  private player: string = noPlayer;
 
   constructor(x: number, y: number, player: string) {
     this.x = x;
@@ -103,22 +103,21 @@ class Board {
     return this._plays.find((t: Tile) => t.hasSameCoordinatesAs(new Tile(x, y, noPlayer)))!;
   }
 
-  public AddTileAt(symbol: string, x: number, y: number): void {
-    this._plays
-      .find((t: Tile) => t.hasSameCoordinatesAs(new Tile(x, y, symbol)))!
-      .updatePlayer(symbol);
+  public AddTileAt(player: string, x: number, y: number): void {
+    const tile = new Tile(x, y, player);
+    this._plays.find((t: Tile) => t.hasSameCoordinatesAs(tile))!.updatePlayer(player);
   }
 
   public findRowFullWithSamePlayer(): string {
-    if (this.isRowFull(firstRow) && this.isRowFullWithSameSymbol(firstRow)) {
+    if (this.isRowFull(firstRow) && this.isRowFullWithSamePlayer(firstRow)) {
       return this.TileAt(firstRow, firstColumn)!.Player;
     }
 
-    if (this.isRowFull(secondRow) && this.isRowFullWithSameSymbol(secondRow)) {
+    if (this.isRowFull(secondRow) && this.isRowFullWithSamePlayer(secondRow)) {
       return this.TileAt(secondRow, firstColumn)!.Player;
     }
 
-    if (this.isRowFull(thirdRow) && this.isRowFullWithSameSymbol(thirdRow)) {
+    if (this.isRowFull(thirdRow) && this.isRowFullWithSamePlayer(thirdRow)) {
       return this.TileAt(thirdRow, firstColumn)!.Player;
     }
 
@@ -133,7 +132,7 @@ class Board {
     );
   }
 
-  private isRowFullWithSameSymbol(row: number) {
+  private isRowFullWithSamePlayer(row: number) {
     return (
       this.TileAt(row, firstColumn)!.hasSamePlayerAs(this.TileAt(row, secondColumn)!) &&
       this.TileAt(row, thirdColumn)!.hasSamePlayerAs(this.TileAt(row, secondColumn)!)

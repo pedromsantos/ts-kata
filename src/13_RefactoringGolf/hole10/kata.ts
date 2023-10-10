@@ -59,7 +59,7 @@ export class Game {
 class Tile {
   private x: number = 0;
   private y: number = 0;
-  private player: string = ' ';
+  private player: string = noPlayer;
 
   constructor(x: number, y: number, player: string) {
     this.x = x;
@@ -108,15 +108,15 @@ class Board {
   }
 
   public findRowFullWithSamePlayer(): string {
-    if (this.isRowFull(firstRow) && this.isRowFullWithSameSymbol(firstRow)) {
+    if (this.isRowFull(firstRow) && this.isRowFullWithSamePlayer(firstRow)) {
       return this.playerAt(firstRow, firstColumn);
     }
 
-    if (this.isRowFull(secondRow) && this.isRowFullWithSameSymbol(secondRow)) {
+    if (this.isRowFull(secondRow) && this.isRowFullWithSamePlayer(secondRow)) {
       return this.playerAt(secondRow, firstColumn);
     }
 
-    if (this.isRowFull(thirdRow) && this.isRowFullWithSameSymbol(thirdRow)) {
+    if (this.isRowFull(thirdRow) && this.isRowFullWithSamePlayer(thirdRow)) {
       return this.playerAt(thirdRow, firstColumn);
     }
 
@@ -147,7 +147,7 @@ class Board {
     );
   }
 
-  private isRowFullWithSameSymbol(row: number) {
+  private isRowFullWithSamePlayer(row: number) {
     return (
       this.hasSamePlayer(row, firstColumn, row, secondColumn) &&
       this.hasSamePlayer(row, secondColumn, row, thirdColumn)

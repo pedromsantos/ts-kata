@@ -42,6 +42,7 @@
     "mars": "jest -i src/9_MarsRover/test.ts",
     "tennis": "jest -i src/10_Tennis/test.ts",
     "rose": "jest -i src/11_GildedRose/test.ts",
+    "smelly": "jest -i src/12_SmellyTicTacToe/test.ts",
     "golf": "jest -i src/13_RefactoringGolf/*",
     "golf1": "jest -i src/13_RefactoringGolf/hole1/ --watchAll=true",
     "golf2": "jest -i src/13_RefactoringGolf/hole2/ --watchAll=true",
@@ -55,7 +56,6 @@
     "golf10": "jest -i src/13_RefactoringGolf/hole10/ --watchAll=true",
     "golf11": "jest -i src/13_RefactoringGolf/hole11/ --watchAll=true",
     "golf12": "jest -i src/13_RefactoringGolf/hole12/ --watchAll=true",
-    "smelly": "jest -i src/12_SmellyTicTacToe/test.ts",
     "copier": "jest -i src/14_CharacterCopier/test.ts",
     "tac": "jest -i src/15_TicTacToe/test.ts",
     "esa": "jest -i src/16_ESAMarsRover/test.ts"

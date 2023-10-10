@@ -62,7 +62,7 @@ export class Game {
 class Coordinate {
   constructor(
     private readonly x: Row,
-    private readonly y: Column
+    private readonly y: Column,
   ) {}
 
   equal(other: Coordinate) {
@@ -72,7 +72,7 @@ class Coordinate {
 
 class Tile {
   private coordinate: Coordinate = new Coordinate(0, 0);
-  private player: Player = ' ';
+  private player: Player = noPlayer;
 
   constructor(player: Player, coordinate: Coordinate) {
     this.coordinate = coordinate;
@@ -120,15 +120,15 @@ class Board {
   }
 
   public findFullRowWithSamePlayerOrNoPlayer() {
-    if (this.isRowFull(firstRow) && this.isRowFullWithSameSymbol(firstRow)) {
+    if (this.isRowFull(firstRow) && this.isRowFullWithSamePlayer(firstRow)) {
       return this.playerAt(new Coordinate(firstRow, firstColumn));
     }
 
-    if (this.isRowFull(secondRow) && this.isRowFullWithSameSymbol(secondRow)) {
+    if (this.isRowFull(secondRow) && this.isRowFullWithSamePlayer(secondRow)) {
       return this.playerAt(new Coordinate(secondRow, firstColumn));
     }
 
-    if (this.isRowFull(thirdRow) && this.isRowFullWithSameSymbol(thirdRow)) {
+    if (this.isRowFull(thirdRow) && this.isRowFullWithSamePlayer(thirdRow)) {
       return this.playerAt(new Coordinate(thirdRow, firstColumn));
     }
 
@@ -151,7 +151,7 @@ class Board {
     );
   }
 
-  private isRowFullWithSameSymbol(row: Row) {
+  private isRowFullWithSamePlayer(row: Row) {
     return (
       this.hasSamePlayer(new Coordinate(row, firstColumn), new Coordinate(row, secondColumn)) &&
       this.hasSamePlayer(new Coordinate(row, secondColumn), new Coordinate(row, thirdColumn))
@@ -160,7 +160,7 @@ class Board {
 
   private hasSamePlayer(coordinate: Coordinate, otherCoordinate: Coordinate) {
     return this.findTile(new Tile(noPlayer, coordinate)).hasSamePlayerAs(
-      this.findTile(new Tile(noPlayer, otherCoordinate))
+      this.findTile(new Tile(noPlayer, otherCoordinate)),
     );
   }
 }
