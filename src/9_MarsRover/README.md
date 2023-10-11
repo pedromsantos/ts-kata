@@ -23,8 +23,8 @@ This plateau, must be navigated by the rover so that it´s on-board cameras can 
 ### Example input
 
 ```text
-55
-12N
+5 5
+1 2 N
 MLMLMLMM
 ```
 
