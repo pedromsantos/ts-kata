@@ -87,7 +87,7 @@
     "prettier": "^3.0.3",
     "ts-coverage": "^0.1.5",
     "ts-jest": "^29.1.1",
-    "type-coverage": "^2.26.3",
+    "type-coverage": "^2.27.0",
     "typescript": "^5.2.2",
     "typescript-coverage-report": "^0.8.0"
   },
