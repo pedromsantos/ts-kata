@@ -18,7 +18,7 @@ export class Game {
   private _lastPlayer = noPlayer;
   private _board: Board = new Board();
 
-  public Play(player: Player, x: Row, y: Row) {
+  public Play(player: Player, x: Row, y: Column) {
     this.validateFirstMove(player);
     this.validatePlayer(player);
     this.validatePositionIsEmpty(x, y);
@@ -41,7 +41,7 @@ export class Game {
     }
   }
 
-  private validatePositionIsEmpty(x: Row, y: Row) {
+  private validatePositionIsEmpty(x: Row, y: Column) {
     if (this._board.isTilePlayedAt(x, y)) {
       throw new Error('Invalid position');
     }
@@ -65,7 +65,7 @@ class Tile {
   private y: Row = 0;
   private player: Player = noPlayer;
 
-  constructor(x: Row, y: Row, player: Player) {
+  constructor(x: Row, y: Column, player: Player) {
     this.x = x;
     this.y = y;
     this.player = player;
