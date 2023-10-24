@@ -24,7 +24,7 @@ describe('Gilded Rose inventary update should', () => {
     expect(gildedRose).not.toBeNull();
   });
 
-  test.skip('update quality and sell in values', () => {
+  test.skip('update quality and sell-in values', () => {
     expect(doUpdateQuality).toVerifyAllCombinations(
       [
         'foo',
@@ -33,7 +33,7 @@ describe('Gilded Rose inventary update should', () => {
         'Sulfuras, Hand of Ragnaros',
       ],
       [-1, 0, 1, 11],
-      [0, 1, 2, 49, 50]
+      [0, 1, 2, 49, 50],
     );
   });
 });
