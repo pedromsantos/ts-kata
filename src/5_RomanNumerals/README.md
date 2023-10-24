@@ -72,8 +72,8 @@ Another way to use the Transformation Priority Premise is to keep writing new co
 | 0     | 0               | Nil -> constant              | `return 0`                                                              |
 | 1     | 1               | Constant -> scalar           | `return index`                                                          |
 | 2     | 1               | Unconditional -> conditional | `if number < 2 then return index else return index - 1`                 |
-| 3     | 2               | Unconditional -> conditional | No change                                                               |
-| 4     | 3               | Unconditional -> conditional | No change                                                               |
+| 3     | 2               | Unconditional -> conditional | `if number < 2 then return index else return index - 1` NO CHANGE       |
+| 4     | 3               | Unconditional -> conditional | `if number < 2 then return index else return index - 1` NO CHANGE       |
 | 5     | 5               | Scalar -> array              | `var fibs = [0, 1, 1, 2, 3, 5]; return fibs[index]`                     |
 | 6     | 8               | Scalar -> array              | `var fibs = [0, 1, 1, 2, 3, 5, 8]; return fibs[index]`                  |
 | 7     | 13              | Scalar -> array(duplication) | `var fibs = [0, 1, 1, 2, 3, 5, 8, 13]; return fibs[index]`              |
