@@ -24,3 +24,7 @@
 | **13**    | "14"       |
 | **14**    | "15"       |
 | **15**    | "fizzbuzz" |
+
+## Resources
+
+TestDesiderata by Kent Beck: <https://kentbeck.github.io/TestDesiderata>

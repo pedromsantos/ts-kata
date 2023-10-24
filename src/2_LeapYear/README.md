@@ -33,3 +33,7 @@ Write a function that returns true or false depending on whether its input integ
 | **1996**  | true       |
 | **1900**  | false      |
 | **2000**  | true       |
+
+## Resources
+
+TestDesiderata by Kent Beck: <https://kentbeck.github.io/TestDesiderata>

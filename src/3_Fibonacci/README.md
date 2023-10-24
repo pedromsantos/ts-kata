@@ -16,3 +16,7 @@
 | **7**     | 13         |
 | **8**     | 21         |
 | **9**     | 34         |
+
+## Resources
+
+TestDesiderata by Kent Beck: <https://kentbeck.github.io/TestDesiderata>
