@@ -1,6 +1,6 @@
 export enum Player {
   X,
-  Y,
+  O,
 }
 
 export enum Row {
