@@ -593,12 +593,12 @@
   resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-18.1.0.tgz#1dcacf8da1981dd2e6da76988fdac9f48cdccd46"
   integrity sha512-w3Vt4K+O7+nSr9/gFSEfZ1exKUOPSlJaRpnk7Y+XowEhvwT7AIk1HNANH+gETf0zGZ020+hfiMW/Ome+SNCUsg==
 
-"@commitlint/format@^18.0.0", "@commitlint/format@^18.1.0":
-  version "18.1.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-18.1.0.tgz#fe0d03b47cf2eda98a5bd9819d595935f53576de"
-  integrity sha512-So/w217tGWMZZb1yXcUFNF2qFLyYtSVqbnGoMbX8a+JKcG4oB11Gc1adS0ssUOMivtiNpaLtkSHFynyiwtJtiQ==
+"@commitlint/format@^18.1.0", "@commitlint/format@^18.4.0":
+  version "18.4.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-18.4.0.tgz#4f76466a7cafef5a5c9e7ad2c609b81a6b77cd09"
+  integrity sha512-MiAe4D5/ahty38CzULdQbpRa3ReKZtx0kyigOWcntq+N5uqez+Ac4/MO7H+3j1kC4G7nfJVfBu6TqcXeyNvhCQ==
   dependencies:
-    "@commitlint/types" "^18.1.0"
+    "@commitlint/types" "^18.4.0"
     chalk "^4.1.0"
 
 "@commitlint/is-ignored@^18.1.0":
@@ -697,10 +697,10 @@
   dependencies:
     find-up "^5.0.0"
 
-"@commitlint/types@^18.1.0":
-  version "18.1.0"
-  resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-18.1.0.tgz#7d0d0227ee28b5bacbafa648601ee51e8604f03e"
-  integrity sha512-65vGxZmbs+2OVwEItxhp3Ul7X2m2LyLfifYI/NdPwRqblmuES2w2aIRhIjb7cwUIBHHSTT8WXj4ixVHQibmvLQ==
+"@commitlint/types@^18.1.0", "@commitlint/types@^18.4.0":
+  version "18.4.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-18.4.0.tgz#482393d587a86fdf0d98ed17d2efd598d5021049"
+  integrity sha512-MKeaFxt0I9fhqUb2E+YIzX/gZtmkuodJET/XKiZIMvXUff8Ee4Ih86eLg+yAm2jf1pwGBmU02uNOp0y094w2Uw==
   dependencies:
     chalk "^4.1.0"
 
