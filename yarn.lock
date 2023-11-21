@@ -1252,7 +1252,7 @@
   dependencies:
     "@types/istanbul-lib-report" "*"
 
-"@types/jest@^29.5.7":
+"@types/jest@^29.5.9":
   version "29.5.9"
   resolved "https://registry.yarnpkg.com/@types/jest/-/jest-29.5.9.tgz#eb997ab4a201b7504662ac9ebb84a748e17f95ab"
   integrity sha512-zJeWhqBwVoPm83sP8h1/SVntwWTu5lZbKQGCvBjxQOyEWnKnsaomt2y7SlV4KfwlrHAHHAn00Sh4IAWaIsGOgQ==
