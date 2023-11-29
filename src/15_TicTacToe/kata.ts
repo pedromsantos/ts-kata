@@ -15,14 +15,26 @@ export enum Column {
   Rigth,
 }
 
-export interface Cell {
-  row: Row;
-  column: Column;
+export class Cell {
+  constructor(
+    private readonly row: Row,
+    private readonly column: Column,
+  ) {}
+
+  equals(other: Cell) {
+    return this.row === other.row && this.column === other.column;
+  }
 }
 
-export interface Play {
-  cell: Cell;
-  player: Player;
+export class Play {
+  constructor(
+    private readonly cell: Cell,
+    private readonly player: Player,
+  ) {}
+
+  equals(other: Play) {
+    return this.player === other.player && this.cell.equals(other.cell);
+  }
 }
 
 export interface TicTacToe {
