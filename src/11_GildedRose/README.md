@@ -44,7 +44,7 @@ Write characterization tests to describe the code as is.
 - Use approval tests to test the solution instead of characterization tests
 - Note the advantages/disadvantages of using one approach or the other
 
-#### Jest extension tyo support combinations
+#### Jest extension two support combinations
 
 <https://github.com/nicoespeon/jest-extended-snapshot#readme>
 
@@ -60,7 +60,7 @@ test('should update quality', () => {
   expect(doUpdateQuality).toVerifyAllCombinations(
     ['foo', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert', 'Sulfuras, Hand of Ragnaros'],
     [-1, 0, 1, 11],
-    [0, 1, 2, 49, 50]
+    [0, 1, 2, 49, 50],
   );
 });
 ```

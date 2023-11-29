@@ -2,7 +2,8 @@
 
 ## Goal
 
-- Implement the shopping cart use cases for this company using a Domain Driven Design and Hexagonal architecture approach.
+- Implement the shopping cart use cases for this company.
+- Use a Domain Driven Design and Hexagonal architecture approach.
 - Start from the use cases, we will not be implementing the transport layer for this project.
 - Use a in-memory database implementation.
 

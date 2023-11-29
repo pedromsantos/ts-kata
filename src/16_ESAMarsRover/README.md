@@ -33,8 +33,8 @@ Timestamps on messages allow ESA to calculate how long it took the rover to exec
 ### Example input
 
 ```text
-55\n
-12N\n
+5 5\n
+1 2 N\n
 LMLMLMLMM\n
 1994-11-05T08:32:20.10Z
 ```
@@ -51,7 +51,7 @@ The output of the rover is a message it sends to ESA using the onboard radio aft
 Example output:
 
 ```text
-13N\n
+1 3 N\n
 1994-11-05T12:02:11.11Z
 ```
 
@@ -67,36 +67,36 @@ Example input (same message using various EU languages)
 ```text
 // COMMANDS IN ENGLISH
 EN\n
-55\n
-12N\n
+5 5\n
+1 2 N\n
 LMLMLMLMM\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN SPANISH
 ES\n
-55\n
-12N\n
+5 5\n
+1 2 N\n
 IAIAIAIAA\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN FRENCH
 FR\n
-55\n
-12N\n
+5 5\n
+1 2 N\n
 GAGAGAGAA\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN PORTUGUESE
 PT\n
-55\n
-12N\n
+5 5\n
+1 2 N\n
 EAEAEAEAA\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN ITALIAN
 IT\n
-55\n
-12N\n
+5 5\n
+1 2 N\n
 SASASASAA\n
 1994-11-05T08:32:20.10Z
 ```
