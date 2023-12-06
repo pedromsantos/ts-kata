@@ -42,7 +42,7 @@ export interface TicTacToe {
 }
 
 export interface Output {
-  printPlay(play: Play): void;
-  printWinner(player: Player): void;
+  printPlay(x: number, y: number, player: string): void;
+  printWinner(player: string): void;
   printError(errorMessag: string): void;
 }
