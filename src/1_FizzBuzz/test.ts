@@ -1,7 +1,7 @@
 import { fizzBuzz } from './kata';
 
 describe('Fizz Buzz should', () => {
-  test('be "something"', () => {
+  test('do "something"', () => {
     expect(fizzBuzz).toBe('something');
   });
 });
