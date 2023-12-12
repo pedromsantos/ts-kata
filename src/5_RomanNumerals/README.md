@@ -38,6 +38,12 @@
 | **2000**          | MM                |
 | **3000**          | MMM               |
 
+## Folow TDD rules stryctly
+
+1. Write production code only to pass a failing unit test.
+2. Write no more of a unit test than sufficient to fail (compilation failures are failures).
+3. Write no more production code than necessary to pass the one failing unit test.
+
 ## Second run
 
 Use the Transformation Priority Premise table to evolve your code.
