@@ -65,3 +65,16 @@ wall: [user name] wall
 - The application should not start with a pre-defined list of users.
 
 IMPORTANT: Focus on writing the best code you can produce. Do not rush. Take as much time as you need; there is no deadline.
+
+## Unit vs Integration vs Acceptance vs E2E Testing
+
+|                       | **Unit**                    | **Integration aka contract**                            | **Acceptance aka system**                           | **E2e aka functional**                                      |
+| --------------------- | --------------------------- | ------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- |
+| **Boundary**          | Class, Aggregate            | Class - External dependency                             | Application code (mock/stub) external dependencies  | Application and network dependencies services and databases |
+| **Size**              | Tiny                        | Tiny to Small                                           | Small to Medium                                     | Large                                                       |
+| **Environment**       | Development                 | Integration test env                                    | Developement/QA                                     | Prod like                                                   |
+| **Data**              | Mock data                   | Test data                                               | Fake or Data                                        | Copy of real data or real data                              |
+| **System Under Test** | Isolated behaviour          | Integration layer and external dependency               | App flow with (mocked/stubed) external dependencies | App and all dependencies                                    |
+| **Scenarios**         | Developer                   | Developer                                               | Developer/QA                                        | End user                                                    |
+| **When**              | Before each commit/on build | On build                                                | Before each commit/on build                         | On build                                                    |
+| **Execution time**    | Very fast                   | Medium to slow (depending on external dependency speed) | Very fast to fast, on worst case medium             | Slow                                                        |
