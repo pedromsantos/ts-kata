@@ -8,7 +8,7 @@ describe('Rover should', () => {
 
       const position = rover.execute(commands);
 
-      expect(position).toBe('1 3 N');
+      expect(position).toBe('5 5\n1 2 N\nLMLMLMLMM');
     });
 
     test('turn 360 degrees counter-clokwise while moving around the plateau', () => {
@@ -17,7 +17,7 @@ describe('Rover should', () => {
 
       const position = rover.execute(commands);
 
-      expect(position).toBe('5 1 E');
+      expect(position).toBe('5 5\n3 3 E\nMMRMMRMRRM');
     });
   });
 });
