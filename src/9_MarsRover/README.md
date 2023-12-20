@@ -72,6 +72,8 @@ MMRMMRMRRM
 
 Implement the Mars Rover as best as you can using TDD.
 
+There are 2 acceptance tests to get you started. Treat them as an automated "definition of done". Once the 2 acceptance tests are passing your are done :) Don't try to make the acceptance tests go green. Focus on writing smaller unit tests to implement the behaviour requiered and leave the acceptance tests on red. Once you impplement all behaviours the acceptance tests should turn green.
+
 ### Example starting code
 
 ```typescript

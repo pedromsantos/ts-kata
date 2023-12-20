@@ -1,9 +1,9 @@
 # Fizzbuzz kata
 
-- Write a function that takes a number and outputs it as a string.
-- For multiples of three return "fizz" instead of the number.
-- For the multiples of five return “buzz" instead of the number.
-- For numbers which are multiples of both three and five return “fizzbuzz" instead of the number.
+- Write a function that takes a number and returns it as a string.
+- For multiples of three return "fizz" instead of the stringified number.
+- For the multiples of five return “buzz" instead of the strigified number.
+- For numbers which are multiples of both three and five return “fizzbuzz" instead of the stringified number.
 
 ## Examples
 
@@ -27,13 +27,13 @@
 
 ## Folow TDD rules stryctly
 
-1. Write production code only to pass a failing unit test.
+1. Write production code only to pass a single failing unit test.
 2. Write no more of a unit test than sufficient to fail (compilation failures are failures).
 3. Write no more production code than necessary to pass the one failing unit test.
 
 ## Great habits
 
-There is a set of good habits you should aim to internalize. On the following chapters we will add more to this list.
+There is a set of good habits you should aim to internalize.
 
 ### Considerations when writing a new test
 
@@ -67,11 +67,21 @@ There is a set of good habits you should aim to internalize. On the following ch
 
 ### Considerations when making a failing test pass
 
-Write the simplest code to pass the test. Fake it or use obvious implementation. It is okay to write any code that makes you get to the refactor phase more quickly. It is okay to write any code that you might improve at a later stage. Don't be embarrassed by writing simple code. Trying to be clever too early is often not the best choice.
+- Write the simplest code to pass the test.
+- Fake it or use obvious implementation.
+- It is okay to write any code that makes you get to the refactor phase more quickly.
+- It is okay to write any code that you might improve at a later stage.
+- Don't be embarrassed by writing simple code.
+  Trying to be clever too early is often not the best choice.
 
 ### Considerations after the test passes
 
-Use the Rule of Three to tackle duplication. If you need something once, build it. If you need something twice, pay attention. If you need it a third time, abstract it. Keep in mind that duplication is easier to tackle than the wrong abstractions. That's why we want to see duplication three times before cleaning it.
+- Use the Rule of Three to tackle duplication.
+  - If you need something once, build it.
+  - If you need something twice, pay attention.
+  - If you need it a third time, abstract it.
+
+Keep in mind that duplication is easier to tackle than the wrong abstractions. That's why we want to see duplication three times before cleaning it.
 
 ## Resources
 

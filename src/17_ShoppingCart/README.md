@@ -9,8 +9,9 @@
 
 - Create a testing suite that can be confidently used to test your code.
   - Acceptance tests (Scenarios covering everything except repositories)
-  - Unit Tests (Unit testing Entities, use cases, and domain services)
+  - Unit Tests (use cases, aggregates/entities, and domain services)
   - Integration tests (Testing the real repository implementation)
+  - Your tests code should be a first level citizen, treat it as production code.
 
 ## Overview
 
@@ -19,10 +20,10 @@ The company wants to sell online the following products:
 
 ```txt
 Code         | Name                     |  Price
---------------------------------------------------
-VOUCHER      | AcME Voucher             |   5.00 €
-TSHIRT       | AcME T-Shirt             |  20.00 €
-MUG          | AcME Coffee Mug          |   7.50 €
+---------------------------------------------
+VOUCHER      | Voucher             |   5.00 €
+TSHIRT       | T-Shirt             |  20.00 €
+MUG          | Coffee Mug          |   7.50 €
 ```
 
 ### Examples
@@ -31,10 +32,6 @@ MUG          | AcME Coffee Mug          |   7.50 €
 Items: VOUCHER, TSHIRT, MUG
 Subtotal: 32.50€
 ```
-
-## Requirements
-
-Your tests code should be a first level citizen, treat it as production code.
 
 ## Extension
 
@@ -58,15 +55,15 @@ Items: VOUCHER, TSHIRT, VOUCHER, VOUCHER, MUG, TSHIRT, TSHIRT
 Subtotal: 74.50€
 ```
 
-### Unit vs Integration vs Acceptance vs E2E Testing
+### Unit vs Integration vs Acceptance
 
-|                       | **Unit**                    | **Integration aka contract**                            | **Acceptance aka system**                           | **E2e aka functional**                                      |
-| --------------------- | --------------------------- | ------------------------------------------------------- | --------------------------------------------------- | ----------------------------------------------------------- |
-| **Boundary**          | Class, Aggregate            | Class - External dependency                             | Application code (mock/stub) external dependencies  | Application and network dependencies services and databases |
-| **Size**              | Tiny                        | Tiny to Small                                           | Small to Medium                                     | Large                                                       |
-| **Environment**       | Development                 | Integration test env                                    | Developement/QA                                     | Prod like                                                   |
-| **Data**              | Mock data                   | Test data                                               | Fake or Data                                        | Copy of real data or real data                              |
-| **System Under Test** | Isolated behaviour          | Integration layer and external dependency               | App flow with (mocked/stubed) external dependencies | App and all dependencies                                    |
-| **Scenarios**         | Developer                   | Developer                                               | Developer/QA                                        | End user                                                    |
-| **When**              | Before each commit/on build | On build                                                | Before each commit/on build                         | On build                                                    |
-| **Execution time**    | Very fast                   | Medium to slow (depending on external dependency speed) | Very fast to fast, on worst case medium             | Slow                                                        |
+|                       | **Unit**                    | **Integration aka contract**                            | **Acceptance aka system**                           |
+| --------------------- | --------------------------- | ------------------------------------------------------- | --------------------------------------------------- |
+| **Boundary**          | Class, Aggregate            | Class - External dependency                             | Application code (mock/stub) external dependencies  |
+| **Size**              | Tiny                        | Tiny to Small                                           | Small to Medium                                     |
+| **Environment**       | Development                 | Integration test env                                    | Developement/QA                                     |
+| **Data**              | Mock data                   | Test data                                               | Fake or Data                                        |
+| **System Under Test** | Isolated behaviour          | Integration layer and external dependency               | App flow with (mocked/stubed) external dependencies |
+| **Scenarios**         | Developer                   | Developer                                               | Developer/QA                                        |
+| **When**              | Before each commit/on build | On build                                                | Before each commit/on build                         |
+| **Execution time**    | Very fast                   | Medium to slow (depending on external dependency speed) | Very fast to fast, on worst case medium             |

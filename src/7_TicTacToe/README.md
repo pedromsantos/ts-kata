@@ -59,7 +59,7 @@ Implement Tic Tac Toe striclly applying object calisthenics rules.
 - Keep your tests and production code separate.
 - Organize your unit tests to reflect your production code (similar project structure).
 - Organize your test in arrange, act and assert blocks.
-- Write the assertion first and work backward.
+- Write the, or at least focus on the, assertion first and work backward.
 - Write fast, isolated, repeatable and self-validating tests.
 
 ### Considerations when making a failing test pass

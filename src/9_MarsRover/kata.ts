@@ -1,1 +1,5 @@
-export const rover = 'Mars plateau';
+export class Rover {
+  execute(input: string): string {
+    return input;
+  }
+}
