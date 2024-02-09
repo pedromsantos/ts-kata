@@ -2602,10 +2602,10 @@ eslint-plugin-prettier@^5.1.3:
     prettier-linter-helpers "^1.0.0"
     synckit "^0.8.6"
 
-eslint-plugin-simple-import-sort@^10.0.0:
-  version "10.0.0"
-  resolved "https://registry.npmjs.org/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-10.0.0.tgz"
-  integrity sha512-AeTvO9UCMSNzIHRkg8S6c3RPy5YEwKWSQPx3DYghLedo2ZQxowPFLGDN1AZ2evfg6r6mjBSZSLxLFsWSu3acsw==
+eslint-plugin-simple-import-sort@^11.0.0:
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-simple-import-sort/-/eslint-plugin-simple-import-sort-11.0.0.tgz#06693fd7a19cecc30cb042fb49fed38b3f1c21b0"
+  integrity sha512-3zxeF/0piwHA7/JlbpOmMJ1/1tc1dSRiir4DwpEnP747alKwZbj5xX+ZxroShMBU6LNDkpquo7FsXHCBc0HgCA==
 
 eslint-plugin-sonarjs@^0.23.0:
   version "0.23.0"
