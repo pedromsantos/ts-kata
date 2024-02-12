@@ -31,12 +31,9 @@ jobs:
       - name: Types
         run: yarn types
 
-      - name: Test
-        run: yarn test
-
       - name: Build
-        run: yarn build
-      
+        run: yarn ci
+
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
         env:
