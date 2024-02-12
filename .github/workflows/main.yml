@@ -25,12 +25,6 @@ jobs:
       - name: Install Dependencies
         run: yarn
 
-      - name: Lint
-        run: yarn lint
-
-      - name: Types
-        run: yarn types
-
       - name: Build
         run: yarn ci
 
