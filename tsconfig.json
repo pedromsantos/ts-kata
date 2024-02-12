@@ -24,7 +24,8 @@
     "removeComments": true, // Remove all comments from the emitted output
     "skipLibCheck": true, // Skip type checking of declaration files
     "strict": true, // Enable strict mode
-    "target": "ESNext"
+    "target": "ESNext",
+    "esModuleInterop": true
   },
   "exclude": ["node_modules/"], // Specify the files to be excluded from compilation
   "include": ["src/**/*.ts"] // Specify the files to be included in compilation

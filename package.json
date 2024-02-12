@@ -9,7 +9,8 @@
     "dojo",
     "code",
     "practice",
-    "tdd"
+    "tdd",
+    "Oblect-oriented"
   ],
   "license": "MIT",
   "main": "./lib/kata.js",
