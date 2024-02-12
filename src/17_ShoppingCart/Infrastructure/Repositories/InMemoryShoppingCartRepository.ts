@@ -1,4 +1,4 @@
-import { ShoppingCartRepository } from 'src/17_ShoppingCart/Domain/Repositories/shoppingCartRepository';
+import { ShoppingCartRepository } from './../../Domain/Repositories/shoppingCartRepository';
 
 export class InMemoryShoppingCartRepository implements ShoppingCartRepository {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
