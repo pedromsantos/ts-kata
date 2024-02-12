@@ -10,7 +10,7 @@
     "code",
     "practice",
     "tdd",
-    "Oblect-oriented"
+    "Object-oriented"
   ],
   "license": "MIT",
   "main": "./lib/kata.js",
