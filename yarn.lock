@@ -1205,14 +1205,14 @@
     tslib "~2.6.2"
     typed-inject "~4.0.0"
 
-"@stryker-mutator/core@^8.2.3":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/core/-/core-8.2.3.tgz#04ff63ca7c83aee35031473d29ce9b37c13811b6"
-  integrity sha512-egwVVyXCXoGR2shUPwkPgSApPsfMlK5xDsPsdaXyOmg7CXtIcpCxgsiy2tcJPnvlu2Ws7G3PlF2tqy7k2FX1hg==
+"@stryker-mutator/core@^8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/core/-/core-8.2.4.tgz#1bbea6d970bef96c8eafdc06d3a3cfbdae589b45"
+  integrity sha512-QH/kvpwLSuL5LnyLd7sNk9NNuawTiJjHjsL81s/O4endRo99+siwMa0TNyJJKoRFOX4G7dEOGtQRGiVm3uWfYQ==
   dependencies:
-    "@stryker-mutator/api" "8.2.3"
-    "@stryker-mutator/instrumenter" "8.2.3"
-    "@stryker-mutator/util" "8.2.3"
+    "@stryker-mutator/api" "8.2.4"
+    "@stryker-mutator/instrumenter" "8.2.4"
+    "@stryker-mutator/util" "8.2.4"
     ajv "~8.12.0"
     chalk "~5.3.0"
     commander "~11.1.0"
@@ -1239,20 +1239,20 @@
     typed-inject "~4.0.0"
     typed-rest-client "~1.8.11"
 
-"@stryker-mutator/instrumenter@8.2.3":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/instrumenter/-/instrumenter-8.2.3.tgz#ddf80f7a95b401b88860ce69ee3b6dbb2256d3da"
-  integrity sha512-Mgor20apuHZEXH0Bwa9spLHEISIqQXCQy0SCr4uSSwC5/Jmz38AHijK5l6JoiyTuCMmaHQMd5zrG8Q2PAhDdWQ==
+"@stryker-mutator/instrumenter@8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/instrumenter/-/instrumenter-8.2.4.tgz#4ed93f9db70ee9e0a90894b8b651ff2b0d467cd6"
+  integrity sha512-6EIHYl+OqEeC8DBcRavL40RSwgrZvVI4zgHs5aA/rN/mHsYBJWU5fu95MRcl+IKm1fhW73jQHBVbHlIlaMb4BQ==
   dependencies:
     "@babel/core" "~7.23.9"
     "@babel/generator" "~7.23.6"
     "@babel/parser" "~7.23.9"
     "@babel/plugin-proposal-decorators" "~7.23.9"
     "@babel/preset-typescript" "~7.23.3"
-    "@stryker-mutator/api" "8.2.3"
-    "@stryker-mutator/util" "8.2.3"
+    "@stryker-mutator/api" "8.2.4"
+    "@stryker-mutator/util" "8.2.4"
     angular-html-parser "~5.2.0"
-    semver "~7.5.4"
+    semver "~7.6.0"
     weapon-regex "~1.3.0"
 
 "@stryker-mutator/jest-runner@^8.2.3":
