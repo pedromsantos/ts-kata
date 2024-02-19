@@ -1195,6 +1195,16 @@
     tslib "~2.6.2"
     typed-inject "~4.0.0"
 
+"@stryker-mutator/api@8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-8.2.4.tgz#ee3b952209f3792695777c6b15514a47669df4eb"
+  integrity sha512-6gT4KzN5hskJEHi+JRT0tNpt1enG+sjTUrl2dMUDl+yVqhQaDV/1fh4Sy3Fj5rk9m15shd7ZFHKETz0tUGd0Hw==
+  dependencies:
+    mutation-testing-metrics "3.0.2"
+    mutation-testing-report-schema "3.0.2"
+    tslib "~2.6.2"
+    typed-inject "~4.0.0"
+
 "@stryker-mutator/core@^8.2.3":
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/core/-/core-8.2.3.tgz#04ff63ca7c83aee35031473d29ce9b37c13811b6"
@@ -1255,19 +1265,24 @@
     semver "~7.5.4"
     tslib "~2.6.2"
 
-"@stryker-mutator/typescript-checker@^8.2.3":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript-checker/-/typescript-checker-8.2.3.tgz#32b654b8d63229d044377bd4d8c9c587e45d03e4"
-  integrity sha512-m/v7QCMIUwvdp9kjIH3UBQGk6kJVHIhsmQA5jlPZbCqb5f0aIeuKTwFf3mhNXdy/XM5QAdhVQTl++oNmGtNVqA==
+"@stryker-mutator/typescript-checker@^8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript-checker/-/typescript-checker-8.2.4.tgz#8cfc7c52384da0ecdeb2a4ecb1f7118afba9a42b"
+  integrity sha512-8otG8qcxSMD8hcd85AGYg1a4+yQjR3y45UCOEbyvKkUhXJMrwUIIjgHhB9rjlRlKu/db4ch7ZPqaDWOXPStCCw==
   dependencies:
-    "@stryker-mutator/api" "8.2.3"
-    "@stryker-mutator/util" "8.2.3"
-    semver "~7.5.4"
+    "@stryker-mutator/api" "8.2.4"
+    "@stryker-mutator/util" "8.2.4"
+    semver "~7.6.0"
 
 "@stryker-mutator/util@8.2.3":
   version "8.2.3"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-8.2.3.tgz#cf91096a795d918505b7b2aaeac956c873b0ae4f"
   integrity sha512-wo3OhxmDqDVIsZkaVGrRj85/hlcNuyZr1wKKEiddfQdf3cXO3UeC4Q0i3HdnH+wn9DnWWgNPrin9PgyL/2fXOQ==
+
+"@stryker-mutator/util@8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-8.2.4.tgz#98aa7bda24a92c766c960a72cdb5ab311b84a678"
+  integrity sha512-DEIl8ZDUvu5HelmIUaeh48I8pVX2qN+pmYJAxwNgYblNtm1q1EhoSQJSQXChL05OJ+Y9bOgw7qmD9QHDWm730A==
 
 "@types/babel__core@^7.1.14":
   version "7.1.19"
@@ -5581,7 +5596,7 @@ semantic-ui-react@^0.88.2:
   resolved "https://registry.npmjs.org/semver/-/semver-5.7.2.tgz"
   integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==
 
-semver@7.6.0:
+semver@7.6.0, semver@^7.3.4, semver@^7.3.7, semver@^7.5.3, semver@^7.5.4, semver@~7.6.0:
   version "7.6.0"
   resolved "https://registry.yarnpkg.com/semver/-/semver-7.6.0.tgz#1a46a4db4bffcccd97b743b5005c8325f23d4e2d"
   integrity sha512-EnwXhrlwXMk9gKu5/flx5sv/an57AkRplG3hTK68W7FRDN+k+OWBj65M7719OkA82XLBxrcX0KSHj+X5COhOVg==
@@ -5593,7 +5608,7 @@ semver@^6.3.0, semver@^6.3.1:
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
-semver@^7.3.4, semver@^7.3.7, semver@^7.5.3, semver@^7.5.4, semver@~7.5.4:
+semver@~7.5.4:
   version "7.5.4"
   resolved "https://registry.npmjs.org/semver/-/semver-7.5.4.tgz"
   integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
