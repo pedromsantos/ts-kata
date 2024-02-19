@@ -1185,16 +1185,6 @@
     prop-types "^15.7.2"
     react-is "^16.6.3"
 
-"@stryker-mutator/api@8.2.3":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-8.2.3.tgz#05c79acbcc604f89fcdbc20295567fe6fdfdb91e"
-  integrity sha512-UUHMMOv9lc88i8t+r90LmuQeK4qmrrZ6F4LhTyAiUftKyY0yLyTTUFHtDl/hApUG/q2tsH7v7Z81/29zSWp+yQ==
-  dependencies:
-    mutation-testing-metrics "3.0.2"
-    mutation-testing-report-schema "3.0.2"
-    tslib "~2.6.2"
-    typed-inject "~4.0.0"
-
 "@stryker-mutator/api@8.2.4":
   version "8.2.4"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-8.2.4.tgz#ee3b952209f3792695777c6b15514a47669df4eb"
@@ -1255,14 +1245,14 @@
     semver "~7.6.0"
     weapon-regex "~1.3.0"
 
-"@stryker-mutator/jest-runner@^8.2.3":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-8.2.3.tgz#dd54b752c74d087bafcb348336cc341255b64a99"
-  integrity sha512-gYxjL/erxJ70RjE7Sn4uVSpAKW6af0Qww8ocYKcvnxnj38htxZ1m+lhb46TBdCTV8BNGAiAodxn+lm4HlTSKgg==
+"@stryker-mutator/jest-runner@^8.2.4":
+  version "8.2.4"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/jest-runner/-/jest-runner-8.2.4.tgz#384b068688fc2eaf921b7ee5fc3bcb639c2c8e1b"
+  integrity sha512-t5CS+dLe6SNVuUrUymwbMlfwsi8BM3QmBjP/rsBr13yYxh/eCi3qlwSXBxoew7qrgdWr3NnQ/5XLxUbA3BKOLA==
   dependencies:
-    "@stryker-mutator/api" "8.2.3"
-    "@stryker-mutator/util" "8.2.3"
-    semver "~7.5.4"
+    "@stryker-mutator/api" "8.2.4"
+    "@stryker-mutator/util" "8.2.4"
+    semver "~7.6.0"
     tslib "~2.6.2"
 
 "@stryker-mutator/typescript-checker@^8.2.4":
@@ -1273,11 +1263,6 @@
     "@stryker-mutator/api" "8.2.4"
     "@stryker-mutator/util" "8.2.4"
     semver "~7.6.0"
-
-"@stryker-mutator/util@8.2.3":
-  version "8.2.3"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-8.2.3.tgz#cf91096a795d918505b7b2aaeac956c873b0ae4f"
-  integrity sha512-wo3OhxmDqDVIsZkaVGrRj85/hlcNuyZr1wKKEiddfQdf3cXO3UeC4Q0i3HdnH+wn9DnWWgNPrin9PgyL/2fXOQ==
 
 "@stryker-mutator/util@8.2.4":
   version "8.2.4"
@@ -5607,13 +5592,6 @@ semver@^6.3.0, semver@^6.3.1:
   version "6.3.1"
   resolved "https://registry.npmjs.org/semver/-/semver-6.3.1.tgz"
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
-
-semver@~7.5.4:
-  version "7.5.4"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.5.4.tgz"
-  integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
-  dependencies:
-    lru-cache "^6.0.0"
 
 set-blocking@^2.0.0:
   version "2.0.0"
