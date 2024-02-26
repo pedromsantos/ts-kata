@@ -1265,13 +1265,13 @@
     semver "~7.6.0"
     tslib "~2.6.2"
 
-"@stryker-mutator/typescript-checker@^8.2.5":
-  version "8.2.5"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript-checker/-/typescript-checker-8.2.5.tgz#78869702bbc8f71843cfaaa87c011db9b6648729"
-  integrity sha512-anZN7ulzzcs3oz0QGpy7kF1ipYyYtg3OPudQJAFHwnCXf7W44+Y5l4Vwa8pfXVNww4slodII034UFeHq5r2dAQ==
+"@stryker-mutator/typescript-checker@^8.2.6":
+  version "8.2.6"
+  resolved "https://registry.yarnpkg.com/@stryker-mutator/typescript-checker/-/typescript-checker-8.2.6.tgz#54f60222c263fcf03a714189171ebde79f67f2d9"
+  integrity sha512-8VJj/m96WCqyDr4YOgJvrO417geoE//zSdZeK+VJhDQBc3ZVE+lEGRowPG+XhgCPGWC1/400VTRvD5RyEqa8LA==
   dependencies:
-    "@stryker-mutator/api" "8.2.5"
-    "@stryker-mutator/util" "8.2.5"
+    "@stryker-mutator/api" "8.2.6"
+    "@stryker-mutator/util" "8.2.6"
     semver "~7.6.0"
 
 "@stryker-mutator/util@8.2.5":
