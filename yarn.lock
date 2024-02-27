@@ -671,6 +671,14 @@
     "@commitlint/types" "^18.6.1"
     chalk "^4.1.0"
 
+"@commitlint/format@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-19.0.0.tgz#5da103249bf0e7bdb2ad5e757a37a94e2294c45a"
+  integrity sha512-36P4/2tpGSGQsYoSZEso5fTSTaMSArIK9fszy+5B8hwwAvOfnD4kQtrwfMhiXnf7PCgeX2lx5Jma+pY3Bq326A==
+  dependencies:
+    "@commitlint/types" "^19.0.0"
+    chalk "^5.3.0"
+
 "@commitlint/is-ignored@^18.6.1":
   version "18.6.1"
   resolved "https://registry.yarnpkg.com/@commitlint/is-ignored/-/is-ignored-18.6.1.tgz#4ee08ba91ff3defb06e0ef19259a9c6734a8d06e"
@@ -771,6 +779,13 @@
   integrity sha512-gwRLBLra/Dozj2OywopeuHj2ac26gjGkz2cZ+86cTJOdtWfiRRr4+e77ZDAGc6MDWxaWheI+mAV5TLWWRwqrFg==
   dependencies:
     chalk "^4.1.0"
+
+"@commitlint/types@^19.0.0":
+  version "19.0.0"
+  resolved "https://registry.yarnpkg.com/@commitlint/types/-/types-19.0.0.tgz#d5af1c8730c85a1622ae885f2d728fced17a4e0c"
+  integrity sha512-qLjLUdYXKi0TIavONrjBkxrElp7KguqDbvzIRbqTdJBV/cAAr8QEhHe1qUq8OcCM3gFWTlUrDz3ISZbkRoGsAg==
+  dependencies:
+    chalk "^5.3.0"
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.4.0"
@@ -1185,16 +1200,6 @@
     prop-types "^15.7.2"
     react-is "^16.6.3"
 
-"@stryker-mutator/api@8.2.5":
-  version "8.2.5"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-8.2.5.tgz#a5620312affc0cf1e6157eb03f7791c924ea08f0"
-  integrity sha512-cQmngePqTLIeKbV/aCE258dK0CDofcLiG9WRvOAQu2yHJdAoHro7uy9ZyAeY5rmMvvWj/SfrriiGp4c7CTjyRA==
-  dependencies:
-    mutation-testing-metrics "3.0.2"
-    mutation-testing-report-schema "3.0.2"
-    tslib "~2.6.2"
-    typed-inject "~4.0.0"
-
 "@stryker-mutator/api@8.2.6":
   version "8.2.6"
   resolved "https://registry.yarnpkg.com/@stryker-mutator/api/-/api-8.2.6.tgz#b2f8d6054c1ae23a4e66c12464d5ac44f44ace1d"
@@ -1273,11 +1278,6 @@
     "@stryker-mutator/api" "8.2.6"
     "@stryker-mutator/util" "8.2.6"
     semver "~7.6.0"
-
-"@stryker-mutator/util@8.2.5":
-  version "8.2.5"
-  resolved "https://registry.yarnpkg.com/@stryker-mutator/util/-/util-8.2.5.tgz#3001502ec90fb3910565bd3daee2e13f7a5d8790"
-  integrity sha512-C4G2FPqV1+doAiDIg9mib2zluCpbZgyCe7ASsG/ejpTO7aVHpSpYChF3mvVH6abTCFBCVANGm9JwXPXI/uWBYQ==
 
 "@stryker-mutator/util@8.2.6":
   version "8.2.6"
