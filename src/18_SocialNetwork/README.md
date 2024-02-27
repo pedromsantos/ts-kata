@@ -63,8 +63,6 @@ wall: [user name] wall
 - Non-existing users should be created as they post their first message.
 - The application should not start with a pre-defined list of users.
 
-IMPORTANT: Focus on writing the best code you can produce. Do not rush. Take as much time as you need; there is no deadline.
-
 ## Unit vs Integration vs Acceptance vs E2E Testing
 
 |                       | **Unit**                    | **Integration aka contract**                            | **Acceptance aka system**                           | **E2e aka functional**                                      |
