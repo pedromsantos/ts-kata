@@ -63,7 +63,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "@commitlint/cli": "^18.6.1",
+    "@commitlint/cli": "^19.0.0",
     "@commitlint/config-conventional": "^18.6.2",
     "@commitlint/format": "^18.6.1",
     "@stryker-mutator/core": "^8.2.6",
