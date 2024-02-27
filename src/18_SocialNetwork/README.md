@@ -45,7 +45,6 @@
 
 ## Details
 
-The application must use the console for input and output.
 Users submit commands to the application.
 There are four commands.
 
