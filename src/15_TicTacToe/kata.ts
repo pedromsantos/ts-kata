@@ -12,7 +12,7 @@ export enum Row {
 export enum Column {
   Left,
   Center,
-  Rigth,
+  Right,
 }
 
 export class Cell {
@@ -26,19 +26,19 @@ export class Cell {
   }
 }
 
-export class Play {
+export class Turn {
   constructor(
     private readonly cell: Cell,
     private readonly player: Player,
   ) {}
 
-  equals(other: Play) {
+  equals(other: Turn) {
     return this.player === other.player && this.cell.equals(other.cell);
   }
 }
 
 export interface TicTacToe {
-  play(play: Play): void;
+  play(turn: Turn): void;
 }
 
 export interface Output {
