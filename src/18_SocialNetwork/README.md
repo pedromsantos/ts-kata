@@ -17,7 +17,7 @@
 > Bob -> Good game though.
 ```
 
-#### Reading: Bob can view Alice's timeline
+#### Reading: Bob can view Alice's timeline and vice versa
 
 ```cmd
 > Alice
