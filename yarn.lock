@@ -660,7 +660,7 @@
   resolved "https://registry.yarnpkg.com/@commitlint/execute-rule/-/execute-rule-19.0.0.tgz#928fb239ae8deec82a6e3b05ec9cfe20afa83856"
   integrity sha512-mtsdpY1qyWgAO/iOK0L6gSGeR7GFcdW7tIjcNFxcWkfLDF5qVbPHKuGATFqRMsxcO8OUKNj0+3WOHB7EHm4Jdw==
 
-"@commitlint/format@^19.0.3", "@commitlint/format@^19.3.0":
+"@commitlint/format@^19.3.0":
   version "19.3.0"
   resolved "https://registry.yarnpkg.com/@commitlint/format/-/format-19.3.0.tgz#48dd9e6930d41eb0ca19f36159ee940c5b25d857"
   integrity sha512-luguk5/aF68HiF4H23ACAfk8qS8AHxl4LLN5oxPc24H+2+JRPsNr1OS3Gaea0CrH7PKhArBMKBz5RX9sA5NtTg==
@@ -5950,10 +5950,10 @@ type-coverage-core@^2.23.0, type-coverage-core@^2.28.1:
     tslib "1 || 2"
     tsutils "3"
 
-type-coverage@^2.28.1:
-  version "2.28.1"
-  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.28.1.tgz#8fb4e759c977371220ceb8b35bc1d9bc8ebde16d"
-  integrity sha512-nFpCkjyDPA+QeA0aRp3mVJ/XccounJ0Ls5IXVlCKI3XCQPzO3QFUl5zjFnmulw8hWe+r9u9EFjDsAxp8PnLMvQ==
+type-coverage@^2.28.2:
+  version "2.28.2"
+  resolved "https://registry.yarnpkg.com/type-coverage/-/type-coverage-2.28.2.tgz#de7bedc8ed745444f89e048771c5f4011dac6eb5"
+  integrity sha512-mTANnzAeuH7ldrg0fzPnhh+aCCSVAO7V7hlBoVg4XxuUtQyD3ogir/R7Z6Q7W0H1JREtDIY4I91SGHAgEPi6Bw==
   dependencies:
     minimist "1"
     type-coverage-core "^2.28.1"
