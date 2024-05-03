@@ -1,0 +1,6 @@
+{
+  "sonarlint.connectedMode.project": {
+    "connectionId": "pedromsantos",
+    "projectKey": "pedromsantos_ts-kata"
+  }
+}
