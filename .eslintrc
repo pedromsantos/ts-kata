@@ -26,7 +26,6 @@
   },
 
   "plugins": [
-    "sonarjs",
     "simple-import-sort", // Use the plugin for sorting imports
     "import" // Use the plugin for import-related rules
   ],
