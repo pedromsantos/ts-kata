@@ -96,7 +96,6 @@ There are a few tools preconfigured in the project
     - `@typescript-eslint/parser`: Parser that allows ESLint to understand TypeScript syntax.
     - `typescript-eslint/eslint-plugin`: ESLint plugin that provides linting rules specific to TypeScript code.
     - `eslint-plugin-jest`: ESLint plugin with additional rules for Jest tests.
-    - `eslint-plugin-sonarjs`: ESLint plugin that provides additional rules for detecting code smells and security vulnerabilities.
     - `eslint-plugin-prettier`: ESLint plugin that integrates Prettier into ESLint, enabling automatic formatting.
     - `eslint-plugin-import`: ESLint plugin that provides linting rules for importing modules.
     - `eslint-plugin-simple-import-sort`: ESLint plugin for sorting imports using a simple convention.
