@@ -13,7 +13,6 @@
     "plugin:@typescript-eslint/recommended-requiring-type-checking", // Use recommended rules that require type checking from @typescript-eslint/eslint-plugin
     "plugin:@typescript-eslint/stylistic-type-checked",
     "plugin:prettier/recommended", // Use the recommended prettier configuration
-    "plugin:sonarjs/recommended", // Use recommended rules from the SonarJS plugin
     "plugin:jest/recommended", // Use recommended rules for Jest tests
     "plugin:jest/style" // Use the recommended style guide for Jest tests
   ],
@@ -27,7 +26,7 @@
   },
 
   "plugins": [
-    "@typescript-eslint/eslint-plugin", // Use the ESLint plugin for TypeScript
+    "sonarjs",
     "simple-import-sort", // Use the plugin for sorting imports
     "import" // Use the plugin for import-related rules
   ],
