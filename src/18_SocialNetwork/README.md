@@ -1,5 +1,9 @@
 # Social Network
 
+## Source
+
+<https://github.com/sandromancuso/social_networking_kata>
+
 ## Goal
 
 - Implement a networking application (similar to Twitter) satisfying the scenarios below.

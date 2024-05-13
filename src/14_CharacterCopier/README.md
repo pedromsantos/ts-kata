@@ -1,5 +1,9 @@
 # Character Copier kata
 
+## Source
+
+<https://www.planetgeek.ch/2010/03/31/mocking-kata-copier-net/>
+
 ## Problem
 
 The character copier is a simple class that reads characters from a source and copies them to a destination one character at a time.

@@ -1,5 +1,9 @@
 # Katacombs
 
+## Source
+
+<https://github.com/conso/katacombs>
+
 ## Your job
 
 - Implement the game using both Domain Driven Design and Hexagonal architecture.
