@@ -1,6 +1,6 @@
 openapi: 3.0.0
 info:
-  description: "This API allows playing a text based adventure game"
+  description: "API for a text-based adventure game called 'Katacombs'"
   version: "1.0.0"
   title: "Katacombs"
   license:
@@ -8,11 +8,11 @@ info:
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
 tags:
   - name: Game
-    description: Game operations
+    description: Operations related to the game
   - name: Player
-    description: Player operations
+    description: Operations related to players
   - name: Items
-    description: Item operations
+    description: Operations related to items
 paths:
   /game/player:
     post:
@@ -105,9 +105,18 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Location"
-              # example:
-              #   code: 0
-              #   message: There are no applications pending of resolution
+              example:
+                description: "You are in the basement"
+                exits: ["north", "south"]
+                items:
+                  - sid: "00-0000-0000-0001"
+                    name: "sword"
+                    description: "A shiny sword"
+                    actions: ["pick", "use"]
+                  - sid: "00-0000-0000-0002"
+                    name: "potion"
+                    description: "A healing potion"
+                    actions: ["pick", "use"]
         "404":
           description: Player with Sid playerSid not found
   /player/{playerSid}/bag:
@@ -131,9 +140,14 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/Bag"
-              # example:
-              #   code: 0
-              #   message: There are no applications pending of resolution
+              example:
+                items:
+                  - sid: "00-0000-0000-0001"
+                    name: "sword"
+                    description: "A shiny sword"
+                  - sid: "00-0000-0000-0002"
+                    name: "potion"
+                    description: "A healing potion"
         "404":
           description: Player with Sid playerSid not found
 
