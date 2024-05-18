@@ -6,7 +6,7 @@ A robotic rover developed by ESA (Europen Space Agency) will land on a plateau o
 The rover will navigate the plateau while its cameras get a complete view of the terrain and send it back to Earth.
 
 The plateau is divided up into a virtual rectangular grid to simplify navigation.
-An example position might be ‘0 0 N’, which means the rover is in the bottom left corner and facing North.
+An example position might be ‘0:0:N’, which means the rover is in the bottom left corner and facing North.
 Assume that the square North from (X, Y) is (X, Y + 1).
 The rover’s position is a combination of (X, Y) coordinates and a cardinal compass point (‘N’, ‘S’, ‘E’, ‘W’).
 
