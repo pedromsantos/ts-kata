@@ -21,10 +21,10 @@ Timestamps on messages allow ESA to calculate how long it took the rover to exec
 
 ## Input
 
-- The first line defines the upper-right coordinates of the plateau. Example: ‘5 5’
-  - The lower-left coordinates are always ‘0 0’.
+- The first line defines the upper-right coordinates of the plateau. Example: ‘5:5’
+  - The lower-left coordinates are always ‘0:0’.
 - The second line contains the rover’s starting position and direction.
-  - Example ‘1 2 N’ measn x=1, y=2 and Direction=North
+  - Example ‘1:2:N’ measn x=1, y=2 and Direction=North
 - The third line contains the sequence of commands to execute.
   - Example: ‘LMLMLMLMM’
 - The fourth line is the timestamp in ISO format.
@@ -33,8 +33,8 @@ Timestamps on messages allow ESA to calculate how long it took the rover to exec
 ### Example input
 
 ```text
-5 5\n
-1 2 N\n
+5:5\n
+1:2 N\n
 LMLMLMLMM\n
 1994-11-05T08:32:20.10Z
 ```
@@ -51,7 +51,7 @@ The output of the rover is a message it sends to ESA using the onboard radio aft
 Example output:
 
 ```text
-1 3 N\n
+1:3:N\n
 1994-11-05T12:02:11.11Z
 ```
 
@@ -67,36 +67,36 @@ Example input (same message using various EU languages)
 ```text
 // COMMANDS IN ENGLISH
 EN\n
-5 5\n
-1 2 N\n
+5:5\n
+1:2 N\n
 LMLMLMLMM\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN SPANISH
 ES\n
-5 5\n
-1 2 N\n
+5:5\n
+1:2:N\n
 IAIAIAIAA\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN FRENCH
 FR\n
-5 5\n
-1 2 N\n
+5:5\n
+1:2:N\n
 GAGAGAGAA\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN PORTUGUESE
 PT\n
-5 5\n
-1 2 N\n
+5:5\n
+1:2:N\n
 EAEAEAEAA\n
 1994-11-05T08:32:20.10Z
 
 // COMMANDS IN ITALIAN
 IT\n
-5 5\n
-1 2 N\n
+5:5\n
+1:2:N\n
 SASASASAA\n
 1994-11-05T08:32:20.10Z
 ```
