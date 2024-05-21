@@ -13,25 +13,35 @@
 
 ### Scenarios
 
-#### Posting: Alice and Bob can publish messages to their personal timelines
+#### Posting: Alice can publish messages to a personal timeline
 
 ```cmd
 > Alice -> I love the weather today
+```
+
+#### Posting: Bob can publish messages to a personal timeline
+
+```cmd
 > Bob -> Damn! We lost!
 > Bob -> Good game though.
 ```
 
-#### Reading: Bob can view Alice's timeline and vice versa
+#### Reading: We can view Alice's timeline
 
 ```cmd
 > Alice
 > I love the weather today (5 minutes ago)
+```
+
+#### Reading: We can view Bob's timeline
+
+```cmd
 > Bob
 > Good game though. (1 minute ago)
 > Damn! We lost! (2 minutes ago)
 ```
 
-#### Following: Charlie can subscribe to Alice's and Bob's timelines, and view an aggregated list of all subscriptions
+#### Following: Charlie can subscribe to Alice's and Bob's timelines, and view an aggregated list of all subscriptions sorted by time of publishing
 
 ```cmd
 > Charlie -> I'm in New York today! Anyone want to have a coffee?
@@ -63,9 +73,13 @@ wall: [user name] wall
   - Assume that the user will always type the correct commands.
   - Just focus on the sunny day scenarios.
 - Don't bother making it work over a network or across processes.
-- It can all be done in memory, assuming that users will all share the same terminal.
+- It can all be done in memory, assuming that users will all use the same terminal.
 - Non-existing users should be created as they post their first message.
-- The application should not start with a pre-defined list of users.
+- Application should not start with a pre-defined list of users.
+
+IMPORTANT: Focus on writing the best code you can produce.
+Do not rush.
+Take as much time as you need; there is no deadline.
 
 ## Unit vs Integration vs Acceptance vs E2E Testing
 
