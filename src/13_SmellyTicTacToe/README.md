@@ -25,3 +25,9 @@ There are a number of code smells in the implementation namely:
 
 Identify the code smells, add comments where you find code smells.
 Refactor the code remembering the small steps we took on the refactoring golf exercise.
+
+## Resources
+
+<https://www.youtube.com/watch?v=MM6_tyvBRXE>
+<https://refactoring.guru/refactoring/smells>
+<https://luzkan.github.io/smells/>
