@@ -86,7 +86,7 @@
     "openapi-typescript": "^6.7.6",
     "prettier": "^3.3.2",
     "ts-coverage": "^0.1.5",
-    "ts-jest": "^29.1.4",
+    "ts-jest": "^29.1.5",
     "type-coverage": "^2.29.0",
     "typescript": "^5.4.5",
     "typescript-coverage-report": "^1.0.0"
