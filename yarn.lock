@@ -4972,10 +4972,10 @@ open@^9.1.0:
     is-inside-container "^1.0.0"
     is-wsl "^2.2.0"
 
-openapi-typescript@^7.0.1:
-  version "7.0.1"
-  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-7.0.1.tgz#8c8ca172cd17dabe4cfbf0b10fac312f7a4ef675"
-  integrity sha512-RrjgCRTIpJzJGKZ2Fg7ERuOVXvmLcSAC8KRi165QyueW+0u3HSOpAhZDUpAPNlJ0ubd+bkjFTMWIwoXn0hHbtg==
+openapi-typescript@^7.0.2:
+  version "7.0.2"
+  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-7.0.2.tgz#9e50f8388dbeed87984f340149e6f853e5d77d0f"
+  integrity sha512-BBrYEf0YdW31Ernd07cD/qHoalSuiiUQvy+rHvU/1Iz9WbcFpRsIXrnfEnrEuiGTRuKCG6cDQCrxNK/rbwQRLg==
   dependencies:
     "@redocly/openapi-core" "^1.16.0"
     ansi-colors "^4.1.3"
