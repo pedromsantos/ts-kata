@@ -4898,10 +4898,10 @@ onetime@^6.0.0:
   dependencies:
     mimic-fn "^4.0.0"
 
-openapi-typescript@^7.1.0:
-  version "7.1.0"
-  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-7.1.0.tgz#376b96c58c1b206ac120d636f6d827d67673c02a"
-  integrity sha512-qxjGhIO6ODCGximE2HiozkPUNbO4y7F2OQyGa+gcn6TdZMMtmuiyDPqoKmf+Y4VlvQRfhJUTU635w8KfZVeuVA==
+openapi-typescript@^7.1.1:
+  version "7.1.1"
+  resolved "https://registry.yarnpkg.com/openapi-typescript/-/openapi-typescript-7.1.1.tgz#834c73192b41b5feef7c11f0c91fe9d87b277073"
+  integrity sha512-ssIeBp3Y7cwA/481AzC/+/cMTFHmg+R8aRXJPSNV/sc+2qvfGkFueL3/LyvLZEYeDDCzl2IhxoFPzH+UEscGQw==
   dependencies:
     "@redocly/openapi-core" "^1.16.0"
     ansi-colors "^4.1.3"
