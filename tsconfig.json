@@ -1,31 +1,39 @@
 {
   "compilerOptions": {
     "allowJs": false,
-    "allowUnreachableCode": false, // Specify whether unreachable code is allowed
-    "allowUnusedLabels": false, // Specify whether unused labels are allowed
-    "baseUrl": "./", // Set the base directory for resolving non-relative module names
-    "emitDecoratorMetadata": false, // Disable emitting decorator metadata
-    "exactOptionalPropertyTypes": true, // Enable exact optional property types
-    "forceConsistentCasingInFileNames": true, // Force consistent casing in file names
-    "isolatedModules": true, // Ensure all modules are isolated and don't share state
-    "lib": ["ESNext"], // Specify the library files to be included
-    "module": "NodeNext", // Set the module system to CommonJS
-    "moduleResolution": "NodeNext", // Specify the module resolution strategy as Node.js style
-    "noEmit": true, // Disable emitting output files
-    "noFallthroughCasesInSwitch": true, // Report errors for fallthrough cases in switch statement
-    "noImplicitOverride": true, // Force functions designed to override their parent class to be specified as `override`
-    "noImplicitReturns": true, // Force functions to specify that they can return `undefined` if a possible code path does not return a value
-    "noPropertyAccessFromIndexSignature": true, // Disallow property access from index signatures
-    "noUncheckedIndexedAccess": true, // Disallow unchecked indexed access to objects
-    "noUnusedLocals": true, // Disallow unused local variables
-    "noUnusedParameters": true, // Disallow unused parameters
-    "outDir": "./lib", // Specify the output directory for emitted files
-    "pretty": true, // Pretty-print the output
-    "removeComments": true, // Remove all comments from the emitted output
-    "skipLibCheck": true, // Skip type checking of declaration files
-    "strict": true, // Enable strict mode
-    "target": "ESNext",
-    "esModuleInterop": true
+    "allowSyntheticDefaultImports": true,
+    "alwaysStrict": true,
+    "baseUrl": "./",
+    "declaration": true,
+    "declarationMap": true,
+    "downlevelIteration": true,
+    "emitDecoratorMetadata": false,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "isolatedModules": true,
+    "lib": ["es2020"],
+    "module": "commonjs",
+    "moduleResolution": "Node",
+    "noEmit": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "outDir": "./lib/esm",
+    "removeComments": true,
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "target": "es2020"
   },
   "exclude": ["node_modules/"], // Specify the files to be excluded from compilation
   "include": ["src/**/*.ts"] // Specify the files to be included in compilation
