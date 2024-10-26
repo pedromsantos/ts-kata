@@ -1,21 +1,52 @@
-openapi: 3.0.3
-
+openapi: 3.0.0
 info:
-  description: "This API allows playing a text based adventure game"
-  version: "1.0.0"
-  title: "Katacombs"
+  description: This API allows playing a text-based adventure game called Katacombs
+  version: 1.0.0
+  title: Katacombs API
   license:
-    name: "Apache 2.0"
-    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
-
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+servers:
+  - url: /
 tags:
   - name: Game
     description: Start and Quit a game, help and list active players
   - name: Player
     description: Interact with the game as a player
-
 paths:
-  /game:
+  /game/player:
+    post:
+      tags:
+        - Game
+      summary: Start a new game
+      description: Start a new game with a new player
+      operationId: startGame
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Player"
+      responses:
+        "201":
+          description: Game started successfully
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Player"
+    get:
+      tags:
+        - Game
+      summary: list active players
+      description: Returns a list of active players in the game
+      operationId: listPlayers
+      responses:
+        "200":
+          description: list of players
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ListOfPlayers"
+  /game/{playerSid}:
     delete:
       tags:
         - Game
@@ -31,135 +62,39 @@ paths:
             $ref: "#/components/schemas/Sid"
       responses:
         "200":
-          description: Game finished
-          content:
-            text/plain:
-              schema:
-                type: string
-                example: "Game Over"
-
-        "404":
-          description: Player with Sid playerSid not found
-
-  /game/player:
-    post:
-      tags:
-        - Game
-      summary: Start a new game
-      description: Start a new game with a new player
-      operationId: startGame
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Player"
-      responses:
-        "201":
-          description: Game started
-    get:
-      tags:
-        - Game
-      summary: list active players
-      description: Returns a list of active players in the game
-      operationId: listPlayers
-      responses:
-        "200":
-          description: list of players
+          description: Game finished successfully
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/ListOfPlayers"
-
-  /game/help:
-    get:
-      tags:
-        - Game
-      summary: Help
-      description: Returns available game commands for player
-      operationId: help
-      responses:
-        "200":
-          description: Available commands
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Help"
-              example:
-                [
-                  "GO [ direction ]",
-                  "LOOK [ direction/item ]",
-                  "OPEN [ item ]",
-                  "CLOSE [ item ]",
-                  "TAKE [ item ]",
-                  "DROP [ item ]",
-                  "BAG",
-                  "USE [ item ]",
-                ]
-
-  /game/save:
-    post:
-      tags:
-        - Game
-      summary: Save game
-      description: Save the current game state
-      operationId: saveGame
-      parameters:
-        - in: path
-          name: playerSid
-          description: Player unique identification
-          required: true
-          schema:
-            $ref: "#/components/schemas/Sid"
-      responses:
-        "200":
-          description: Game saved
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Game Over"
         "404":
           description: Player with Sid playerSid not found
-
-  /game/load:
-    post:
-      tags:
-        - Game
-      summary: Load game
-      description: Load a previously saved game state
-      operationId: loadGame
-      parameters:
-        - in: path
-          name: playerSid
-          description: Player unique identification
-          required: true
-          schema:
-            $ref: "#/components/schemas/Sid"
-      responses:
-        "200":
-          description: Game loaded
-        "404":
-          description: Player with Sid playerSid not found
-
-  /player/{playerSid}/location:
+  /player/items/{itemSid}:
     get:
       tags:
         - Player
-      summary: Player location description
-      description: Returns information about a location, including exits and items present at the location
-      operationId: lookAround
+      summary: Inspect item
+      description: Returns more detailed information about an item
+      operationId: getItemDescription
       parameters:
         - in: path
-          name: playerSid
-          description: Player unique identification
+          name: itemSid
           required: true
           schema:
             $ref: "#/components/schemas/Sid"
       responses:
         "200":
-          description: Room description
+          description: Item description
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Location"
+                $ref: "#/components/schemas/Item"
         "404":
-          description: Player with Sid playerSid not found
-
+          description: Item with Sid not found
   /player/{playerSid}/bag:
     get:
       tags:
@@ -183,7 +118,6 @@ paths:
                 $ref: "#/components/schemas/Bag"
         "404":
           description: Player with Sid playerSid not found
-
   /player/{playerSid}/item/{itemSid}/use/{action}:
     put:
       tags:
@@ -210,19 +144,28 @@ paths:
             $ref: "#/components/schemas/Action"
       responses:
         "200":
-          description: Action performed
+          description: Action performed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Action completed successfully"
         "404":
           description: Player or Item with Sid playerSid not found
         "405":
           description: Action not available for specified item
-
-  /player/{playerSid}/move/{direction}:
-    put:
+  /player/{playerSid}/location:
+    get:
       tags:
         - Player
-      summary: Move
-      description: "Move in specified direction"
-      operationId: move
+      summary: Player location description
+      description: >-
+        Returns information about a location, including exits and items present
+        at the location
+      operationId: lookAround
       parameters:
         - in: path
           name: playerSid
@@ -230,17 +173,15 @@ paths:
           required: true
           schema:
             $ref: "#/components/schemas/Sid"
-        - in: path
-          name: direction
-          required: true
-          schema:
-            $ref: "#/components/schemas/Direction"
       responses:
         "200":
-          description: Moved in requested direction
-        "405":
-          description: Cannot move in requested direction
-
+          description: Room description
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Location"
+        "404":
+          description: Player with Sid playerSid not found
   /player/{playerSid}/look/{direction}:
     get:
       tags:
@@ -276,67 +217,51 @@ paths:
                     uri: item/00-0000-0000-0002
         "404":
           description: Player with Sid playerSid not found
-
-  /player/items/{itemSid}:
-    get:
+  /player/{playerSid}/move/{direction}:
+    put:
       tags:
         - Player
-      summary: Inspect item
-      description: Returns more detailed information about an item
-      operationId: getItemDescription
+      summary: Move
+      description: Move in specified direction
+      operationId: move
       parameters:
         - in: path
-          name: itemSid
+          name: playerSid
+          description: Player unique identification
           required: true
           schema:
             $ref: "#/components/schemas/Sid"
+        - in: path
+          name: direction
+          required: true
+          schema:
+            $ref: "#/components/schemas/Direction"
       responses:
         "200":
-          description: Item description
-          content:
-            application/json:
-              schema:
-                $ref: "#/components/schemas/Item"
-        "404":
-          description: Item with Sid not found
-
+          description: Moved in requested direction
+        "405":
+          description: Cannot move in requested direction
 components:
   schemas:
-    Sid:
+    Action:
+      description: Item actions
       type: string
-      example: 001001-999199919878-99989798
-    Player:
-      type: object
-      required:
-        - sid
-        - name
-      properties:
-        sid:
-          $ref: "#/components/schemas/Sid"
-        name:
-          type: string
-          example: Pedro
-    ListOfPlayers:
-      type: array
-      items:
-        $ref: "#/components/schemas/Player"
-    Help:
+      enum:
+        - open
+        - close
+        - pick
+        - drop
+        - use
+    Bag:
+      description: Bag content
       type: object
       properties:
-        commands:
+        items:
           type: array
           items:
-            type: string
-    Command:
-      type: object
-      properties:
-        name:
-          type: string
-        description:
-          type: string
-        usage:
-          type: string
+            $ref: "#/components/schemas/Item"
     Direction:
+      description: Directions to move
       type: string
       enum:
         - north
@@ -345,27 +270,16 @@ components:
         - west
         - up
         - down
-    Location:
+    Help:
+      description: List of game commands
       type: object
       properties:
-        description:
-          type: string
-        exits:
+        commands:
           type: array
           items:
-            $ref: "#/components/schemas/Direction"
-        items:
-          type: array
-          items:
-            $ref: "#/components/schemas/Item"
-    Bag:
-      type: object
-      properties:
-        items:
-          type: array
-          items:
-            $ref: "#/components/schemas/Item"
+            type: string
     Item:
+      description: Item type
       type: object
       properties:
         sid:
@@ -378,14 +292,42 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/Action"
-    Action:
+    ListOfPlayers:
+      description: Player list type
+      type: array
+      items:
+        $ref: "#/components/schemas/Player"
+    Location:
+      description: Location type
+      type: object
+      properties:
+        description:
+          type: string
+        exits:
+          type: array
+          items:
+            $ref: "#/components/schemas/Direction"
+        items:
+          type: array
+          items:
+            $ref: "#/components/schemas/Item"
+    Player:
+      description: Player information
+      type: object
+      required:
+        - sid
+        - name
+      properties:
+        sid:
+          $ref: "#/components/schemas/Sid"
+        name:
+          type: string
+          example: "Pedro"
+        location:
+          $ref: "#/components/schemas/Location"
+        bag:
+          $ref: "#/components/schemas/Bag"
+    Sid:
+      description: Sid type
       type: string
-      enum:
-        - open
-        - close
-        - pick
-        - drop
-        - use
-    GomeOver:
-      type: string
-      example: "Game Over"
+      example: 001001-999199919878-99989798
