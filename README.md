@@ -1,129 +1,97 @@
-# Typescript kata starter
+# TypeScript Kata Starter
 
-This project contains a number of katas with instructions ordered in a proven path described in my book [Agile Technical Practices Distilled](https://leanpub.com/agiletechnicalpracticesdistilled)
+A collection of coding katas following the learning path from [Agile Technical Practices Distilled](https://leanpub.com/agiletechnicalpracticesdistilled).
 
-## Project status and ratings
-
-I know the stats look really bad :) There is some very ugly code to be refactored in this repository.
-Hopefuly as you implement the exercises in the katas these stats should improve.
-
-### GitHub
+## Status
 
 [![Build Status](https://github.com/pedromsantos/ts-kata/actions/workflows/main.yml/badge.svg)](https://github.com/pedromsantos/ts-kata/actions/workflows/main.yml)
-![GitHub commit activity](https://img.shields.io/github/commit-activity/w/pedromsantos/ts-kata) ![GitHub last commit](https://img.shields.io/github/last-commit/pedromsantos/ts-kata) ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/pedromsantos/ts-kata)
-![GitHub top language](https://img.shields.io/github/languages/top/pedromsantos/ts-kata) ![GitHub](https://img.shields.io/github/license/pedromsantos/ts-kata)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata)
+[![CodeScene Code Health](https://codescene.io/projects/39302/status-badges/code-health)](https://codescene.io/projects/39302)
 
-### Sonar
+> **Note**: This repository contains code intended for refactoring practice. The initial metrics are expected to improve as you work through the katas.
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=coverage)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata)[![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=vulnerabilities)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=bugs)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=duplicated_lines_density)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Technical Debt](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=sqale_index)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata) [![Lines of Code](https://sonarcloud.io/api/project_badges/measure?project=pedromsantos_ts-kata&metric=ncloc)](https://sonarcloud.io/summary/new_code?id=pedromsantos_ts-kata)
+## Getting Started
 
-### Code Scene
-
-[![CodeScene Code Health](https://codescene.io/projects/39302/status-badges/code-health)](https://codescene.io/projects/39302) [![CodeScene System Mastery](https://codescene.io/projects/39302/status-badges/system-mastery)](https://codescene.io/projects/39302)
-
-## Instructions
-
-### Execute tests
-
-Just run the test suite
+### Testing
 
 ```sh
+# Run all tests
 yarn test
-```
 
-#### Run the test suit with code coverage
-
-```sh
+# Run with coverage
 yarn test:ci
-```
 
-#### Execute mutation tests
-
-```sh
+# Run mutation tests
 yarn mutants
-```
 
-#### Run the tests in watch mode
-
-```sh
+# Watch mode
 yarn watch
 ```
 
-#### There are scripts to run each kata test suite on its own
+### Individual Kata Tests
 
 ```sh
-yarn fizz
-yarn leap
-yarn fib
-yarn stack
-yarn roman
-yarn prime
-yarn tic
-yarn yahtzee
-yarn tennis
-yarn rose
-yarn golf
-yarn smelly
-yarn copier
-yarn esa
+yarn fizz     # FizzBuzz
+yarn leap     # Leap Year
+yarn fib      # Fibonacci
+yarn stack    # Stack Kata
+yarn roman    # Roman Numerals
+yarn prime    # Prime Factors
+yarn tic      # Tic Tac Toe
+yarn yahtzee  # Yahtzee
+yarn mars     # Mars Rover
+yarn tennis   # Tennis
+yarn rose     # Gilded Rose
+yarn golf     # All Refactoring Golf Tests
+yarn smelly   # Smelly Tic Tac Toe
+yarn copier   # Character Copier
+yarn tac      # Tic Tac Toe (Alternative)
+yarn esa      # ESA Mars Rover
+yarn katacombs # Katacombs
+
+# Refactoring Golf Individual Holes
+yarn golf1    # Golf Hole 1
+yarn golf2    # Golf Hole 2
+yarn golf3    # Golf Hole 3
+yarn golf4    # Golf Hole 4
+yarn golf5    # Golf Hole 5
+yarn golf6    # Golf Hole 6
+yarn golf7    # Golf Hole 7
+yarn golf8    # Golf Hole 8
+yarn golf9    # Golf Hole 9
+yarn golf10   # Golf Hole 10
+yarn golf11   # Golf Hole 11
+yarn golf12   # Golf Hole 12
 ```
 
-### Build
+### Development
 
 ```sh
+# Build project
 yarn ci
-```
 
-or
-
-```sh
-yarn precommit
-```
-
-### Lint
-
-```sh
+# Lint code
 yarn lint
 ```
 
-## Tools
+## Project Tools
 
-There are a few tools preconfigured in the project
+### Code Quality
 
-- Code
-  - ESLint
-    - `eslint`: JavaScript and TypeScript linter that identifies and reports code quality issues.
-    - `@typescript-eslint/parser`: Parser that allows ESLint to understand TypeScript syntax.
-    - `typescript-eslint/eslint-plugin`: ESLint plugin that provides linting rules specific to TypeScript code.
-    - `eslint-plugin-jest`: ESLint plugin with additional rules for Jest tests.
-    - `eslint-plugin-prettier`: ESLint plugin that integrates Prettier into ESLint, enabling automatic formatting.
-    - `eslint-plugin-import`: ESLint plugin that provides linting rules for importing modules.
-    - `eslint-plugin-simple-import-sort`: ESLint plugin for sorting imports using a simple convention.
-  - Prettier
-    - `prettier`: Opinionated code formatter that enforces consistent code style.
-  - Type coverage
-    - `ts-coverage`: Tool for generating coverage reports for TypeScript projects.
-    - `type-coverage`: Tool for measuring the percentage of type coverage in a TypeScript project.
-    - `typescript-coverage-report`: Tool for generating coverage reports for TypeScript projects.
-- Testing
-  - Libraries
-    - `jest`: JavaScript testing framework for writing unit tests.
-    - `fast-check`: Property-based testing library for JavaScript and TypeScript.
-    - `@stryker-mutator/core`: Core library for Stryker Mutator, a mutation testing framework for JavaScript and TypeScript.
-    - `@stryker-mutator/jest-runner`: Stryker Mutator plugin for running mutation tests with Jest.
-    - `@stryker-mutator/typescript-checker`: Stryker Mutator plugin for type checking TypeScript code during mutation testing.
-    - `jest-extended-snapshot`: Additional Jest matchers for snapshot testing
-- CI/CD
-  - Commit Lint
-    - `@commitlint/cli`: Command-line interface for commitlint, a tool to enforce commit message conventions.
-    - `@commitlint/config-conventional`: Configuration preset for commitlint that enforces conventional commit message format. See: <https://github.com/conventional-changelog/commitlint/blob/master/%40commitlint/config-conventional/README.md>
-    - `@commitlint/format`: Utility to format commitlint messages for printing.
-  - Husky
-    - `husky`: Git hooks management tool that allows running scripts before committing or pushing code.
-  - GitHub actions
-    - Build
-    - Dependabot
-  - Sonar
-    - Sonar cloud integration for code metrics
-  - CodeScene
-    - CodeScene cloud integration for code metrics
+- **ESLint** - Linting with TypeScript support
+- **Prettier** - Code formatting
+- **Type Coverage** - TypeScript type analysis
+
+### Testing & Quality
+
+- **Jest** - Test framework
+- **Fast-Check** - Property-based testing
+- **Stryker** - Mutation testing
+
+### CI/CD
+
+- **Commit Lint** - Conventional commit messages
+- **Husky** - Git hooks
+- **GitHub Actions** - Automated workflows
+- **Sonar Cloud** - Code analysis
+- **CodeScene** - Code health metrics
