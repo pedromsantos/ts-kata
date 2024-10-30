@@ -1,103 +1,99 @@
 # Refactoring Golf
 
-- Start on hole 1 and refactor the code to be like the code in hole 2
-  - Use a diff tool to see the differences in code between the starting hole and end hole
-- Move to hole 2 and refactor the code from hole 2 to be like the code in hole 3
-- Apply the same pattern until you reach hole 13
-- Remember to keep the code compiling and the tests passing at all times during the refactor
-- For every refactor, run the tests, and if they pass, commit
-- It's okay, and actually heavily encouraged, to revert back to a previous working state at any moment
-- Give each hole at least 3 attempts for each run.
+## Game Rules
 
-## Before you start
+- Progress through holes sequentially (1 → 2 → 3 ... → 13)
+- For each hole:
+  - Compare current hole's code with next hole using a diff tool
+  - Refactor current code to match the target (next hole)
+  - Keep code compiling and tests passing at all times
+  - Run tests and commit after each successful refactor
+  - Feel free to revert to previous working state when needed
+  - Give each hole at least 3 attempts
 
-- Make sure you have identified as many code smells on the starting hole as possible.
-- Make sure the code builds, and tests are passing `yarn golf`
-- Each hole has its own test script; use `yarn golf1` for the first hole and so on for each hole.
+## Preparation
 
-## First run
+1. Identify all code smells in the starting hole
+2. Verify build and tests pass: `yarn golf`
+3. Use hole-specific test scripts: `yarn golf1`, `yarn golf2`, etc.
 
-- Refactor the code as best as you can.
-  - Using pen and pencil, take note of the following:
-    - For every compilation error you get during or after a refactor, count 1 strike.
-    - For every failing test during or after a refactor, count 2 strikes.
+## Challenge Runs
 
-## Second run
+### Run 1: Initial Attempt
 
-- Refactor the code following the treatments available for each code smell in <https://refactoring.guru/refactoring/smells>.
-  - Using pen and pencil, take note of the following:
-    - For every compilation error you get during or after a refactor, count 1 strike.
-    - For every failing test during or after a refactor, count 2 strikes.
+Track your score:
 
-## Third run
+- Compilation error = 1 strike
+- Failed test = 2 strikes
 
-- Refactor the code following the treatments available for each code smell in <https://refactoring.guru/refactoring/smells>. Use automated IDE refactoring as much as possible.
-  - Using pen and pencil, take note of the following:
-    - For every manual edit, count 1 strike.
-      - Any code formatting applied does not count as a manual edit
-      - Deleting blank lines or blank spaces does not count as a manual edit
-    - For every compilation error you get during or after a refactor, count 1 strike.
-    - For every failing test during or after a refactor, count 2 strikes.
+### Run 2: Guided Refactoring
 
-### Course records
+Follow treatments from [refactoring.guru](https://refactoring.guru/refactoring/smells)
+Track same scoring as Run 1
 
-These are the best known scores, achieved using IntelliJ:
+### Run 3: IDE-Focused Refactoring
 
-| Hole | Best score | Notes |
-| ---- | ---------- | ----- |
-| 1    | TBD        |       |
-| 2    | TBD        |       |
-| 3    | TBD        |       |
-| 4    | TBD        |       |
-| 5    | TBD        |       |
-| 6    | TBD        |       |
-| 7    | TBD        |       |
-| 8    | TBD        |       |
-| 9    | TBD        |       |
-| 10   | TBD        |       |
-| 11   | TBD        |       |
-| 12   | TBD        |       |
-| 13   | TBD        |       |
+Use automated IDE refactoring tools whenever possible
+Track:
 
-#### Course Record
+- Manual edit = 1 strike
+  - Excluding: formatting, blank line/space removal
+- Compilation error = 1 strike
+- Failed test = 2 strikes
 
-TBD
+## Leaderboard
 
-## Refactoring Priority Premise
+### Best Known Scores (IntelliJ)
 
-### The kata uses the following order of code smells to refactor
+| Hole | Best Score |
+| ---- | ---------- |
+| 1-13 | TBD        |
 
-- Refactor readability
-  - Comments
-  - Dead code
-  - Magic strings and numbers
-  - Scope (variables, blocks)
-  - Clutter
-  - Implicit knowledge
-  - Naming
-- Reduce complexity
-  - Duplicated code
-  - Long method
-- Reorder responsibilities
-  - Data class
-  - Message chain
-  - Feature Envy
-  - Inappropriate Intimacy
-  - Large class
-- Refine abstractions
-  - Long parameter list
-  - Data clump
-  - Primitive obsession
-  - Middle man
-- Refactor to design patterns
-  - Switch statements
-    - Strategy
-    - State
-    - Command
-    - others
-- Refactor to SOLID
-  - Refused bequest
-  - Divergent change
-  - Shotgun surgery
-  - Speculative generality
-  - Parallel inheritance
+Current Course Record: TBD
+
+## Refactoring Priority Guide
+
+1. Readability
+
+   - Comments
+   - Dead code
+   - Magic values
+   - Scope optimization
+   - Clutter removal
+   - Implicit knowledge
+   - Naming improvements
+
+2. Complexity Reduction
+
+   - Duplicated code
+   - Long methods
+
+3. Responsibility Organization
+
+   - Data classes
+   - Message chains
+   - Feature envy
+   - Inappropriate intimacy
+   - Large classes
+
+4. Abstraction Refinement
+
+   - Long parameter lists
+   - Data clumps
+   - Primitive obsession
+   - Middle man
+
+5. Design Pattern Implementation
+
+   - Switch statements using:
+     - Strategy
+     - State
+     - Command
+     - Other patterns
+
+6. SOLID Principles
+   - Refused bequest
+   - Divergent change
+   - Shotgun surgery
+   - Speculative generality
+   - Parallel inheritance

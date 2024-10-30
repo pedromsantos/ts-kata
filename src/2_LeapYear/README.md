@@ -2,9 +2,9 @@
 
 Write a function that returns true or false depending on whether its input integer is a leap year or not.
 
-- A leap year is defined as:
+- A leap year is defined as one that:
 
-  - one that is divisible by 4
+  - is divisible by 4
   - but is not otherwise divisible by 100
   - unless it is also divisible by 400.
 
@@ -34,12 +34,12 @@ Write a function that returns true or false depending on whether its input integ
 | **1900**  | false      |
 | **2000**  | true       |
 
-## Folow TDD rules stryctly
+## Follow TDD rules strictly
 
-1. Write production code only to pass a failing unit test.
-2. Write no more of a unit test than sufficient to fail (compilation failures are failures).
-3. Write no more production code than necessary to pass the one failing unit test.
+1. ✅ Write production code only to pass a failing unit test
+2. ✅ Write only enough of a unit test to make it fail
+3. ✅ Write only enough production code to make the failing test pass
 
 ## Resources
 
-TestDesiderata by Kent Beck: <https://kentbeck.github.io/TestDesiderata>
+- [TestDesiderata](https://kentbeck.github.io/TestDesiderata) by Kent Beck

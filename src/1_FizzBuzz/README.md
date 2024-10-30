@@ -2,8 +2,8 @@
 
 - Write a function that takes a number and returns it as a string.
 - For multiples of three return "fizz" instead of the stringified number.
-- For the multiples of five return “buzz" instead of the strigified number.
-- For numbers which are multiples of both three and five return “fizzbuzz" instead of the stringified number.
+- For multiples of five return "buzz" instead of the stringified number.
+- For numbers which are multiples of both three and five return "fizzbuzz" instead of the stringified number.
 
 ## Examples
 
@@ -21,15 +21,15 @@
 | **10**    | "buzz"     |
 | **11**    | "11"       |
 | **12**    | "fizz"     |
-| **13**    | "14"       |
-| **14**    | "15"       |
+| **13**    | "13"       |
+| **14**    | "14"       |
 | **15**    | "fizzbuzz" |
 
-## Folow TDD rules stryctly
+## Follow TDD rules strictly
 
-1. Write production code only to pass a single failing unit test.
-2. Write no more of a unit test than sufficient to fail (compilation failures are failures).
-3. Write no more production code than necessary to pass the one failing unit test.
+1. ✅ Write production code only to pass a failing unit test
+2. ✅ Write only enough of a unit test to make it fail
+3. ✅ Write only enough production code to make the failing test pass
 
 ## Great habits
 

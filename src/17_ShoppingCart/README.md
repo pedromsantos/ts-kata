@@ -1,69 +1,78 @@
-# Shopping cart kata
+# Shopping Cart Kata
 
 ## Goal
 
-- Implement the shopping cart use cases for this company.
-- Use a Domain Driven Design and Hexagonal architecture approach.
-- Start from the use cases, we will not be implementing the transport layer for this project.
-- Use a in-memory database implementation.
+Implement a shopping cart system using:
 
-- Create a testing suite that can be confidently used to test your code.
-  - Acceptance tests (Scenarios covering everything except repositories)
-  - Unit Tests (use cases, aggregates/entities, and domain services)
-  - Integration tests (Testing the real repository implementation)
-  - Your tests code should be a first level citizen, treat it as production code.
+- Domain Driven Design and Hexagonal architecture
+- Use case driven development
+- In-memory database implementation
+- Comprehensive testing strategy
 
-## Overview
+## Testing Requirements
 
-A company wants to sell their products online, one of the core features is the shopping cart.
-The company wants to sell online the following products:
+Create a robust testing suite including:
 
-```txt
-Code         | Name                     |  Price
----------------------------------------------
-VOUCHER      | Voucher             |   5.00 €
-TSHIRT       | T-Shirt             |  20.00 €
-MUG          | Coffee Mug          |   7.50 €
-```
+- **Acceptance Tests**: End-to-end scenarios (excluding repositories)
+- **Unit Tests**: For use cases, aggregates/entities, and domain services
+- **Integration Tests**: For repository implementations
+- Tests should be treated as first-class citizens with production-quality code
 
-### Examples
+## Product Catalog
+
+| Code    | Name       | Price   |
+| ------- | ---------- | ------- |
+| VOUCHER | Voucher    | 5.00 €  |
+| TSHIRT  | T-Shirt    | 20.00 € |
+| MUG     | Coffee Mug | 7.50 €  |
+
+## Basic Shopping Cart
+
+### Example
 
 ```txt
 Items: VOUCHER, TSHIRT, MUG
 Subtotal: 32.50€
 ```
 
-## Extension
+## Promotional Rules
 
-- Two different offers will be used to boost sales:
-  - buy one get one free (aka two for the price of one)
-  - multibuy discount (buying at least a quantity of a product its unit price is discounted)
-- The promotional strategy planned by the company is to apply:
-  - buy one get one free to `VOUCHER` items
-  - multibuy discount to `TSHIRT` items for a quantity of 3 or more and reducing the unit price to 19.00 €
+The system supports two types of promotions:
 
-### Extension examples
+1. **Buy One Get One Free (2-for-1)**
+
+   - Applied to: VOUCHER items
+
+2. **Bulk Purchase Discount**
+   - Applied to: TSHIRT items
+   - Condition: 3 or more items
+   - Discounted price: 19.00€ per unit
+
+### Promotion Examples
 
 ```txt
+# 2-for-1 Example
 Items: VOUCHER, TSHIRT, VOUCHER
 Subtotal: 25.00€
 
+# Bulk Discount Example
 Items: TSHIRT, TSHIRT, TSHIRT, VOUCHER, TSHIRT
 Subtotal: 81.00€
 
+# Combined Promotions
 Items: VOUCHER, TSHIRT, VOUCHER, VOUCHER, MUG, TSHIRT, TSHIRT
 Subtotal: 74.50€
 ```
 
-### Unit vs Integration vs Acceptance
+## Testing Strategy Reference
 
-|                       | **Unit**                    | **Integration aka contract**                            | **Acceptance aka system**                           |
-| --------------------- | --------------------------- | ------------------------------------------------------- | --------------------------------------------------- |
-| **Boundary**          | Class, Aggregate            | Class - External dependency                             | Application code (mock/stub) external dependencies  |
-| **Size**              | Tiny                        | Tiny to Small                                           | Small to Medium                                     |
-| **Environment**       | Development                 | Integration test env                                    | Developement/QA                                     |
-| **Data**              | Mock data                   | Test data                                               | Fake or Data                                        |
-| **System Under Test** | Isolated behaviour          | Integration layer and external dependency               | App flow with (mocked/stubed) external dependencies |
-| **Scenarios**         | Developer                   | Developer                                               | Developer/QA                                        |
-| **When**              | Before each commit/on build | On build                                                | Before each commit/on build                         |
-| **Execution time**    | Very fast                   | Medium to slow (depending on external dependency speed) | Very fast to fast, on worst case medium             |
+| Aspect      | Unit Tests        | Integration Tests            | Acceptance Tests      |
+| ----------- | ----------------- | ---------------------------- | --------------------- |
+| Scope       | Class/Aggregate   | Class ↔ External Dependency | Full Application Flow |
+| Size        | Tiny              | Small                        | Small-Medium          |
+| Environment | Dev               | Integration                  | Dev/QA                |
+| Data        | Mocked            | Test Data                    | Fake/Test Data        |
+| Focus       | Isolated Behavior | Integration Points           | Business Flows        |
+| Authors     | Developers        | Developers                   | Devs/QA               |
+| Execution   | Per Commit        | On Build                     | Per Commit/Build      |
+| Speed       | Very Fast         | Medium-Slow                  | Fast-Medium           |

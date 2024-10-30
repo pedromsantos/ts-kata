@@ -5,67 +5,58 @@
 <https://github.com/NotMyself/GildedRose>
 <https://github.com/emilybache/GildedRose-Refactoring-Kata>
 
-## The problem
+## The Problem
 
 Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime location in a prominent city ran by a friendly innkeeper named Allison. We also buy and sell only the finest goods. Unfortunately, our goods are constantly degrading in quality as they approach their sell by date. We have a system in place that updates our inventory for us. It was developed by a no-nonsense type named Leeroy, who has moved on to new adventures.
 
-## Your tasks
+## Tasks Overview
 
-### First run - Add Characterization tests
+### 1. Characterization Testing
 
-Write characterization tests to describe the code as is.
-Characterization tests are about describing the code **as is**, including any strange behaviour or possible bugs.
-Characterization tests do not verify the correct behavior of the code, which can be impossible to determine.
-Instead they verify the behavior that was observed when they were written.
+- Write tests to describe the current behavior of the code
+- Focus on documenting actual behavior, not expected behavior
+- Use test-driven approach:
+  1. Write a failing assertion
+  2. Run the test to discover actual behavior
+  3. Update test to match actual behavior
+  4. Repeat
+- Use code coverage tools to ensure comprehensive testing
 
-More on characterization tests <https://michaelfeathers.silvrback.com/characterization-testing>
+### 2. Mutation Testing
 
-#### Guidelines
+- Run mutation tests: `yarn mutants`
+- Review reports at:
+  - `reports/mutation/mutation.html`
+  - `reports/mutation/mutation.html#mutant/11_GildedRose/kata.ts`
+- Add tests to catch any uncovered mutations
 
-- Write an assertion that you know will fail
-- Run the test and let the failure tell you what the actual behaviour is
-- Change the test so that it expects the behaviour that the code actually produces
-- Repeat
-- Use a code coverage tool to help you identify areas of the code that have no test coverage
+### 3. Approval Testing
 
-Write characterization tests to describe the code as is.
+- Implement approval (golden master/snapshot) tests
+- Compare advantages vs characterization tests
+- Utilize Jest extended snapshot support:
 
-### Second run - Configure mutation testing
+  ```typescript
+  function doUpdateQuality(name: string, sellIn: number, quality: number): Item {
+    const gildedRose = new GildedRose([new Item(name, sellIn, quality)]);
+    return gildedRose.updateQuality()[0];
+  }
 
-- Use mutation tests to further increase the confidence on your tests
-  - run `yarn mutants`
-  - Check the mutation test report here:
-    - <reports/mutation/mutation.html>
-    - <reports/mutation/mutation.html#mutant/11_GildedRose/kata.ts>
-  - Add any missing tests the mutation tool uncovers
+  test('should update quality', () => {
+    expect(doUpdateQuality).toVerifyAllCombinations(
+      [
+        'foo',
+        'Aged Brie',
+        'Backstage passes to a TAFKAL80ETC concert',
+        'Sulfuras, Hand of Ragnaros',
+      ],
+      [-1, 0, 1, 11],
+      [0, 1, 2, 49, 50],
+    );
+  });
+  ```
 
-### Third run - Add approval (aka golden master/snapshot) tests
-
-- Use approval tests to test the solution instead of characterization tests
-- Note the advantages/disadvantages of using one approach or the other
-
-#### Jest extension two support combinations
-
-<https://github.com/nicoespeon/jest-extended-snapshot#readme>
-
-#### Usefull code snipets
-
-```typescript
-function doUpdateQuality(name: string, sellIn: number, quality: number): Item {
-  const gildedRose = new GildedRose([new Item(name, sellIn, quality)]);
-  return gildedRose.updateQuality()[0];
-}
-
-test('should update quality', () => {
-  expect(doUpdateQuality).toVerifyAllCombinations(
-    ['foo', 'Aged Brie', 'Backstage passes to a TAFKAL80ETC concert', 'Sulfuras, Hand of Ragnaros'],
-    [-1, 0, 1, 11],
-    [0, 1, 2, 49, 50],
-  );
-});
-```
-
-### Fourth run - Refactor code
+### 4. Refactoring Code
 
 - Refactor the code of the Gilded Rose app using the "Lift-Up conditional" refactoring.
   - More on Lift-Up conditional
@@ -79,13 +70,14 @@ test('should update quality', () => {
 
 1. Extract code to refactor into new method "bar"
 2. Identify and copy condition to lift-up
-3. Select all body of extracted method ("bar") and extract temporary method “foo”
-4. On extracted method ("bar") paste the condition you copied and call “foo”. On the else call “foo” as well
-5. Inline both calls to “foo” and delete "foo"
-6. Use coverage to delete dead code on method "bar"
-7. Repeat (GoTo 1)
+3. Make the condition positive
+4. Select all body of extracted method ("bar") and extract temporary method “foo”
+5. On extracted method ("bar") paste the condition you copied and call “foo”. On the else call “foo” as well
+6. Inline both calls to “foo” and delete "foo"
+7. Use coverage to delete dead code on method "bar"
+8. Repeat (GoTo 1)
 
-### Fifth run - Refactor design
+### 5. Refactoring Design
 
 - Refactor the design of the Gilded Rose code using the "Replace Conditional with Polymorphism" refactor
   - Step 1 Replace Type Code with Subclasses

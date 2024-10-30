@@ -312,22 +312,38 @@ components:
           items:
             $ref: "#/components/schemas/Item"
     Player:
-      description: Player information
+      description: Player information and current game state
       type: object
       required:
         - sid
         - name
+        - location
+        - bag
       properties:
         sid:
           $ref: "#/components/schemas/Sid"
         name:
           type: string
+          minLength: 1
+          maxLength: 50
           example: "Pedro"
         location:
           $ref: "#/components/schemas/Location"
         bag:
           $ref: "#/components/schemas/Bag"
     Sid:
-      description: Sid type
+      description: Unique identifier for game entities
       type: string
-      example: 001001-999199919878-99989798
+      pattern: "^[0-9]{6}-[0-9]{12}-[00-9]{8}$"
+      example: "001001-999199919878-99989798"
+    Error:
+      type: object
+      properties:
+        code:
+          type: integer
+          format: int32
+        message:
+          type: string
+      required:
+        - code
+        - message
