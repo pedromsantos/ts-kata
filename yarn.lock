@@ -3131,10 +3131,10 @@ extglob@^0.3.1:
   dependencies:
     is-extglob "^1.0.0"
 
-fast-check@^3.23.1:
-  version "3.23.1"
-  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-3.23.1.tgz#a25f5c0f6a58f92f2a68cb7dfe1476054329ea3f"
-  integrity sha512-u/MudsoQEgBUZgR5N1v87vEgybeVYus9VnDVaIkxkkGP2jt54naghQ3PCQHJiogS8U/GavZCUPFfx3Xkp+NaHw==
+fast-check@^3.23.2:
+  version "3.23.2"
+  resolved "https://registry.yarnpkg.com/fast-check/-/fast-check-3.23.2.tgz#0129f1eb7e4f500f58e8290edc83c670e4a574a2"
+  integrity sha512-h5+1OzzfCC3Ef7VbtKdcv7zsstUQwUDlYpUTvjeUsJAssPgLn7QzbboPtL5ro04Mq0rPOsMzl7q5hIbRs2wD1A==
   dependencies:
     pure-rand "^6.1.0"
 
