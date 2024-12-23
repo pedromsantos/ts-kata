@@ -15,10 +15,10 @@ export class Game {
   private _lastPlayer = noPlayer;
   private _board: Board = new Board();
 
-  public Play(player: Player, x: Row, y: Row) {
+  public Play(player: Player, row: Row, column: Column) {
     this.validateFirstMove(player);
     this.validatePlayer(player);
-    const coordinate = new Coordinate(x, y);
+    const coordinate = new Coordinate(row, column);
     this.validatePositionIsEmpty(coordinate);
 
     this.updateLastPlayer(player);
