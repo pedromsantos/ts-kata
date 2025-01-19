@@ -64,7 +64,11 @@
     "esa": "jest -i src/16_ESAMarsRover/test.ts",
     "katacombs": "jest -i src/19_Katacombs/test/test.ts"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@types/express": "^5.0.0",
+    "express": "5.0.1",
+    "express-openapi-validator": "^5.4.2"
+  },
   "devDependencies": {
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
