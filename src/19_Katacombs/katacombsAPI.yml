@@ -157,6 +157,41 @@ paths:
           description: Player or Item with Sid playerSid not found
         "405":
           description: Action not available for specified item
+  /player/{playerSid}/item/{itemSid}/take:
+    put:
+      tags:
+        - Player
+      summary: Take an item
+      description: Pick up an item from the current location and add it to player's bag
+      operationId: takeItem
+      parameters:
+        - in: path
+          name: playerSid
+          description: Player unique identification
+          required: true
+          schema:
+            $ref: "#/components/schemas/Sid"
+        - in: path
+          name: itemSid
+          description: Item to take
+          required: true
+          schema:
+            $ref: "#/components/schemas/Sid"
+      responses:
+        "200":
+          description: Item taken successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  message:
+                    type: string
+                    example: "Item taken successfully"
+        "404":
+          description: Player or Item not found
+        "409":
+          description: Item cannot be taken (not in current location or bag is full)
   /player/{playerSid}/location:
     get:
       tags:
