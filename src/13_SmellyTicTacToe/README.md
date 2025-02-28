@@ -81,3 +81,85 @@ The implementation contains the following code smells:
 - [Code Smells Video Tutorial](https://www.youtube.com/watch?v=MM6_tyvBRXE)
 - [Refactoring Guru - Code Smells](https://refactoring.guru/refactoring/smells)
 - [Comprehensive Code Smells Guide](https://luzkan.github.io/smells/)
+
+## Sample Code Review - TicTacToe Implementation
+
+1. **Data Clumps**
+
+   - `x` and `y` coordinates appear together throughout the codebase (Play, TileAt, AddTileAt methods and Tile interface)
+   - Consider introducing a `Position` value object to encapsulate this concept
+
+   ```typescript
+   class Position {
+     constructor(
+       private readonly x: number,
+       private readonly y: number,
+     ) {}
+   }
+   ```
+
+2. **Primitive Obsession**
+
+   - Game symbols represented as primitive strings (`' '`, `'O'`, `'X'`)
+   - Board positions as raw numbers
+   - Domain errors as generic Error with strings
+   - Recommend creating proper types:
+     - `Player` enum/value object
+     - Domain-specific exceptions (`InvalidFirstPlayerError`, etc.)
+
+3. **Long Method & Duplication**
+
+   - `Winner()` method contains repeated row-checking logic
+   - Consider extracting to something like:
+
+   ```typescript
+   private checkRow(rowIndex: number): GameSymbol
+   private checkWinningLine(positions: Position[]): GameSymbol
+   ```
+
+4. **Feature Envy & Inappropriate Intimacy**
+
+   - `Game` class knows too much about `Board`'s internals
+   - Move winning condition logic to `Board` class
+   - Encapsulate board operations better
+
+5. **Data Class**
+
+   - `Tile` is just a data holder
+   - Should be a proper class with behavior and encapsulation
+
+6. **Large Class**
+
+   - Both `Game` and `Board` have multiple responsibilities
+   - Consider extracting:
+     - `WinningStrategy`
+     - `GameRules`
+     - `GameState`
+
+7. **Message Chains**
+
+   - `this._board.TileAt(x, y).Symbol` violates Law of Demeter
+   - Introduce methods that encapsulate these operations
+
+8. **Poor Encapsulation**
+
+   - `TileAt` exposes internal state
+   - Prefer exposing behavior over state
+
+9. **Comments**
+
+   - The code uses comments to explain what the code does rather than having self-documenting code
+   - Problem: Comments can become outdated and don't improve the underlying code structure
+   - Solution: Refactor the code to be self-documenting through better method and variable names
+
+10. **Switch Statements**
+
+    - in form of if-else chains
+    - Multiple if-else conditions in Play method for game rules
+    - Problem: Makes code rigid and harder to extend
+
+11. **Magic Numbers/Strings**
+
+    - Hard-coded `3` for board size
+    - Hard-coded `' '` for empty spaces
+    - Recommend creating named constants or configuration
