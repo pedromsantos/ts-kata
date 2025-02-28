@@ -28,7 +28,7 @@
     "lint": "eslint . --cache --cache-location ./node_modules/.cache/eslint --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "types": "type-coverage -at-least 99",
-    "prepare": "husky install",
+    "prepare": "husky",
     "generate-types": "openapi-typescript src/18_Katacombs/katacombsAPI.yml -o src/18_Katacombs/api.ts",
     "test": "jest --watchAll=false",
     "test:ci": "jest test --watchAll=false --coverage=true",
@@ -114,5 +114,6 @@
         ]
       ]
     }
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }
