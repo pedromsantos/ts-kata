@@ -67,7 +67,7 @@
   "dependencies": {
     "@types/express": "^5.0.0",
     "express": "5.0.1",
-    "express-openapi-validator": "^5.4.7"
+    "express-openapi-validator": "^5.4.9"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",
