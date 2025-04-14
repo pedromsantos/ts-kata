@@ -97,7 +97,7 @@
     "ts-coverage": "^0.1.5",
     "ts-jest": "^29.3.1",
     "type-coverage": "^2.29.7",
-    "typescript": "5.8.2"
+    "typescript": "5.8.3"
   },
   "commitlint": {
     "extends": [
