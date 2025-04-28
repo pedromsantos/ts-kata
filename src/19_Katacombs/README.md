@@ -193,3 +193,8 @@ Scenario: Quit Game
   When I quit the game
   Then I'm shown a message "Good bye"
 ```
+
+## Resources
+
+- [MUD](https://en.wikipedia.org/wiki/Multi-user_dungeon)
+- [How to program a text adventure in C](https://helderman.github.io/htpataic/htpataic01.html)
