@@ -3113,10 +3113,10 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express-openapi-validator@^5.5.1:
-  version "5.5.1"
-  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.5.1.tgz#a8ecd58cca115aa7513b8938c52704743d010956"
-  integrity sha512-tYo7VY4rX8+NKQKa/i+uvrKQweQtCb2aJiWwl0jT3PSlDcFZbyjBjsCuhqUNz90zCGOmLCxpF/G4vMmX5ZhhZg==
+express-openapi-validator@^5.5.3:
+  version "5.5.3"
+  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.5.3.tgz#a209374ad06bfc5f90dba648467c66e6c79f14d4"
+  integrity sha512-G3PxXXE8Y3aZ2s1OW9k79lyqmNWmj8/QWNWqF9qVPjJ8YON8JQ39c4CgSXemPfbRCuD58ynoHrG3WCetU937dg==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^12.0.1"
     "@types/multer" "^1.4.12"
@@ -3128,9 +3128,10 @@ express-openapi-validator@^5.5.1:
     lodash.clonedeep "^4.5.0"
     lodash.get "^4.4.2"
     media-typer "^1.1.0"
-    multer "^1.4.5-lts.2"
+    multer "^2.0.0"
     ono "^7.1.3"
     path-to-regexp "^8.2.0"
+    qs "^6.14.0"
 
 express@5.1.0:
   version "5.1.0"
@@ -5096,10 +5097,10 @@ ms@^2.1.1, ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-multer@^1.4.5-lts.2:
-  version "1.4.5-lts.2"
-  resolved "https://registry.yarnpkg.com/multer/-/multer-1.4.5-lts.2.tgz#340af065d8685dda846ec9e3d7655fcd50afba2d"
-  integrity sha512-VzGiVigcG9zUAoCNU+xShztrlr1auZOlurXynNvO9GiWD1/mTBbUljOKY+qMeazBqXgRnjzeEgJI/wyjJUHg9A==
+multer@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/multer/-/multer-2.0.0.tgz#47076aa0f7c2c2fd273715e767c6962bf7f94326"
+  integrity sha512-bS8rPZurbAuHGAnApbM9d4h1wSoYqrOqkE+6a64KLMK9yWU7gJXBDDVklKQ3TPi9DRb85cRs6yXaC0+cjxRtRg==
   dependencies:
     append-field "^1.0.0"
     busboy "^1.0.0"
