@@ -3108,10 +3108,10 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express-openapi-validator@^5.5.6:
-  version "5.5.6"
-  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.5.6.tgz#d625df0d274948cc8b20bb02d736c95318bbd80d"
-  integrity sha512-99KV5Q4VyJA35IBIHqghncWX4a7DKiilC3BwbyqXd63N0I0WzmOrJcCwlPncPQdrhC4jW6Q03vHNOeduzx8tKQ==
+express-openapi-validator@^5.5.7:
+  version "5.5.7"
+  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.5.7.tgz#5488639ce8e64e42667382072ea551782e895c81"
+  integrity sha512-QcV941hD3GHnCOg72y6kgqA7XsDkmZOGf7tvoIw9IyUlIRvJv/XDpYFnK7rOggt+ZUaM2P/9wsZCmdMXpr7z2A==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^12.0.1"
     "@types/multer" "^1.4.12"
