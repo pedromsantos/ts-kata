@@ -82,8 +82,7 @@ The kata consists of creating the rules to score rolls, calculate player totals 
 - **Full House**
 
   - Requires three of one number and two of another
-  - Score: Sum of all dice
-  - Example: [1,1,2,2,2] scores 8
+  - Score: 25 points
 
 - **Yahtzee**
   - All five dice showing same number
