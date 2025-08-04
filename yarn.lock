@@ -15,12 +15,11 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@apidevtools/json-schema-ref-parser@^12.0.1":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@apidevtools/json-schema-ref-parser/-/json-schema-ref-parser-12.0.1.tgz#74cd3f3a8338b4a98193f95fc82714dda6a19bcd"
-  integrity sha512-D3n3T19ly/RYyEvsrqKa/cSAlzQF8KXj1o0XLTI+9GKnJvdHT3WW50yZYCf+4JU7+pLlhXZVV1q1AJ0SPN/pmw==
+"@apidevtools/json-schema-ref-parser@^14.0.3":
+  version "14.1.1"
+  resolved "https://registry.yarnpkg.com/@apidevtools/json-schema-ref-parser/-/json-schema-ref-parser-14.1.1.tgz#0bae59809b7848c7a89dc6bb2f3bb980b7c290b1"
+  integrity sha512-uGF1YGOzzD50L7HLNWclXmsEhQflw8/zZHIz0/AzkJrKL5r9PceUipZxR/cp/8veTk4TVfdDJLyIwXLjaP5ePg==
   dependencies:
-    "@jsdevtools/ono" "^7.1.3"
     "@types/json-schema" "^7.0.15"
     js-yaml "^4.1.0"
 
@@ -1046,7 +1045,7 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
-"@jsdevtools/ono@7.1.3", "@jsdevtools/ono@^7.1.3":
+"@jsdevtools/ono@7.1.3":
   version "7.1.3"
   resolved "https://registry.npmjs.org/@jsdevtools/ono/-/ono-7.1.3.tgz"
   integrity sha512-4JQNk+3mVzK3xh2rqd6RB4J46qUR19azEHBneZyTZM+c456qOrbbM/5xcR8huNCCcbVt7+UmizG6GuUvPvKUYg==
@@ -3295,12 +3294,12 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express-openapi-validator@^5.5.7:
-  version "5.5.7"
-  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.5.7.tgz#5488639ce8e64e42667382072ea551782e895c81"
-  integrity sha512-QcV941hD3GHnCOg72y6kgqA7XsDkmZOGf7tvoIw9IyUlIRvJv/XDpYFnK7rOggt+ZUaM2P/9wsZCmdMXpr7z2A==
+express-openapi-validator@^5.5.8:
+  version "5.5.8"
+  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.5.8.tgz#45e6226acdac92caa89f623bbcfd48c158f69ebf"
+  integrity sha512-JNokdK39oGS174eEUhjJrzB3sfI2HMxOmSvPkbbZ6Q7XqywIlEFreZF99BtbTiTjZ7jZIknqFB1528xkVdNPcQ==
   dependencies:
-    "@apidevtools/json-schema-ref-parser" "^12.0.1"
+    "@apidevtools/json-schema-ref-parser" "^14.0.3"
     "@types/multer" "^1.4.12"
     ajv "^8.17.1"
     ajv-draft-04 "^1.0.0"
@@ -3310,7 +3309,7 @@ express-openapi-validator@^5.5.7:
     lodash.clonedeep "^4.5.0"
     lodash.get "^4.4.2"
     media-typer "^1.1.0"
-    multer "^2.0.1"
+    multer "^2.0.2"
     ono "^7.1.3"
     path-to-regexp "^8.2.0"
     qs "^6.14.0"
@@ -5498,7 +5497,7 @@ ms@^2.1.1, ms@^2.1.3:
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.1.3.tgz#574c8138ce1d2b5861f0b44579dbadd60c6615b2"
   integrity sha512-6FlzubTLZG3J2a/NVCAleEhjzq5oxgHyaCU9yYXvcLsvoVaHJq/s5xXI6/XXP6tz7R9xAOtHnSO/tXtF3WRTlA==
 
-multer@^2.0.1:
+multer@^2.0.2:
   version "2.0.2"
   resolved "https://registry.yarnpkg.com/multer/-/multer-2.0.2.tgz#08a8aa8255865388c387aaf041426b0c87bf58dd"
   integrity sha512-u7f2xaZ/UG8oLXHvtF/oWTRvT44p9ecwBBqTwgJVq0+4BW1g8OW01TyMEGWBHbyMOYVHXslaut7qEQ1meATXgw==
