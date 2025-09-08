@@ -1352,10 +1352,10 @@
   resolved "https://registry.npmjs.org/@types/mime/-/mime-1.3.5.tgz"
   integrity sha512-/pyBZWSLD2n0dcHE3hq8s8ZvcETHtEuF+3E7XVt0Ig2nvsVQXdghHVcEkIWjy9A0wKfTn97a/PSDYohKIlnP/w==
 
-"@types/multer@^1.4.12":
-  version "1.4.12"
-  resolved "https://registry.npmjs.org/@types/multer/-/multer-1.4.12.tgz"
-  integrity sha512-pQ2hoqvXiJt2FP9WQVLPRO+AmiIm/ZYkavPlIQnx282u4ZrVdztx0pkh3jjpQt0Kz+YI0YhSG264y08UJKoUQg==
+"@types/multer@^1.4.13":
+  version "1.4.13"
+  resolved "https://registry.yarnpkg.com/@types/multer/-/multer-1.4.13.tgz#be483f909a77f13e0624cac3d001859eb12ae68b"
+  integrity sha512-bhhdtPw7JqCiEfC9Jimx5LqX9BDIPJEh2q/fQ4bqbBPtyEZYr3cvF22NwG0DmPZNYA0CAf2CnqDB4KIGGpJcaw==
   dependencies:
     "@types/express" "*"
 
@@ -3282,13 +3282,13 @@ expect@^29.0.0, expect@^29.7.0:
     jest-message-util "^29.7.0"
     jest-util "^29.7.0"
 
-express-openapi-validator@^5.5.8:
-  version "5.5.8"
-  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.5.8.tgz#45e6226acdac92caa89f623bbcfd48c158f69ebf"
-  integrity sha512-JNokdK39oGS174eEUhjJrzB3sfI2HMxOmSvPkbbZ6Q7XqywIlEFreZF99BtbTiTjZ7jZIknqFB1528xkVdNPcQ==
+express-openapi-validator@^5.6.0:
+  version "5.6.0"
+  resolved "https://registry.yarnpkg.com/express-openapi-validator/-/express-openapi-validator-5.6.0.tgz#85c87aefbc558574030fa2ab8293191480edc199"
+  integrity sha512-gNaMgDb1cAT8QKcuh9WrED9p3mqi/V7yocNrvnE1fOz7e8p8JkbYaTUcOB4VsZKerz/X+Sey7ptTGF5FwsXh8Q==
   dependencies:
     "@apidevtools/json-schema-ref-parser" "^14.0.3"
-    "@types/multer" "^1.4.12"
+    "@types/multer" "^1.4.13"
     ajv "^8.17.1"
     ajv-draft-04 "^1.0.0"
     ajv-formats "^3.0.1"
