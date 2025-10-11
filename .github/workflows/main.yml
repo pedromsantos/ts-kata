@@ -10,14 +10,14 @@ jobs:
       - uses: actions/checkout@v5
         with:
           fetch-depth: --unshallow
-      - name: Use Node.js with pnpm
+      - name: Use Node.js
         uses: actions/setup-node@v5
         with:
           node-version: ">=22"
+      - name: Enable Corepack
+        run: corepack enable
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
-        with:
-          version: 9.12.3
+        run: corepack prepare pnpm@9.12.3 --activate
       - name: Check pnpm version
         run: pnpm --version
       - name: Cache pnpm store
