@@ -9,7 +9,7 @@ jobs:
     steps:
       - uses: actions/checkout@v5
         with:
-          fetch-depth: --unshallow
+          fetch-depth: 0
       - name: Use Node.js
         uses: actions/setup-node@v5
         with:
@@ -22,10 +22,8 @@ jobs:
         run: pnpm --version
       - name: Cache pnpm store
         uses: actions/cache@v4.3.0
-        env:
-          cache-name: cache-pnpm-store
         with:
-          path: ~/.pnpm-store
+          path: ~/.local/share/pnpm/store
           key: ${{ runner.os }}-pnpm-store-${{ hashFiles('**/pnpm-lock.yaml') }}
           restore-keys: |
             ${{ runner.os }}-pnpm-store-
