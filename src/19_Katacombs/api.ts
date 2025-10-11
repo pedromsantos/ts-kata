@@ -1,8 +1,8 @@
-import express from 'express';
+import express, { Express } from 'express';
 import { middleware } from 'express-openapi-validator';
 import path from 'path';
 
-const app = express();
+const app: Express = express();
 const port = 3000;
 
 // Base types
@@ -158,7 +158,7 @@ app.put(
     res.status(200).json({
       playerSid,
       itemSid,
-      action: action as Action,
+      action: action,
       message: 'Action completed successfully',
     });
   },
@@ -185,7 +185,7 @@ app.get(
     // TODO: Implement look direction logic using playerSid and direction
     res.status(200).json({
       playerSid,
-      direction: direction as Direction,
+      direction: direction,
       description: 'You see a path leading somewhere',
       exits: [],
       items: [],
@@ -200,7 +200,7 @@ app.put(
     // TODO: Implement move logic using playerSid and direction
     res.status(200).json({
       playerSid,
-      direction: direction as Direction,
+      direction: direction,
       message: 'Moved successfully',
     });
   },
