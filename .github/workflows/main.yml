@@ -36,7 +36,7 @@ jobs:
         run: pnpm install --frozen-lockfile
 
       - name: Build
-        run: pnpm ci
+        run: pnpm run ci
 
       - name: SonarCloud Scan
         uses: SonarSource/sonarcloud-github-action@master
