@@ -18,6 +18,8 @@ jobs:
         uses: pnpm/action-setup@v4
         with:
           version: 9.12.3
+      - name: Check pnpm version
+        run: pnpm --version
       - name: Cache pnpm store
         uses: actions/cache@v4.3.0
         env:
