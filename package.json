@@ -78,7 +78,7 @@
     "@stryker-mutator/typescript-checker": "^8.6.0",
     "@types/jest": "^29.5.14",
     "@types/node": "^24.9.1",
-    "@typescript-eslint/eslint-plugin": "^8.46.0",
+    "@typescript-eslint/eslint-plugin": "^8.46.2",
     "@typescript-eslint/parser": "^8.46.2",
     "eslint": "^8.57.1",
     "eslint-config-prettier": "^10.1.8",
