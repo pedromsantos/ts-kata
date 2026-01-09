@@ -26,48 +26,48 @@ This is a reference kit for educational and development purposes. You are free t
 
 ```sh
 # Run all tests
-yarn test
+pnpm test
 
 # Run with coverage
-yarn test:ci
+pnpm test:ci
 
 # Run mutation tests
-yarn mutants
+pnpm mutants
 
 # Watch mode
-yarn watch
+pnpm watch
 ```
 
 ### Individual Kata Tests
 
 ```sh
-yarn fizz     # FizzBuzz
-yarn leap     # Leap Year
-yarn fib      # Fibonacci
-yarn stack    # Stack Kata
-yarn roman    # Roman Numerals
-yarn prime    # Prime Factors
-yarn tic      # Tic Tac Toe
-yarn yahtzee  # Yahtzee
-yarn mars     # Mars Rover
-yarn tennis   # Tennis
-yarn rose     # Gilded Rose
-yarn golf     # All Refactoring Golf Tests
-yarn smelly   # Smelly Tic Tac Toe
-yarn copier   # Character Copier
-yarn tac      # Tic Tac Toe (Alternative)
-yarn esa      # ESA Mars Rover
-yarn katacombs # Katacombs
+pnpm fizz     # FizzBuzz
+pnpm leap     # Leap Year
+pnpm fib      # Fibonacci
+pnpm stack    # Stack Kata
+pnpm roman    # Roman Numerals
+pnpm prime    # Prime Factors
+pnpm tic      # Tic Tac Toe
+pnpm yahtzee  # Yahtzee
+pnpm mars     # Mars Rover
+pnpm tennis   # Tennis
+pnpm rose     # Gilded Rose
+pnpm golf     # All Refactoring Golf Tests
+pnpm smelly   # Smelly Tic Tac Toe
+pnpm copier   # Character Copier
+pnpm tac      # Tic Tac Toe (Alternative)
+pnpm esa      # ESA Mars Rover
+pnpm katacombs # Katacombs
 
 # Refactoring Golf Individual Holes
-yarn golf1    # Golf Hole 1
-yarn golf2    # Golf Hole 2
-yarn golf3    # Golf Hole 3
-yarn golf4    # Golf Hole 4
-yarn golf5    # Golf Hole 5
-yarn golf6    # Golf Hole 6
-yarn golf7    # Golf Hole 7
-yarn golf8    # Golf Hole 8
+pnpm golf1    # Golf Hole 1
+pnpm golf2    # Golf Hole 2
+pnpm golf3    # Golf Hole 3
+pnpm golf4    # Golf Hole 4
+pnpm golf5    # Golf Hole 5
+pnpm golf6    # Golf Hole 6
+pnpm golf7    # Golf Hole 7
+pnpm golf8    # Golf Hole 8
 yarn golf9    # Golf Hole 9
 yarn golf10   # Golf Hole 10
 yarn golf11   # Golf Hole 11

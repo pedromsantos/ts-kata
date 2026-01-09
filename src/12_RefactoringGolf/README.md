@@ -14,8 +14,8 @@
 ## Preparation
 
 1. Identify all code smells in the starting hole
-2. Verify build and tests pass: `yarn golf`
-3. Use hole-specific test scripts: `yarn golf1`, `yarn golf2`, etc.
+2. Verify build and tests pass: `pnpm golf`
+3. Use hole-specific test scripts: `pnpm golf1`, `pnpm golf2`, etc.
 
 ## Challenge Runs
 

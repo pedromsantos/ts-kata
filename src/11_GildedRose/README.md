@@ -24,7 +24,7 @@ Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime
 
 ### 2. Mutation Testing
 
-- Run mutation tests: `yarn mutants`
+- Run mutation tests: `pnpm mutants`
 - Review reports at:
   - `reports/mutation/mutation.html`
   - `reports/mutation/mutation.html#mutant/11_GildedRose/kata.ts`

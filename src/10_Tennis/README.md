@@ -27,7 +27,7 @@ Your goal is to improve code readability while maintaining functionality.
 - Verify high test coverage (currently 100%)
 
   ```bash
-  yarn test:ci
+  pnpm test:ci
   ```
 
 ### Refactoring Guidelines
