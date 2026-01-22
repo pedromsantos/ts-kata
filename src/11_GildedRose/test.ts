@@ -37,3 +37,27 @@ describe('Gilded Rose inventary update should', () => {
     );
   });
 });
+
+import fc from 'fast-check';
+
+describe('Gilded Rose property-based tests', () => {
+  describe('quality bounds', () => {
+    test.skip('quality should never be negative', () => {
+      fc.assert(
+        fc.property(
+          fc.string(),
+          fc.integer({ min: -10, max: 50 }),
+          fc.integer({ min: 0, max: 100 }),
+          (name: string, sellIn: number, quality: number) => {
+            const item = new Item(name, sellIn, quality);
+            const gildedRose = new GildedRose([item]);
+
+            gildedRose.updateQuality();
+
+            expect(item.quality).toBeGreaterThanOrEqual(0);
+          },
+        ),
+      );
+    });
+  });
+});
