@@ -15,8 +15,8 @@ importers:
         specifier: 5.2.1
         version: 5.2.1
       express-openapi-validator:
-        specifier: ^5.6.1
-        version: 5.6.1(@types/json-schema@7.0.15)(express@5.2.1)
+        specifier: ^5.6.2
+        version: 5.6.2(@types/json-schema@7.0.15)(express@5.2.1)
     devDependencies:
       '@commitlint/cli':
         specifier: ^20.3.1
@@ -109,9 +109,9 @@ packages:
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
 
-  '@apidevtools/json-schema-ref-parser@15.2.1':
-    resolution: {integrity: sha512-XaFfxKmYHUlYla8VMG1sOaX+uZwX2Bbk51pC7D4Oy723HVmzTrJuh5oEFAeFfPQX3HkILXabuvlXzs1YcQmvJQ==}
-    engines: {node: '>=20'}
+  '@apidevtools/json-schema-ref-parser@14.2.1':
+    resolution: {integrity: sha512-HmdFw9CDYqM6B25pqGBpNeLCKvGPlIx1EbLrVL0zPvj50CJQUHyBNBw45Muk0kEIkogo1VZvOKHajdMuAzSxRg==}
+    engines: {node: '>= 20'}
     peerDependencies:
       '@types/json-schema': ^7.0.15
 
@@ -760,8 +760,8 @@ packages:
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
 
-  '@types/multer@1.4.13':
-    resolution: {integrity: sha512-bhhdtPw7JqCiEfC9Jimx5LqX9BDIPJEh2q/fQ4bqbBPtyEZYr3cvF22NwG0DmPZNYA0CAf2CnqDB4KIGGpJcaw==}
+  '@types/multer@2.0.0':
+    resolution: {integrity: sha512-C3Z9v9Evij2yST3RSBktxP9STm6OdMc5uR1xF1SGr98uv8dUlAL2hqwrZ3GVB3uyMyiegnscEK6PGtYvNrjTjw==}
 
   '@types/mute-stream@0.0.4':
     resolution: {integrity: sha512-CPM9nzrCPPJHQNA9keH9CVkVI+WR5kMa+7XEs5jcGQ0VoAGnLv242w8lIVgwAEfmE4oufJRaTc9PNLQl0ioAow==}
@@ -1650,8 +1650,8 @@ packages:
     resolution: {integrity: sha512-2Zks0hf1VLFYI1kbh0I5jP3KHHyCHpkfyHBzsSXRFgl/Bg9mWYfMW8oD+PdMPlEwy5HNsR9JutYy6pMeOh61nw==}
     engines: {node: ^14.15.0 || ^16.10.0 || >=18.0.0}
 
-  express-openapi-validator@5.6.1:
-    resolution: {integrity: sha512-qogGGyuqE5Qrf8j2lIok4JRW6QGknQ4EvZn5t/dJt26UhsmQEcTwV75UH4Lu01Vil6XjP0nI9TsNLLT8lKHRtw==}
+  express-openapi-validator@5.6.2:
+    resolution: {integrity: sha512-fkDn4+ImUC4HTJ1g0cek/ItqYhmEO19AglJd2Iw2OJco0jLIbxIlDGVazmXbvvYeziU4Bnah2h+S2tb6NtWg8w==}
     peerDependencies:
       express: '*'
 
@@ -3644,7 +3644,7 @@ snapshots:
       '@jridgewell/gen-mapping': 0.3.13
       '@jridgewell/trace-mapping': 0.3.31
 
-  '@apidevtools/json-schema-ref-parser@15.2.1(@types/json-schema@7.0.15)':
+  '@apidevtools/json-schema-ref-parser@14.2.1(@types/json-schema@7.0.15)':
     dependencies:
       '@types/json-schema': 7.0.15
       js-yaml: 4.1.1
@@ -4641,7 +4641,7 @@ snapshots:
 
   '@types/json5@0.0.29': {}
 
-  '@types/multer@1.4.13':
+  '@types/multer@2.0.0':
     dependencies:
       '@types/express': 5.0.6
 
@@ -5719,10 +5719,10 @@ snapshots:
       jest-message-util: 29.7.0
       jest-util: 29.7.0
 
-  express-openapi-validator@5.6.1(@types/json-schema@7.0.15)(express@5.2.1):
+  express-openapi-validator@5.6.2(@types/json-schema@7.0.15)(express@5.2.1):
     dependencies:
-      '@apidevtools/json-schema-ref-parser': 15.2.1(@types/json-schema@7.0.15)
-      '@types/multer': 1.4.13
+      '@apidevtools/json-schema-ref-parser': 14.2.1(@types/json-schema@7.0.15)
+      '@types/multer': 2.0.0
       ajv: 8.17.1
       ajv-draft-04: 1.0.0(ajv@8.17.1)
       ajv-formats: 3.0.1(ajv@8.17.1)
