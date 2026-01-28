@@ -219,7 +219,7 @@ app.use((err: ApiError, _req: express.Request, res: express.Response) => {
 });
 
 app.listen(port, () => {
-  // eslint-disable-next-line no-console
+  // eslint-disable-next-line no-console, @typescript-eslint/restrict-template-expressions
   console.log(`Katacombs API listening at http://localhost:${port}`);
 });
 

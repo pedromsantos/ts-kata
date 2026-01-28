@@ -13,6 +13,7 @@
     "Object-oriented"
   ],
   "license": "MIT",
+  "type": "module",
   "main": "./lib/kata.js",
   "files": [
     "lib/"
@@ -73,6 +74,7 @@
     "@commitlint/cli": "^20.3.1",
     "@commitlint/config-conventional": "^20.3.1",
     "@commitlint/format": "^20.3.1",
+    "@eslint/js": "^9.39.2",
     "@stryker-mutator/core": "^9.4.0",
     "@stryker-mutator/jest-runner": "^9.4.0",
     "@stryker-mutator/typescript-checker": "^9.4.0",
@@ -80,12 +82,13 @@
     "@types/node": "^25.1.0",
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
+    "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-jest": "^29.12.1",
     "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-simple-import-sort": "^12.1.1",
-    "eslint": "8.57.1",
+    "globals": "^15.12.0",
     "fast-check": "^4.5.3",
     "husky": "^9.1.7",
     "jest": "^30.2.0",
