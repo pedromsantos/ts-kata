@@ -11,29 +11,33 @@ Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime
 
 ## Tasks Overview
 
-### 1. Characterization Testing
+### 1. Characterization Tests
 
-- Write tests to describe the current behavior of the code
-- Focus on documenting actual behavior, not expected behavior
-- Use test-driven approach:
+- Goal: document the system as it is. Grow tests along a path of increasing generality: start with unit tests, expand them with parameterized cases, and finish with property-based checks. Keep code coverage on to spot missing scenarios throughout.
+
+#### 1.1 Unit tests
+
+- Describe current behavior with focused assertions (actual behavior over intended behavior)
+- Test-driven loop:
   1. Write a failing assertion
-  2. Run the test to discover actual behavior
-  3. Update test to match actual behavior
-  4. Repeat
-- Use code coverage tools to ensure comprehensive testing
+  2. Run to observe actual behavior
+  3. Update expectation to match reality
+  4. Repeat and watch coverage to find gaps
 
-### 2. Mutation Testing
+#### 1.2 Parameterized tests
 
-- Run mutation tests: `pnpm mutants`
-- Review reports at:
-  - `reports/mutation/mutation.html`
-  - `reports/mutation/mutation.html#mutant/11_GildedRose/kata.ts`
-- Add tests to catch any uncovered mutations
+- Generalize unit tests by enumerating meaningful input sets to cover more branches
+- Use coverage reports to see which combinations still need attention
 
-### 3. Approval Testing
+#### 1.3 Property Based tests
 
-- Implement approval (golden master/snapshot) tests
-- Compare advantages vs characterization tests
+- Capture broader invariants with random or generated data
+- Leverage coverage to confirm new properties explore previously untested paths
+
+### 2. Golden Master tests (AKA Approval tests or snapshot tests)
+
+- Capture the full current output and lock it in snapshots; reruns reveal regressions automatically
+- Coverage is critical: ensure snapshots exercise all code paths worth protecting
 - Utilize Jest extended snapshot support:
 
   ```typescript
@@ -55,6 +59,39 @@ Hi and welcome to team Gilded Rose. As you know, we are a small inn with a prime
     );
   });
   ```
+
+### Characterization vs Golden Master
+
+| Aspect         | Characterization tests                         | Golden Master tests                                 |
+| -------------- | ---------------------------------------------- | --------------------------------------------------- |
+| Purpose        | Document current behavior                      | Freeze full outputs to detect regressions wholesale |
+| Granularity    | Fine-grained assertions on specific behaviors  | Coarse snapshots of overall results                 |
+| Evolution      | Easy to adjust per case as understanding grows | Stable baseline; snapshots updated deliberately     |
+| Coverage role  | Highlights missing cases as you generalize     | Ensures snapshots actually exercise critical paths  |
+| Failure signal | Points to a specific scenario                  | Signals any change; inspect diff to diagnose        |
+
+### 3. Mutation Testing
+
+#### Code coverage vs test coverage
+
+- **Code coverage** answers "which lines executed?" — a line that runs is not necessarily tested
+- **Test coverage** answers "do assertions actually catch bugs?" — mutation testing measures this
+- High coverage with weak assertions gives false confidence; mutants expose those gaps
+
+#### Why mutation tests matter for legacy code
+
+- Legacy systems often have tests added after the fact that execute code without truly verifying behavior
+- Mutations (small code changes like flipping `<` to `<=`) simulate real bugs; if tests still pass, the safety net has holes
+- Before refactoring, surviving mutants reveal which behaviors are unprotected
+- Killing mutants forces you to write assertions that lock in the actual logic, not just exercise it
+
+#### Running mutation tests
+
+- Run: `pnpm mutants`
+- Review reports at:
+  - `reports/mutation/mutation.html`
+  - `reports/mutation/mutation.html#mutant/11_GildedRose/kata.ts`
+- Add tests to kill any surviving mutants before proceeding to refactor
 
 ### 4. Refactoring Code
 
