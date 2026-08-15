@@ -30,12 +30,12 @@ README intentionally does not say where they are.
 
 ## Current State
 
-| Layer          | Coverage      | What's wrong                                     |
-| -------------- | ------------- | -------------------------------------------------- |
-| Domain         | mixed, 0%-partial | no test deliberately targets the aggregate's core behavior |
-| Application    | **0%**        | no tests at all                                    |
-| Domain (services) | tested     | tests exist in `Tests/unit.test.ts`, but nearly all are smelly |
-| Infrastructure | tested        | tests exist in `Tests/integration.test.ts`, but nearly all are smelly |
+| Layer             | Coverage          | What's wrong                                                          |
+| ----------------- | ----------------- | --------------------------------------------------------------------- |
+| Domain            | mixed, 0%-partial | no test deliberately targets the aggregate's core behavior            |
+| Application       | **0%**            | no tests at all                                                       |
+| Domain (services) | tested            | tests exist in `Tests/unit.test.ts`, but nearly all are smelly        |
+| Infrastructure    | tested            | tests exist in `Tests/integration.test.ts`, but nearly all are smelly |
 
 ## Problem Description
 
@@ -69,7 +69,7 @@ than in `16_SmellyMarsRover`, spread across two layers.
 
 The domain aggregate at the center of this kata is never deliberately
 tested either, even though it looks, at first glance, like it has decent
-coverage -- look closely at *which* of its methods are actually exercised,
+coverage -- look closely at _which_ of its methods are actually exercised,
 and by what.
 
 The existing unit and integration test suites both currently pass, but both
