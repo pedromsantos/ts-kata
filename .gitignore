@@ -8,3 +8,4 @@ reports
 **/__snapshots__
 .stryker-tmp
 /.idea/
+**/ANSWER_KEY.md
