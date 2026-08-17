@@ -3,7 +3,7 @@
 ## Overview
 
 This kata is a **fixture, not a from-scratch TDD exercise**. It is a Mars Rover
-mission simulator (inspired by `11_MarsRover` and `20_ESAMarsRover`) built
+mission simulator (inspired by `11_MarsRover` and `21_ESAMarsRover`) built
 deliberately as legacy code: some of it has **zero tests**, and the part that
 does have tests has **deliberately smelly ones**. It exists to practice (or to
 exercise tooling for):

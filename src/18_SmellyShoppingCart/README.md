@@ -4,7 +4,7 @@
 
 This kata is a **fixture, not a from-scratch TDD exercise**. It has the same
 objective as `16_SmellyMarsRover`, but with a more everyday domain: a shopping
-cart (inspired by `21_ShoppingCart`), built across the same
+cart (inspired by `22_ShoppingCart`), built across the same
 Domain/Application/Infrastructure layers, deliberately as legacy code. It
 exists to practice (or to exercise tooling for):
 

@@ -30,7 +30,7 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "types": "type-coverage -at-least 99",
     "prepare": "husky",
-    "generate-types": "openapi-typescript src/23_Katacombs/katacombsAPI.yml -o src/23_Katacombs/api.ts",
+    "generate-types": "openapi-typescript src/24_Katacombs/katacombsAPI.yml -o src/24_Katacombs/api.ts",
     "test": "jest --watchAll=false",
     "test:ci": "jest test --watchAll=false --coverage=true",
     "mutants": "stryker run",
@@ -63,12 +63,12 @@
     "golf12": "jest -i src/14_RefactoringGolf/hole12/ --watchAll=true",
     "smelly": "jest -i src/15_SmellyTicTacToe/test.ts",
     "smellyrover": "jest -i src/16_SmellyMarsRover/test.ts",
-    "smellycart": "jest -i src/17_SmellyShoppingCart/",
-    "copier": "jest -i src/18_CharacterCopier/test.ts",
-    "tac": "jest -i src/19_TicTacToe/test.ts",
-    "esa": "jest -i src/20_ESAMarsRover/test.ts",
-    "katacombs": "jest -i src/23_Katacombs/test/test.ts",
-    "legacygame": "jest -i src/24_LegacyGameRandom/test.ts"
+    "smellyyahtzee": "jest -i src/17_SmellyYahtzee/test.ts",
+    "smellycart": "jest -i src/18_SmellyShoppingCart/",
+    "copier": "jest -i src/19_CharacterCopier/test.ts",
+    "tac": "jest -i src/20_TicTacToe/test.ts",
+    "esa": "jest -i src/21_ESAMarsRover/test.ts",
+    "katacombs": "jest -i src/24_Katacombs/test/test.ts"
   },
   "dependencies": {
     "@types/express": "^5.0.6",
