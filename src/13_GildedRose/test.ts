@@ -24,7 +24,7 @@ describe('Gilded Rose inventary update should', () => {
     expect(gildedRose).not.toBeNull();
   });
 
-  test.skip('update quality and sell-in values', () => {
+  test.skip('update quality and sell-in values (flat product -- kept for reference, superseded below)', () => {
     expect(doUpdateQuality).toVerifyAllCombinations(
       [
         'foo',
@@ -34,6 +34,31 @@ describe('Gilded Rose inventary update should', () => {
       ],
       [-1, 0, 1, 11],
       [0, 1, 2, 49, 50],
+    );
+  });
+
+  // Partitioned Cartesian product, one partition per item category, tuned to that
+  // category's actual branch boundaries -- catches a gap the flat product above
+  // misses: 'sellIn < 11' and 'sellIn < 6' are independent sibling conditions for
+  // Backstage passes, not nested, so a shared sellIn set of [-1, 0, 1, 11] only ever
+  // produces "both true" or "both false" and never exercises the real 6-10 day
+  // range (single bonus only, +2/day instead of +3).
+  test('update quality and sell-in values (partitioned by item category)', () => {
+    // sellIn=1 is included so it decrements to 0, distinguishing 'sellIn < 0' from
+    // 'sellIn <= 0' after decrement -- a boundary the values 5/0/-1 alone do not reach.
+    expect(doUpdateQuality).toVerifyAllCombinations(['foo'], [5, 1, 0, -1], [0, 1, 25]);
+    expect(doUpdateQuality).toVerifyAllCombinations(['Aged Brie'], [5, 1, 0, -1], [0, 48, 49, 50]);
+    expect(doUpdateQuality).toVerifyAllCombinations(
+      ['Sulfuras, Hand of Ragnaros'],
+      [5, -1],
+      [80],
+    );
+    // sellIn=11 is included so 'sellIn < 11' and 'sellIn <= 11' disagree on it (11
+    // itself), distinguishing the two -- the values 15/10 alone do not reach that.
+    expect(doUpdateQuality).toVerifyAllCombinations(
+      ['Backstage passes to a TAFKAL80ETC concert'],
+      [15, 11, 10, 6, 5, 1, 0, -1],
+      [0, 48, 49, 50],
     );
   });
 });
