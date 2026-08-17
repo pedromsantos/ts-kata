@@ -32,6 +32,16 @@ describe('Yahtzee dice selection', () => {
     expect(rerolled).toBe(cup.currentDice);
   });
 
+  it('does things', () => {
+    const dice = new DiceCup(() => 0).roll();
+
+    expect(dice).toHaveLength(5);
+    expect(dice[0]!.value).toBe(1);
+    expect(dice[1]!.value).toBe(1);
+    expect(dice[2]!.value).toBe(1);
+    expect(dice[3]!.value).toBe(1);
+  });
+
   it('computes expected dice with the same branching as the cup', () => {
     const values = [0.01, 0.2, 0.4, 0.7, 0.99];
     const cup = new DiceCup(() => values.shift()!);
