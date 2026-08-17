@@ -67,7 +67,8 @@
     "copier": "jest -i src/18_CharacterCopier/test.ts",
     "tac": "jest -i src/19_TicTacToe/test.ts",
     "esa": "jest -i src/20_ESAMarsRover/test.ts",
-    "katacombs": "jest -i src/23_Katacombs/test/test.ts"
+    "katacombs": "jest -i src/23_Katacombs/test/test.ts",
+    "legacygame": "jest -i src/24_LegacyGameRandom/test.ts"
   },
   "dependencies": {
     "@types/express": "^5.0.6",
