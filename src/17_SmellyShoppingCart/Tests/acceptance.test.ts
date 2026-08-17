@@ -61,7 +61,8 @@ describe('CheckoutCart (acceptance)', () => {
 
     expect(receipt.cartId).toBe('cart-1');
     expect(receipt.total).toBe(7.5);
-    expect(receipt.confirmationCode).toMatch(/^ORD-\d+$/);
+    // fixedRandomSource() returns 0.5 -> Math.floor(0.5 * 1_000_000) = 500000
+    expect(receipt.confirmationCode).toBe('ORD-500000');
     expect(receipt.confirmedAt).toBe(fixedConfirmedAt);
   });
 
