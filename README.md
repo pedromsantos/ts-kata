@@ -54,6 +54,8 @@ pnpm tennis   # Tennis
 pnpm rose     # Gilded Rose
 pnpm golf     # All Refactoring Golf Tests
 pnpm smelly   # Smelly Tic Tac Toe
+pnpm smellyrover # Smelly Mars Rover
+pnpm smellycart  # Smelly Shopping Cart
 pnpm copier   # Character Copier
 pnpm tac      # Tic Tac Toe (Alternative)
 pnpm esa      # ESA Mars Rover
