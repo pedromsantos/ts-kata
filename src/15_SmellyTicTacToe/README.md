@@ -4,6 +4,19 @@
 
 This kata contains a deliberately "smelly" implementation of TicTacToe that needs refactoring. Your goal is to identify and fix various code smells while maintaining functionality.
 
+The implementation is split across four files (`Game.ts`, `Board.ts`,
+`RowWinnerChecker.ts`, `ColumnWinnerChecker.ts`) specifically so the
+cross-file smells below (Shotgun Surgery, Duplicated Code, Divergent
+Change) are genuinely cross-file, not just repeated logic within one
+file — this also makes the kata a verification fixture for
+[jev-review](https://github.com/pedromsantos/jev-review)'s module-level
+rules. `RowWinnerChecker` and `ColumnWinnerChecker` independently
+re-implement the exact same "are these three tiles taken and equal"
+matching logic; `Game` is the file that would need editing for several
+unrelated reasons (move-validation rules, wiring in a new line-checking
+strategy). Diagonal checking is still missing, matching the original
+kata's own known incompleteness.
+
 ## Code Smells to Look For
 
 The implementation contains the following code smells:
@@ -38,7 +51,9 @@ The implementation contains the following code smells:
 
 8. **Shotgun Surgery**
 
-   - Changes requiring multiple small edits across many classes
+   - Changes requiring multiple small edits across many classes — e.g. a
+     change to the matching rule in `RowWinnerChecker`/`ColumnWinnerChecker`
+     needs editing both files to stay consistent
 
 9. **Duplicated Code**
 
@@ -50,7 +65,10 @@ The implementation contains the following code smells:
 
 11. **Divergent Change**
 
-    - Class being changed for multiple different reasons
+    - Class being changed for multiple different reasons — `Game` changes
+      for move-validation rule changes, for wiring in a new
+      line-checking strategy, and for orchestration changes, none of
+      which are related to each other
 
 12. **Data Clump**
 
