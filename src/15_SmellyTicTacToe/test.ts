@@ -134,4 +134,29 @@ describe('TicTacToe game', () => {
 
     expect(winner).toBe('O');
   });
+
+  it('should declare player X as winner if it plays three on a diagonal', () => {
+    game.Play('X', 0, 0);
+    game.Play('O', 0, 1);
+    game.Play('X', 1, 1);
+    game.Play('O', 1, 0);
+    game.Play('X', 2, 2);
+
+    const winner = game.Winner();
+
+    expect(winner).toBe('X');
+  });
+
+  it('should declare player O as winner if it plays three on the anti-diagonal', () => {
+    game.Play('X', 0, 1);
+    game.Play('O', 0, 2);
+    game.Play('X', 0, 0);
+    game.Play('O', 1, 1);
+    game.Play('X', 1, 0);
+    game.Play('O', 2, 0);
+
+    const winner = game.Winner();
+
+    expect(winner).toBe('O');
+  });
 });

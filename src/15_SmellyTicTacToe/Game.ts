@@ -2,6 +2,7 @@
 
 import { Board } from './Board';
 import { ColumnWinnerChecker } from './ColumnWinnerChecker';
+import { DiagonalWinnerChecker } from './DiagonalWinnerChecker';
 import { RowWinnerChecker } from './RowWinnerChecker';
 
 export class Game {
@@ -9,6 +10,7 @@ export class Game {
   private _board: Board = new Board();
   private _rowWinnerChecker = new RowWinnerChecker();
   private _columnWinnerChecker = new ColumnWinnerChecker();
+  private _diagonalWinnerChecker = new DiagonalWinnerChecker();
 
   public Play(symbol: string, x: number, y: number): void {
     //if first move
@@ -38,6 +40,11 @@ export class Game {
       return rowWinner;
     }
 
-    return this._columnWinnerChecker.check(this._board);
+    const columnWinner = this._columnWinnerChecker.check(this._board);
+    if (columnWinner != ' ') {
+      return columnWinner;
+    }
+
+    return this._diagonalWinnerChecker.check(this._board);
   }
 }
