@@ -157,7 +157,9 @@ the item for the first time.
 
 The extensions change Katacombs into a multiplayer game with many maps.
 Do them in this order. Each extension uses the extensions before it, and
-each extension is complete without the extensions after it.
+each extension is complete without the extensions after it. Extensions 5,
+6, and 7 are optional. Extension 6 does not need Extension 5. You can
+start Extension 7 after Extension 1.
 
 1. [Authentication](#extension-1-authentication)
 2. [Player Chat](#extension-2-player-chat)
@@ -167,6 +169,8 @@ each extension is complete without the extensions after it.
    - 4b. [Map Editor](#extension-4b-map-editor)
    - 4c. [Map Review](#extension-4c-map-review)
 5. [Moderation](#extension-5-optional-moderation) (optional)
+6. [Subscriptions](#extension-6-optional-subscriptions) (optional)
+7. [Web Client](#extension-7-optional-web-client) (optional)
 
 The commands use these placeholders: `[player]` is a player name,
 `[guild]` is a guild name, `[map]` is a map title, and `[message]` is the
@@ -174,6 +178,37 @@ text of a message.
 
 When this README does not give a response, choose a clear response and
 test it.
+
+### Quality Requirements
+
+Each extension has quality requirements: performance, scale, security,
+reliability, and privacy. They are part of the extension.
+
+#### How to Measure
+
+- Measure on one developer machine with the in-memory database.
+- Use a load test tool, for example k6 or Locust.
+- Measure latency at the REST API, from the request to the response.
+  "p95 under 50 ms" means that 95 of 100 requests take less than 50 ms.
+- Availability targets (SLAs) are design targets. You cannot measure
+  them in a kata. Write how your design meets each target, for example
+  in an architecture decision record (ADR).
+
+#### Quality Requirements for All Extensions
+
+- **Logs:** log each command with its latency. Never log passwords,
+  session tokens, the text of whispers, or Stripe secrets.
+- **Health:** the API has a health endpoint.
+- **API versions:** the REST API has a version. A change that breaks
+  clients needs a new version.
+- **Accessibility:** responses are plain text that screen readers can
+  read. A symbol, for example `*`, is never the only way to show a
+  meaning.
+- **Translation:** keep all response texts in one place, so that a
+  translation is possible later.
+- **Shutdown:** at shutdown, the game completes the requests in progress
+  before it stops. When you replace the in-memory database, the unread
+  messages also stay after a restart.
 
 ### Extension 1: Authentication
 
@@ -245,6 +280,22 @@ PLAYERS: ADA, LINUS
 >
 ```
 
+#### Quality Requirements for Authentication
+
+- **Password storage:** use Argon2, bcrypt, or scrypt. The cost is in
+  the configuration, so that tests can use a low cost.
+- **Session tokens:** random, with a minimum of 128 bits. Tokens are
+  never in URLs or in logs.
+- **No account discovery:** a `LOGIN` with an unknown name does the same
+  password hash work as a `LOGIN` with an incorrect password. The
+  response time does not show if the name exists.
+- **Login rate limit:** a maximum of 20 `LOGIN` commands in 1 minute
+  from each IP address.
+- **Performance:** `LOGIN` p95 under 300 ms. All other game commands p95
+  under 50 ms, with 1,000 players online and 50 commands each second.
+- **Capacity:** 10,000 accounts and 1,000 sessions at the same time.
+- **Availability:** 99.5% each month for the game commands.
+
 ### Extension 2: Player Chat
 
 Players who are online can send messages to each other.
@@ -283,6 +334,26 @@ ITEMS: CRATE
 PLAYERS: ADA
 >
 ```
+
+#### Quality Requirements for Chat
+
+- **Throughput:** 200 messages each second, with 1,000 players online.
+  This includes a `SHOUT` to all 1,000 players.
+- **Send latency:** p95 under 100 ms. The sender does not wait until all
+  the players get the message.
+- **Delivery latency:** a message is ready for the players who get it
+  in less than 1 second (p99).
+- **No loss and no duplicates:** each player gets each message one time.
+- **Sequence:** messages from one sender arrive in the sequence that the
+  sender sent them.
+- **Bounded memory:** a player has a maximum of 500 unread messages. When
+  there are more, the game deletes the oldest messages and shows
+  `[N] OLDER MESSAGES WERE DROPPED.`
+- **Concurrency:** the limit of 5 messages in 10 seconds also applies
+  when a player sends requests in parallel.
+- **Stretch:** send messages to the players with Server-Sent Events or
+  WebSockets, p95 under 500 ms. Then players do not have to send a
+  command to get their messages.
 
 ### Extension 3: Player Guilds
 
@@ -329,6 +400,17 @@ MEMBERS: ADA, LINUS, GRACE
 SCORE: 70
 >
 ```
+
+#### Quality Requirements for Guilds
+
+- **Concurrent joins:** when two players join a guild that has space for
+  one more member at the same time, only one player joins.
+- **Concurrent names:** when two players make guilds with the same name
+  at the same time, only one guild is made.
+- **Gold:** the game removes the gold for a guild one time only. The
+  gold of a player is never less than 0.
+- **Leaderboard:** `GUILDS` p95 under 200 ms, with 1,000 guilds. The
+  scores in `GUILDS` can be up to 60 seconds old.
 
 ### Extension 4a: Map Catalogue
 
@@ -389,6 +471,14 @@ The game calculates:
 - the number of locations and the total treasure value,
 - the number of players who played the map,
 - the number of players who won the map.
+
+#### Quality Requirements for the Map Catalogue
+
+- **Map size:** a maximum of 200 locations and 500 items in each map.
+- **Performance:** `MAPS` p95 under 200 ms, with 500 maps. The
+  statistics can be up to 5 minutes old.
+- **Memory:** the progress of 10,000 players on 20 maps each fits in
+  1 GB. Keep only the changes from the start state of each map.
 
 ### Extension 4b: Map Editor
 
@@ -491,6 +581,12 @@ VALIDATION FAILED:
 - THE TOTAL GOLD IS 140. THE MAXIMUM IS 100.
 ```
 
+#### Quality Requirements for the Map Editor
+
+- **Validation:** validation of a map with 200 locations takes less than
+  1 second.
+- **Performance:** editor operations p95 under 100 ms.
+
 ### Extension 4c: Map Review
 
 Curators approve maps before players can play them. Map review is API
@@ -546,6 +642,14 @@ THE SEWER KING       COMMUNITY   HARD    BY ADA
    immediately. The author sees the reason, and can submit a new
    version.
 7. LOST IN SHOREDITCH cannot be withdrawn.
+
+#### Quality Requirements for Map Review
+
+- **Audit:** the game records each review operation: who, when, what,
+  and the reason. Nobody can change the records. The game keeps them for
+  2 years.
+- **Authorization:** the server checks the curator role for each review
+  operation. It never trusts the client.
 
 ### Extension 5 (Optional): Moderation
 
@@ -608,6 +712,350 @@ LINUS IS SILENCED FOR 60 MINUTES.
 >
 ```
 
+#### Quality Requirements for Moderation
+
+- **Privacy:** only moderators can read the reports. The game deletes
+  the copy of a reported whisper 90 days after the report closes.
+- **Audit:** the game records each moderator action. Nobody can change
+  the records.
+- **Silence:** a silence starts to apply to all chat commands in less
+  than 1 second.
+- **Throughput:** the report queue accepts 100 reports each minute.
+
+### Extension 6 (Optional): Subscriptions
+
+Players can pay for a MEMBER subscription. Stripe is the payment
+gateway. A subscription gives perks. The perks never change a score.
+
+This extension uses Extensions 1 to 4c. It does not need
+[Extension 5](#extension-5-optional-moderation).
+
+#### Plans and Entitlements
+
+- There is one plan: MEMBER. It has two prices: monthly and yearly. The
+  configuration gives the Stripe price IDs.
+- A plan gives entitlements. The game checks entitlements, not plans.
+  The MEMBER plan gives all of these entitlements:
+
+- **PREMIUM_MAPS:** play premium maps.
+- **EARLY_ACCESS:** play a new official map 7 days before all other
+  players.
+- **LARGE_GUILD:** when the guild leader has this entitlement, the guild
+  has a maximum of 25 members.
+- **CREATOR:** have drafts of 5 maps at the same time, see detailed map
+  statistics, and get priority in the review queue.
+- **SUPPORTER_BADGE:** a `*` after the player name in `WHO` and in the
+  `PLAYERS:` line.
+- **LONG_MESSAGES:** send messages of up to 500 characters.
+
+#### Subscription Commands
+
+- `SUBSCRIBE MONTHLY` - Start a monthly subscription. The response is
+  the URL of a Stripe Checkout page.
+- `SUBSCRIBE YEARLY` - Start a yearly subscription. The response is the
+  URL of a Stripe Checkout page.
+- `SUBSCRIPTION` - Show the state, the price, the end of the current
+  period, and the entitlements.
+- `SUBSCRIPTION MANAGE` - The response is the URL of the Stripe Customer
+  Portal. On the portal, the player can cancel, change the card, and
+  change between monthly and yearly.
+- `MAP STATS [map]` - Show the detailed statistics of your map. Players
+  with CREATOR only.
+
+```text
+> SUBSCRIBE MONTHLY
+GO TO THIS PAGE TO PAY: https://checkout.stripe.com/c/pay/cs_test_...
+> SUBSCRIPTION
+STATE: ACTIVE
+PRICE: MONTHLY
+RENEWS ON: 2026-11-06
+ENTITLEMENTS: PREMIUM_MAPS, EARLY_ACCESS, LARGE_GUILD, CREATOR,
+SUPPORTER_BADGE, LONG_MESSAGES
+>
+```
+
+#### Payment Gateway Rules
+
+1. All calls to Stripe go through a payment gateway port. Tests use a
+   fake payment gateway. Only the Stripe adapter calls Stripe.
+2. The game never gets or keeps card details. Players pay on the Stripe
+   Checkout page and on the Stripe Customer Portal.
+3. Each account has a maximum of one Stripe customer. The game makes the
+   customer at the first `SUBSCRIBE`, and keeps the customer ID and the
+   subscription ID.
+4. A player with a subscription that is not ENDED cannot `SUBSCRIBE`
+   again. The response is `YOU HAVE A SUBSCRIPTION ALREADY.`
+5. The configuration gives the Stripe API key, the webhook signing
+   secret, and the price IDs.
+6. Use Stripe test mode and test cards only. Do not use live keys.
+
+#### Webhook Rules
+
+1. The subscription state changes only when the game gets a Stripe
+   webhook event. When a player comes back from the Checkout page, the
+   state does not change.
+2. The game verifies the signature of each event. An event with an
+   incorrect signature gets HTTP 400 and changes nothing.
+3. Stripe can send the same event more than one time. Each event changes
+   the state one time only.
+4. Stripe can send events in a different sequence. When an event
+   arrives, the game gets the current subscription from the payment
+   gateway and uses that data.
+5. The game handles these events:
+   - `checkout.session.completed`
+   - `customer.subscription.created`
+   - `customer.subscription.updated`
+   - `customer.subscription.deleted`
+   - `invoice.paid`
+   - `invoice.payment_failed`
+6. The game gives a 2xx response to all other events and ignores them.
+
+#### Subscription States
+
+| State      | Stripe status                 | Entitlements          |
+| ---------- | ----------------------------- | --------------------- |
+| NONE       | No subscription, or not paid. | No.                   |
+| ACTIVE     | `active`                      | Yes.                  |
+| CANCELLING | `active`, cancels at the end. | Until the period end. |
+| PAST_DUE   | `past_due`                    | For 7 days.           |
+| ENDED      | `canceled` or `unpaid`        | No.                   |
+
+1. When a payment fails, Stripe tries again. The player keeps the
+   entitlements for 7 days after the first failed payment. After 7 days,
+   the entitlements stop, also when the Stripe state is still
+   `past_due`.
+2. When a payment is successful, a PAST_DUE subscription is ACTIVE
+   again.
+3. A change between monthly and yearly does not change the
+   entitlements. Stripe calculates the cost of the change.
+4. After ENDED, the player can `SUBSCRIBE` again.
+
+#### Changes for Subscriptions
+
+- **Premium maps:** a curator can mark an official map as premium.
+  `MAPS` and `MAP` show PREMIUM. A player without PREMIUM_MAPS who
+  tries to `PLAY` a premium map gets the response
+  `THIS MAP IS FOR MEMBERS.` LOST IN SHOREDITCH cannot be premium.
+- **Early access:** a new official map opens to all players 7 days after
+  a curator makes it official. Before that, only players with
+  EARLY_ACCESS can play it.
+- **Guilds:** the maximum is 25 members when the leader has LARGE_GUILD.
+- **Map editor:** a player can have drafts of 1 map at the same time.
+  With CREATOR, a player can have drafts of 5 maps at the same time.
+- **Map review:** the submitted maps of players with CREATOR come first.
+  In each group, the oldest map comes first.
+- **Detailed map statistics:** for each location, the number of players
+  who visited it. For the map, the number of players who stopped before
+  the katacomb exit, and the location where most of them stopped.
+- **Chat:** a message has 1 to 500 characters with LONG_MESSAGES.
+- **Moderation:** if you do Extension 5, a ban cancels the subscription
+  at the end of the period. There is no refund.
+
+#### When Entitlements Stop
+
+- **PREMIUM_MAPS and EARLY_ACCESS:** a player on a map that they cannot
+  play now goes to their last position on LOST IN SHOREDITCH. The game
+  keeps their progress on the map. When the player gets the entitlement
+  again, they continue from their last position.
+- **LARGE_GUILD:** the guild keeps all its members. The leader cannot
+  invite players until the guild has fewer than 10 members. This also
+  applies when a new leader does not have LARGE_GUILD.
+- **CREATOR:** the player keeps all their drafts, but cannot start a
+  draft of a new map until they have no drafts. Their submitted maps
+  lose the review priority.
+- **SUPPORTER_BADGE:** the `*` goes away.
+- **LONG_MESSAGES:** messages have a maximum of 200 characters again.
+  Old messages do not change.
+
+#### Quality Requirements for Subscriptions
+
+Payment data needs stricter security than the other data.
+
+- **Card data:** no card data enters the system or the logs. This keeps
+  the system in the PCI DSS SAQ A scope.
+- **Secrets:**
+  - The Stripe API key and the webhook signing secret come from the
+    environment or a secret store. They are never in the repository, in
+    logs, or in responses.
+  - You can change (rotate) the secrets without a change to the code.
+  - Use a restricted API key with only the permissions that the game
+    needs.
+  - Keep test keys and live keys separate.
+- **Webhook security:**
+  - The game rejects events that are more than 5 minutes old, to stop
+    replayed events.
+  - The game keeps the IDs of processed events for 30 days, to find
+    duplicate events.
+- **Webhook performance:** the webhook endpoint responds in less than
+  2 seconds. Slow work runs in the background.
+- **Webhook availability:** 99.9% each month. Stripe tries again for up
+  to 3 days, so a short outage does not lose events.
+- **Calls to Stripe:**
+  - Each create request sends an idempotency key. A retry never makes a
+    second customer or a second Checkout session.
+  - A call stops after 5 seconds. The game tries again a maximum of 3
+    times, with exponential backoff.
+  - A circuit breaker stops the calls to Stripe while Stripe fails.
+- **Stripe outages:**
+  - Entitlement checks never call Stripe. They use the data in the game.
+  - When Stripe is not available, `SUBSCRIBE` gets the response
+    `PAYMENTS ARE NOT AVAILABLE NOW. TRY AGAIN LATER.` All other
+    commands work.
+- **Consistency:**
+  - The subscription state in the game matches Stripe less than 1
+    minute after a webhook event.
+  - A daily reconciliation job compares the subscriptions in the game
+    with Stripe. It corrects the differences and reports them.
+- **Data access:**
+  - Payment data is in a separate module. Only that module can read it.
+  - The game records each access to payment data.
+  - The game keeps only the customer ID, the subscription ID, the state,
+    and the end of the period.
+  - The game keeps the records of payment events for 7 years, for tax.
+- **Security tests:** tests show that:
+  - an event with an incorrect signature is rejected,
+  - an old, replayed event is rejected,
+  - a duplicate event changes nothing,
+  - secrets are never in the logs.
+
+### Extension 7 (Optional): Web Client
+
+Players play in a web browser. You build the client for your own API.
+Use any technology: a single-page app, or pages that the server makes
+(for example HTMX, Blazor, Thymeleaf, Go templates, or Jinja).
+
+You can start this extension after Extension 1. Then add the screens for
+each extension that you do.
+
+#### Changes for the Web Client
+
+- **Live updates:** the server sends events to the client with
+  Server-Sent Events (SSE). The chat stretch requirement is now
+  required.
+- **Session cookie:** the session token can be in a cookie. See the
+  [quality requirements](#quality-requirements-for-the-web-client).
+- **Cross-origin requests:** if the client is on a different origin,
+  the API accepts requests from the client origin only (CORS).
+- **Checkout pages:** the Stripe Checkout success URL and cancel URL go
+  to pages of the client.
+
+#### Live Updates
+
+1. The client opens one SSE connection for each session.
+2. The server sends these events:
+   - a new message,
+   - a player arrives in or leaves the location of the player,
+   - an invitation to a guild,
+   - a change of the subscription state,
+   - the map of the player is withdrawn,
+   - the session ends.
+3. A message that the client gets with SSE is read. It does not show
+   again in the response to the next command.
+4. When the connection stops, the client connects again. It sends the
+   ID of the last event (`Last-Event-ID`), and the server sends the
+   events that the client did not get. The client does not show an
+   event two times.
+5. When the session ends, the client goes to the login page.
+
+#### Screens
+
+| Extension      | Screens                                          |
+| -------------- | ------------------------------------------------ |
+| Base game, 1   | Register, login, game screen.                    |
+| 2 Chat         | Chat panel on the game screen.                   |
+| 3 Guilds       | Guild page, guild leaderboard.                   |
+| 4a Maps        | Map catalogue, map details.                      |
+| 4b Map editor  | Draft list, map editor.                          |
+| 4c Map review  | Review queue, map preview.                       |
+| 5 Moderation   | Moderation console.                              |
+| 6 Subscription | Subscription, Checkout success, Checkout cancel. |
+
+- **Game screen:**
+  - A console: an input for text commands and a log of the responses.
+    The up and down arrow keys show the earlier commands.
+  - A location panel: the description, the exits as buttons, and the
+    items with buttons for their commands (for example `TAKE`).
+  - A bag panel: the items, the gold, and the score.
+  - A players panel: the other players in the location.
+  - The title of the current map.
+- **Chat panel:** tabs for all messages, guild messages, and whispers.
+  Each tab shows the number of unread messages. The menu of a player
+  name has `WHISPER` and `MUTE`.
+- **Guild page:** the members, the leader, and the score. The leader
+  can invite and kick players. A player sees their invitations and can
+  accept them.
+- **Map catalogue:** filters for type, difficulty, and premium. Each map
+  has a `PLAY` button.
+- **Map editor:**
+  - A graph of the locations and the connections. When the author adds a
+    connection, the reverse connection shows immediately.
+  - Forms for locations, items, and item properties.
+  - The validation errors, each with a link to the location or item.
+- **Review queue:** the submitted maps, a read-only preview of each map,
+  and buttons to approve, reject (with a reason), mark as official, and
+  withdraw. The draft list of the author shows the reason for a
+  rejection.
+- **Moderation console:** the open reports with the copy of the message
+  and the names of the reporters. Buttons to dismiss, silence (with the
+  minutes), and ban. A ban needs a confirmation.
+- **Subscription page:** the state, the price, the renewal date, and the
+  entitlements. Buttons to subscribe monthly or yearly, and to manage
+  the subscription.
+- **Checkout success page:** shows
+  `PAYMENT RECEIVED. YOUR PERKS START WHEN STRIPE CONFIRMS THE PAYMENT.`
+  It waits for the subscription event, then shows the perks.
+
+#### Client Rules
+
+1. The client is a view. All game rules run on the server. The client
+   never decides if a command is allowed.
+2. A button sends the same command as the console. The response shows
+   in the console log.
+3. The client shows only the screens that the roles and the
+   entitlements of the player allow. The server still checks each
+   request.
+4. The Checkout success page never gives perks. Only the server state
+   gives perks.
+5. When the connection to the server stops, the client shows
+   `CONNECTION LOST. TRYING AGAIN.` and connects again.
+
+#### Quality Requirements for the Web Client
+
+- **Cross-site scripting (XSS):** the client escapes all text from
+  players: messages, player names, guild names, map texts, and reasons.
+  It never shows HTML from players.
+- **Content Security Policy:** the client sends a Content Security
+  Policy that does not allow inline scripts.
+- **Session token:**
+  - Keep the token in a cookie that is `HttpOnly`, `Secure`, and
+    `SameSite=Strict`. Do not keep it in `localStorage`.
+  - When the token is in a cookie, protect requests that change data
+    against cross-site request forgery (CSRF).
+  - `LOGOUT` deletes the cookie.
+- **Accessibility:**
+  - Meet WCAG 2.2 level AA.
+  - All actions work with the keyboard only.
+  - Screen readers read new console lines and new messages (ARIA live
+    regions).
+  - Color is never the only way to show a meaning.
+- **Performance:**
+  - Largest Contentful Paint under 2.5 seconds on a mid-range phone.
+  - The client shows a response less than 100 ms after it gets it.
+  - For a single-page app, the JavaScript is a maximum of 200 KB after
+    compression.
+- **Live updates:** the client connects again in less than 5 seconds.
+  After it connects again, no events are lost and no events show two
+  times.
+- **Devices:** the client works on screens that are 360 px wide or more,
+  and with touch.
+- **Browsers:** the last 2 versions of Chrome, Edge, Firefox, and
+  Safari.
+- **Tests:**
+  - End-to-end browser tests for these journeys: register, play, and
+    win; chat between two browsers; subscribe with the fake payment
+    gateway.
+  - Contract tests between the client and the API.
+
 ## Resources
 
 - [Zork I gameplay example](https://www.youtube.com/watch?v=TNN4VPlRBJ8) —
@@ -618,3 +1066,19 @@ LINUS IS SILENCED FOR 60 MINUTES.
 leaflet`, `north`, and `inventory`.
 - [MUD](https://en.wikipedia.org/wiki/Multi-user_dungeon)
 - [How to program a text adventure in C](https://helderman.github.io/htpataic/htpataic01.html)
+- [k6](https://grafana.com/docs/k6/latest/) and
+  [Locust](https://docs.locust.io/) — load test tools.
+- [PCI DSS SAQ A](https://docs.stripe.com/security/guide) — how Stripe
+  Checkout keeps card data out of your system.
+- [Server-Sent Events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events)
+- [WCAG 2.2](https://www.w3.org/TR/WCAG22/)
+- [OWASP Cross Site Scripting Prevention Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Cross_Site_Scripting_Prevention_Cheat_Sheet.html)
+- [Playwright](https://playwright.dev/) — end-to-end browser tests.
+- [Pact](https://docs.pact.io/) — contract tests.
+- [Stripe subscriptions with Checkout](https://docs.stripe.com/billing/subscriptions/build-subscriptions)
+- [Stripe webhooks](https://docs.stripe.com/webhooks)
+- [Stripe Customer Portal](https://docs.stripe.com/customer-management)
+- [Stripe test clocks](https://docs.stripe.com/billing/testing/test-clocks) —
+  test renewals and failed payments without waiting.
+- [Stripe CLI](https://docs.stripe.com/stripe-cli) — send webhook events
+  to your local server.
