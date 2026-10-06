@@ -12,8 +12,8 @@
 
 Players play with the text commands in this README. The REST API takes
 these commands. You decide the design of the API. The map editor and the
-map review ([Extension 4b](#extension-4b-map-editor) and
-[Extension 4c](#extension-4c-map-review)) are API operations only. They
+map review ([Extension 5b](#extension-5b-map-editor) and
+[Extension 5c](#extension-5c-map-review)) are API operations only. They
 do not have text commands.
 
 ## Game Overview
@@ -157,20 +157,19 @@ the item for the first time.
 
 The extensions change Katacombs into a multiplayer game with many maps.
 Do them in this order. Each extension uses the extensions before it, and
-each extension is complete without the extensions after it. Extensions 5,
-6, and 7 are optional. Extension 6 does not need Extension 5. You can
-start Extension 7 after Extension 1.
+each extension is complete without the extensions after it. Extensions 6
+and 7 are optional. Extension 7 does not need Extension 6.
 
-1. [Authentication](#extension-1-authentication)
-2. [Player Chat](#extension-2-player-chat)
-3. [Player Guilds](#extension-3-player-guilds)
-4. Maps:
-   - 4a. [Map Catalogue](#extension-4a-map-catalogue)
-   - 4b. [Map Editor](#extension-4b-map-editor)
-   - 4c. [Map Review](#extension-4c-map-review)
-5. [Moderation](#extension-5-optional-moderation) (optional)
-6. [Subscriptions](#extension-6-optional-subscriptions) (optional)
-7. [Web Client](#extension-7-optional-web-client) (optional)
+1. [Web Client](#extension-1-web-client)
+2. [Authentication](#extension-2-authentication)
+3. [Player Chat](#extension-3-player-chat)
+4. [Player Guilds](#extension-4-player-guilds)
+5. Maps:
+   - 5a. [Map Catalogue](#extension-5a-map-catalogue)
+   - 5b. [Map Editor](#extension-5b-map-editor)
+   - 5c. [Map Review](#extension-5c-map-review)
+6. [Moderation](#extension-6-optional-moderation) (optional)
+7. [Subscriptions](#extension-7-optional-subscriptions) (optional)
 
 The commands use these placeholders: `[player]` is a player name,
 `[guild]` is a guild name, `[map]` is a map title, and `[message]` is the
@@ -210,7 +209,61 @@ reliability, and privacy. They are part of the extension.
   before it stops. When you replace the in-memory database, the unread
   messages also stay after a restart.
 
-### Extension 1: Authentication
+### Extension 1: Web Client
+
+Players play in a web browser. You build the client for your own API.
+Use any technology: a single-page app, or pages that the server makes
+(for example HTMX, Blazor, Thymeleaf, Go templates, or Jinja).
+
+In this extension, the client plays the base game. Each later extension
+has a "Web Client" section. When you do an extension, you also change
+the client. This is on purpose: the client must change with the game.
+
+#### Game Screen
+
+- **Console:** an input for text commands and a log of the responses.
+  The up and down arrow keys show the earlier commands.
+- **Location panel:** the description, the exits as buttons, and the
+  items with buttons for their commands (for example `TAKE`).
+- **Bag panel:** the items, the gold, and the score.
+- **Win:** when the player wins, the client shows the score.
+
+#### Client Rules
+
+1. The client is a view. All game rules run on the server. The client
+   never decides if a command is allowed.
+2. A button sends the same command as the console. The response shows
+   in the console log.
+3. When a request fails because of the network, the client shows
+   `CONNECTION LOST. TRYING AGAIN.` and tries again.
+
+#### Quality Requirements for the Web Client
+
+- **Cross-site scripting (XSS):** the client escapes all text from the
+  server. It never shows text from the server as HTML. Later extensions
+  add text from players, for example messages and map texts.
+- **Content Security Policy:** the client sends a Content Security
+  Policy that does not allow inline scripts.
+- **Accessibility:**
+  - Meet WCAG 2.2 level AA.
+  - All actions work with the keyboard only.
+  - Screen readers read new console lines (ARIA live regions).
+  - Color is never the only way to show a meaning.
+- **Performance:**
+  - Largest Contentful Paint under 2.5 seconds on a mid-range phone.
+  - The client shows a response less than 100 ms after it gets it.
+  - For a single-page app, the JavaScript is a maximum of 200 KB after
+    compression.
+- **Devices:** the client works on screens that are 360 px wide or more,
+  and with touch.
+- **Browsers:** the last 2 versions of Chrome, Edge, Firefox, and
+  Safari.
+- **Tests:**
+  - An end-to-end browser test: play the game and win.
+  - Contract tests between the client and the API. Each later extension
+    adds tests to them.
+
+### Extension 2: Authentication
 
 A player must have an account to play. All players play in the same
 world at the same time.
@@ -280,6 +333,34 @@ PLAYERS: ADA, LINUS
 >
 ```
 
+#### Web Client for Authentication
+
+- **Pages:** register and login pages. A logout button on the game
+  screen.
+- **Players panel:** the game screen shows the other players in the
+  location.
+- **Session token:**
+  - Keep the token in a cookie that is `HttpOnly`, `Secure`, and
+    `SameSite=Strict`. Do not keep it in `localStorage`.
+  - Protect requests that change data against cross-site request
+    forgery (CSRF).
+  - `LOGOUT` deletes the cookie.
+- **Cross-origin requests:** if the client is on a different origin,
+  the API accepts requests from the client origin only (CORS).
+- **Live updates:** the server sends events to the client with
+  Server-Sent Events (SSE).
+  1. The client opens one SSE connection for each session.
+  2. The server sends an event when a player arrives in or leaves the
+     location of the player, and when the session ends.
+  3. When the session ends, the client goes to the login page.
+  4. When the connection stops, the client connects again in less than
+     5 seconds. It sends the ID of the last event (`Last-Event-ID`), and
+     the server sends the events that the client did not get. The client
+     does not show an event two times.
+  5. Later extensions add events.
+- **Tests:** end-to-end browser tests: register and log in; two browsers
+  see each other in the same location.
+
 #### Quality Requirements for Authentication
 
 - **Password storage:** use Argon2, bcrypt, or scrypt. The cost is in
@@ -296,7 +377,7 @@ PLAYERS: ADA, LINUS
 - **Capacity:** 10,000 accounts and 1,000 sessions at the same time.
 - **Availability:** 99.5% each month for the game commands.
 
-### Extension 2: Player Chat
+### Extension 3: Player Chat
 
 Players who are online can send messages to each other.
 
@@ -335,6 +416,17 @@ PLAYERS: ADA
 >
 ```
 
+#### Web Client for Chat
+
+- **Chat panel:** tabs for all messages and for whispers. Each tab shows
+  the number of unread messages. The menu of a player name has `WHISPER`
+  and `MUTE`.
+- **Live updates:** the server sends each new message with SSE. A
+  message that the client gets with SSE is read. It does not show again
+  in the response to the next command.
+- **Accessibility:** screen readers read new messages.
+- **Tests:** an end-to-end browser test: chat between two browsers.
+
 #### Quality Requirements for Chat
 
 - **Throughput:** 200 messages each second, with 1,000 players online.
@@ -351,11 +443,11 @@ PLAYERS: ADA
   `[N] OLDER MESSAGES WERE DROPPED.`
 - **Concurrency:** the limit of 5 messages in 10 seconds also applies
   when a player sends requests in parallel.
-- **Stretch:** send messages to the players with Server-Sent Events or
-  WebSockets, p95 under 500 ms. Then players do not have to send a
+- **Push delivery:** the server sends messages to the web client with
+  Server-Sent Events, p95 under 500 ms. Players do not have to send a
   command to get their messages.
 
-### Extension 3: Player Guilds
+### Extension 4: Player Guilds
 
 Players can make a guild and play as a team.
 
@@ -401,6 +493,15 @@ SCORE: 70
 >
 ```
 
+#### Web Client for Guilds
+
+- **Guild page:** the members, the leader, and the score. The leader can
+  invite and kick players.
+- **Invitations:** the server sends an SSE event for a new invitation.
+  The player can accept it from the client.
+- **Leaderboard page:** the guilds in sequence of score.
+- **Chat panel:** a tab for guild messages.
+
 #### Quality Requirements for Guilds
 
 - **Concurrent joins:** when two players join a guild that has space for
@@ -412,7 +513,7 @@ SCORE: 70
 - **Leaderboard:** `GUILDS` p95 under 200 ms, with 1,000 guilds. The
   scores in `GUILDS` can be up to 60 seconds old.
 
-### Extension 4a: Map Catalogue
+### Extension 5a: Map Catalogue
 
 Katacombs has more than one map. A player selects the map to play. The
 world in this README is the first map: LOST IN SHOREDITCH. The
@@ -472,6 +573,13 @@ The game calculates:
 - the number of players who played the map,
 - the number of players who won the map.
 
+#### Web Client for the Map Catalogue
+
+- **Map catalogue:** the maps, with a filter for difficulty. Each map
+  has a `PLAY` button.
+- **Map details:** the metadata and the statistics of a map.
+- **Game screen:** shows the title of the current map.
+
 #### Quality Requirements for the Map Catalogue
 
 - **Map size:** a maximum of 200 locations and 500 items in each map.
@@ -480,7 +588,7 @@ The game calculates:
 - **Memory:** the progress of 10,000 players on 20 maps each fits in
   1 GB. Keep only the changes from the start state of each map.
 
-### Extension 4b: Map Editor
+### Extension 5b: Map Editor
 
 All players can make maps. The map editor is API operations only.
 
@@ -581,13 +689,22 @@ VALIDATION FAILED:
 - THE TOTAL GOLD IS 140. THE MAXIMUM IS 100.
 ```
 
+#### Web Client for the Map Editor
+
+- **Draft list:** the drafts of the author.
+- **Map editor:**
+  - A graph of the locations and the connections. When the author adds a
+    connection, the reverse connection shows immediately.
+  - Forms for locations, items, and item properties.
+  - The validation errors, each with a link to the location or item.
+
 #### Quality Requirements for the Map Editor
 
 - **Validation:** validation of a map with 200 locations takes less than
   1 second.
 - **Performance:** editor operations p95 under 100 ms.
 
-### Extension 4c: Map Review
+### Extension 5c: Map Review
 
 Curators approve maps before players can play them. Map review is API
 operations only.
@@ -643,6 +760,18 @@ THE SEWER KING       COMMUNITY   HARD    BY ADA
    version.
 7. LOST IN SHOREDITCH cannot be withdrawn.
 
+#### Web Client for Map Review
+
+- **Review queue:** the submitted maps, a read-only preview of each map,
+  and buttons to approve, reject (with a reason), mark as official, and
+  withdraw.
+- **Draft list:** shows the reason for a rejection.
+- **Map catalogue:** a filter for official and community maps.
+- **Roles:** the client shows the review screens to curators only. The
+  server still checks each request.
+- **Live updates:** the server sends an SSE event when the map of the
+  player is withdrawn.
+
 #### Quality Requirements for Map Review
 
 - **Audit:** the game records each review operation: who, when, what,
@@ -651,7 +780,7 @@ THE SEWER KING       COMMUNITY   HARD    BY ADA
 - **Authorization:** the server checks the curator role for each review
   operation. It never trusts the client.
 
-### Extension 5 (Optional): Moderation
+### Extension 6 (Optional): Moderation
 
 Players report messages, and moderators review the reports. `MUTE` hides
 a player from one player only. A moderator action applies to all
@@ -712,6 +841,15 @@ LINUS IS SILENCED FOR 60 MINUTES.
 >
 ```
 
+#### Web Client for Moderation
+
+- **Moderation console:** the open reports with the copy of the message
+  and the names of the reporters. Buttons to dismiss, silence (with the
+  minutes), and ban. A ban needs a confirmation.
+- **Report:** the menu of a message has `REPORT`.
+- **Roles:** the client shows the moderation console to moderators only.
+  The server still checks each request.
+
 #### Quality Requirements for Moderation
 
 - **Privacy:** only moderators can read the reports. The game deletes
@@ -722,13 +860,13 @@ LINUS IS SILENCED FOR 60 MINUTES.
   than 1 second.
 - **Throughput:** the report queue accepts 100 reports each minute.
 
-### Extension 6 (Optional): Subscriptions
+### Extension 7 (Optional): Subscriptions
 
 Players can pay for a MEMBER subscription. Stripe is the payment
 gateway. A subscription gives perks. The perks never change a score.
 
-This extension uses Extensions 1 to 4c. It does not need
-[Extension 5](#extension-5-optional-moderation).
+This extension uses Extensions 1 to 5c. It does not need
+[Extension 6](#extension-6-optional-moderation).
 
 #### Plans and Entitlements
 
@@ -848,7 +986,7 @@ SUPPORTER_BADGE, LONG_MESSAGES
   who visited it. For the map, the number of players who stopped before
   the katacomb exit, and the location where most of them stopped.
 - **Chat:** a message has 1 to 500 characters with LONG_MESSAGES.
-- **Moderation:** if you do Extension 5, a ban cancels the subscription
+- **Moderation:** if you do Extension 6, a ban cancels the subscription
   at the end of the period. There is no refund.
 
 #### When Entitlements Stop
@@ -866,6 +1004,23 @@ SUPPORTER_BADGE, LONG_MESSAGES
 - **SUPPORTER_BADGE:** the `*` goes away.
 - **LONG_MESSAGES:** messages have a maximum of 200 characters again.
   Old messages do not change.
+
+#### Web Client for Subscriptions
+
+- **Subscription page:** the state, the price, the renewal date, and the
+  entitlements. Buttons to subscribe monthly or yearly, and to manage
+  the subscription.
+- **Checkout pages:** the Stripe Checkout success URL and cancel URL go
+  to pages of the client.
+- **Checkout success page:** shows
+  `PAYMENT RECEIVED. YOUR PERKS START WHEN STRIPE CONFIRMS THE PAYMENT.`
+  It waits for the SSE event of the subscription state, then shows the
+  perks. The page never gives perks. Only the server state gives perks.
+- **Perks:** the map catalogue has a filter for premium maps, and shows
+  which maps are premium or in early access. The `*` badge shows next
+  to player names.
+- **Tests:** an end-to-end browser test: subscribe with the fake payment
+  gateway.
 
 #### Quality Requirements for Subscriptions
 
@@ -917,144 +1072,6 @@ Payment data needs stricter security than the other data.
   - an old, replayed event is rejected,
   - a duplicate event changes nothing,
   - secrets are never in the logs.
-
-### Extension 7 (Optional): Web Client
-
-Players play in a web browser. You build the client for your own API.
-Use any technology: a single-page app, or pages that the server makes
-(for example HTMX, Blazor, Thymeleaf, Go templates, or Jinja).
-
-You can start this extension after Extension 1. Then add the screens for
-each extension that you do.
-
-#### Changes for the Web Client
-
-- **Live updates:** the server sends events to the client with
-  Server-Sent Events (SSE). The chat stretch requirement is now
-  required.
-- **Session cookie:** the session token can be in a cookie. See the
-  [quality requirements](#quality-requirements-for-the-web-client).
-- **Cross-origin requests:** if the client is on a different origin,
-  the API accepts requests from the client origin only (CORS).
-- **Checkout pages:** the Stripe Checkout success URL and cancel URL go
-  to pages of the client.
-
-#### Live Updates
-
-1. The client opens one SSE connection for each session.
-2. The server sends these events:
-   - a new message,
-   - a player arrives in or leaves the location of the player,
-   - an invitation to a guild,
-   - a change of the subscription state,
-   - the map of the player is withdrawn,
-   - the session ends.
-3. A message that the client gets with SSE is read. It does not show
-   again in the response to the next command.
-4. When the connection stops, the client connects again. It sends the
-   ID of the last event (`Last-Event-ID`), and the server sends the
-   events that the client did not get. The client does not show an
-   event two times.
-5. When the session ends, the client goes to the login page.
-
-#### Screens
-
-| Extension      | Screens                                          |
-| -------------- | ------------------------------------------------ |
-| Base game, 1   | Register, login, game screen.                    |
-| 2 Chat         | Chat panel on the game screen.                   |
-| 3 Guilds       | Guild page, guild leaderboard.                   |
-| 4a Maps        | Map catalogue, map details.                      |
-| 4b Map editor  | Draft list, map editor.                          |
-| 4c Map review  | Review queue, map preview.                       |
-| 5 Moderation   | Moderation console.                              |
-| 6 Subscription | Subscription, Checkout success, Checkout cancel. |
-
-- **Game screen:**
-  - A console: an input for text commands and a log of the responses.
-    The up and down arrow keys show the earlier commands.
-  - A location panel: the description, the exits as buttons, and the
-    items with buttons for their commands (for example `TAKE`).
-  - A bag panel: the items, the gold, and the score.
-  - A players panel: the other players in the location.
-  - The title of the current map.
-- **Chat panel:** tabs for all messages, guild messages, and whispers.
-  Each tab shows the number of unread messages. The menu of a player
-  name has `WHISPER` and `MUTE`.
-- **Guild page:** the members, the leader, and the score. The leader
-  can invite and kick players. A player sees their invitations and can
-  accept them.
-- **Map catalogue:** filters for type, difficulty, and premium. Each map
-  has a `PLAY` button.
-- **Map editor:**
-  - A graph of the locations and the connections. When the author adds a
-    connection, the reverse connection shows immediately.
-  - Forms for locations, items, and item properties.
-  - The validation errors, each with a link to the location or item.
-- **Review queue:** the submitted maps, a read-only preview of each map,
-  and buttons to approve, reject (with a reason), mark as official, and
-  withdraw. The draft list of the author shows the reason for a
-  rejection.
-- **Moderation console:** the open reports with the copy of the message
-  and the names of the reporters. Buttons to dismiss, silence (with the
-  minutes), and ban. A ban needs a confirmation.
-- **Subscription page:** the state, the price, the renewal date, and the
-  entitlements. Buttons to subscribe monthly or yearly, and to manage
-  the subscription.
-- **Checkout success page:** shows
-  `PAYMENT RECEIVED. YOUR PERKS START WHEN STRIPE CONFIRMS THE PAYMENT.`
-  It waits for the subscription event, then shows the perks.
-
-#### Client Rules
-
-1. The client is a view. All game rules run on the server. The client
-   never decides if a command is allowed.
-2. A button sends the same command as the console. The response shows
-   in the console log.
-3. The client shows only the screens that the roles and the
-   entitlements of the player allow. The server still checks each
-   request.
-4. The Checkout success page never gives perks. Only the server state
-   gives perks.
-5. When the connection to the server stops, the client shows
-   `CONNECTION LOST. TRYING AGAIN.` and connects again.
-
-#### Quality Requirements for the Web Client
-
-- **Cross-site scripting (XSS):** the client escapes all text from
-  players: messages, player names, guild names, map texts, and reasons.
-  It never shows HTML from players.
-- **Content Security Policy:** the client sends a Content Security
-  Policy that does not allow inline scripts.
-- **Session token:**
-  - Keep the token in a cookie that is `HttpOnly`, `Secure`, and
-    `SameSite=Strict`. Do not keep it in `localStorage`.
-  - When the token is in a cookie, protect requests that change data
-    against cross-site request forgery (CSRF).
-  - `LOGOUT` deletes the cookie.
-- **Accessibility:**
-  - Meet WCAG 2.2 level AA.
-  - All actions work with the keyboard only.
-  - Screen readers read new console lines and new messages (ARIA live
-    regions).
-  - Color is never the only way to show a meaning.
-- **Performance:**
-  - Largest Contentful Paint under 2.5 seconds on a mid-range phone.
-  - The client shows a response less than 100 ms after it gets it.
-  - For a single-page app, the JavaScript is a maximum of 200 KB after
-    compression.
-- **Live updates:** the client connects again in less than 5 seconds.
-  After it connects again, no events are lost and no events show two
-  times.
-- **Devices:** the client works on screens that are 360 px wide or more,
-  and with touch.
-- **Browsers:** the last 2 versions of Chrome, Edge, Firefox, and
-  Safari.
-- **Tests:**
-  - End-to-end browser tests for these journeys: register, play, and
-    win; chat between two browsers; subscribe with the fake payment
-    gateway.
-  - Contract tests between the client and the API.
 
 ## Resources
 
