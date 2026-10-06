@@ -30,7 +30,6 @@
     "lint:fix": "eslint . --ext .ts --fix",
     "types": "type-coverage -at-least 99",
     "prepare": "husky",
-    "generate-types": "openapi-typescript src/24_Katacombs/katacombsAPI.yml -o src/24_Katacombs/api.ts",
     "test": "jest --watchAll=false",
     "test:ci": "jest test --watchAll=false --coverage=true",
     "mutants": "stryker run",
@@ -67,8 +66,7 @@
     "smellycart": "jest -i src/18_SmellyShoppingCart/",
     "copier": "jest -i src/19_CharacterCopier/test.ts",
     "tac": "jest -i src/20_TicTacToe/test.ts",
-    "esa": "jest -i src/21_ESAMarsRover/test.ts",
-    "katacombs": "jest -i src/24_Katacombs/test/test.ts"
+    "esa": "jest -i src/21_ESAMarsRover/test.ts"
   },
   "dependencies": {
     "@types/express": "^5.0.6",

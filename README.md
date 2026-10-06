@@ -59,7 +59,6 @@ pnpm smellycart  # Smelly Shopping Cart
 pnpm copier   # Character Copier
 pnpm tac      # Tic Tac Toe (Alternative)
 pnpm esa      # ESA Mars Rover
-pnpm katacombs # Katacombs
 
 # Refactoring Golf Individual Holes
 pnpm golf1    # Golf Hole 1
