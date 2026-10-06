@@ -102,7 +102,7 @@
     "prettier": "^3.9.8",
     "ts-coverage": "^0.1.5",
     "ts-jest": "^29.4.14",
-    "type-coverage": "^2.29.7",
+    "type-coverage": "^2.30.3",
     "typescript": "5.9.3"
   },
   "commitlint": {
