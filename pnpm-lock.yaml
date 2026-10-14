@@ -47,8 +47,8 @@ importers:
         specifier: ^21.2.2
         version: 21.2.2
       '@commitlint/format':
-        specifier: ^20.3.1
-        version: 20.3.1
+        specifier: ^21.2.3
+        version: 21.2.3
       '@eslint/js':
         specifier: ^9.39.5
         version: 9.39.5
@@ -433,10 +433,6 @@ packages:
     resolution: {integrity: sha512-RifH+FmImozKBE6mozhF4K3r2RRKP7SMi/Q/zLCmExtp5e05lhHOUYqGBlFBAGNHaZxU/WYw1XuugYK9jQzqnA==}
     engines: {node: '>=22.12.0'}
 
-  '@commitlint/format@20.3.1':
-    resolution: {integrity: sha512-jfsjGPFTd2Yti2YHwUH4SPRPbWKAJAwrfa3eNa9bXEdrXBb9mCwbIrgYX38LdEJK9zLJ3AsLBP4/FLEtxyu2AA==}
-    engines: {node: '>=v18'}
-
   '@commitlint/format@21.2.3':
     resolution: {integrity: sha512-KKwCjXYqA8r295uhLnulDXL9yekdXmj2yp2Q0XsBPhxQ2iPuvRE8F43j7g7yexo69wTdmUQmFz15jpderluzUQ==}
     engines: {node: '>=22.12.0'}
@@ -480,10 +476,6 @@ packages:
   '@commitlint/top-level@21.2.0':
     resolution: {integrity: sha512-Y5gmQ+KxzqCrBFJfLvFEPvvwD3LDiNZoTT2yeFBm96M8qhmqSzQc5DvX3rheAaAMjyIvMXOCLS/mWfdpONsjyQ==}
     engines: {node: '>=22.12.0'}
-
-  '@commitlint/types@20.3.1':
-    resolution: {integrity: sha512-VmIFV/JkBRhDRRv7N5B7zEUkNZIx9Mp+8Pe65erz0rKycXLsi8Epcw0XJ+btSeRXgTzE7DyOyA9bkJ9mn/yqVQ==}
-    engines: {node: '>=v18'}
 
   '@commitlint/types@21.2.0':
     resolution: {integrity: sha512-7zVFCDB2reMvJH5dmbKnOQPjZEvjdJTH8jc0U/PIPU1r3/+vf5pD1HlfitV2MWsWXrvu7u39iY1lyLUPOaN0Gw==}
@@ -1027,9 +1019,6 @@ packages:
 
   '@types/babel__traverse@7.28.0':
     resolution: {integrity: sha512-8PvcXf70gTDZBgt9ptxJ8elBeBjcLOAcOtoO/mPJjtji1+CdGbHgm77om1GrsPxsiE+uXIpNSK64UYaIwQXd4Q==}
-
-  '@types/conventional-commits-parser@5.0.2':
-    resolution: {integrity: sha512-BgT2szDXnVypgpNxOK8aL5SGjUdaQbC++WZNjF1Qge3Og2+zhHj+RWhmehLhYyvQwqAmvezruVfOf8+3m74W+g==}
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
@@ -3864,11 +3853,6 @@ snapshots:
 
   '@commitlint/execute-rule@21.0.1': {}
 
-  '@commitlint/format@20.3.1':
-    dependencies:
-      '@commitlint/types': 20.3.1
-      chalk: 5.6.2
-
   '@commitlint/format@21.2.3':
     dependencies:
       '@commitlint/types': 21.2.3
@@ -3939,11 +3923,6 @@ snapshots:
   '@commitlint/top-level@21.2.0':
     dependencies:
       escalade: 3.2.0
-
-  '@commitlint/types@20.3.1':
-    dependencies:
-      '@types/conventional-commits-parser': 5.0.2
-      chalk: 5.6.2
 
   '@commitlint/types@21.2.0':
     dependencies:
@@ -4606,10 +4585,6 @@ snapshots:
   '@types/babel__traverse@7.28.0':
     dependencies:
       '@babel/types': 7.29.8
-
-  '@types/conventional-commits-parser@5.0.2':
-    dependencies:
-      '@types/node': 25.1.0
 
   '@types/estree@1.0.8': {}
 
