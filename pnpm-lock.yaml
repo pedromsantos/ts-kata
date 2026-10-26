@@ -119,8 +119,8 @@ importers:
         specifier: ^0.1.5
         version: 0.1.5
       ts-jest:
-        specifier: ^29.4.14
-        version: 29.4.14(@babel/core@7.29.7(supports-color@8.1.1))(@jest/transform@30.5.2(supports-color@8.1.1))(@jest/types@30.2.0)(babel-jest@30.5.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(jest-util@30.2.0)(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(typescript@5.9.3)
+        specifier: ^29.4.15
+        version: 29.4.15(@babel/core@7.29.7(supports-color@8.1.1))(@jest/transform@30.5.2(supports-color@8.1.1))(@jest/types@30.2.0)(babel-jest@30.5.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(jest-util@30.2.0)(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(typescript@5.9.3)
       type-coverage:
         specifier: ^2.30.4
         version: 2.30.4(typescript@5.9.3)
@@ -3250,8 +3250,8 @@ packages:
       typescript:
         optional: true
 
-  ts-jest@29.4.14:
-    resolution: {integrity: sha512-+943G6wCX5E3VpzTQhBGBFntCmdT+QAkTvUlp03edTONFBvqskuXPhpyX16xdUotO4P5HQKyppldSWjocoltLQ==}
+  ts-jest@29.4.15:
+    resolution: {integrity: sha512-s2qmEUYFRqbjz1wv0EmccNPVOb45HOFpFuhzQJLKShYVisuTbCFPIIAIV2EuK5rIxb4BejLDbH7dnBZfYjybUQ==}
     engines: {node: ^14.15.0 || ^16.10.0 || ^18.0.0 || >=20.0.0}
     hasBin: true
     peerDependencies:
@@ -7155,7 +7155,7 @@ snapshots:
     optionalDependencies:
       typescript: 5.9.3
 
-  ts-jest@29.4.14(@babel/core@7.29.7(supports-color@8.1.1))(@jest/transform@30.5.2(supports-color@8.1.1))(@jest/types@30.2.0)(babel-jest@30.5.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(jest-util@30.2.0)(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(typescript@5.9.3):
+  ts-jest@29.4.15(@babel/core@7.29.7(supports-color@8.1.1))(@jest/transform@30.5.2(supports-color@8.1.1))(@jest/types@30.2.0)(babel-jest@30.5.2(@babel/core@7.29.7(supports-color@8.1.1))(supports-color@8.1.1))(jest-util@30.2.0)(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(typescript@5.9.3):
     dependencies:
       bs-logger: 0.2.6
       fast-json-stable-stringify: 2.1.0
