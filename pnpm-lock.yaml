@@ -83,8 +83,8 @@ importers:
         specifier: ^2.32.0
         version: 2.32.0(@typescript-eslint/parser@8.72.0(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)
       eslint-plugin-jest:
-        specifier: ^29.16.6
-        version: 29.16.6(@typescript-eslint/eslint-plugin@8.54.0(@typescript-eslint/parser@8.72.0(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
+        specifier: ^29.17.0
+        version: 29.17.0(@typescript-eslint/eslint-plugin@8.54.0(@typescript-eslint/parser@8.72.0(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
       eslint-plugin-prettier:
         specifier: ^5.5.7
         version: 5.5.7(eslint-config-prettier@10.1.8(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1)))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(prettier@3.9.10)
@@ -1776,8 +1776,8 @@ packages:
       '@typescript-eslint/parser':
         optional: true
 
-  eslint-plugin-jest@29.16.6:
-    resolution: {integrity: sha512-q8TVr0rlNvUD0XnafGWkwtPeX+tTl2llP86EDl3sJtwWrQA/JT9SIu2hLLZbhhX6fT5SDE4O0gIKyZUujKnkYA==}
+  eslint-plugin-jest@29.17.0:
+    resolution: {integrity: sha512-6jtpU6MhYKbagkES02TupWAUUooJpZtKg94Ax0b8HhUorv3InSTBU8RRtlSBe0LocOcShXOpyec3PHzPDkJCSg==}
     engines: {node: ^20.12.0 || ^22.0.0 || >=24.0.0}
     peerDependencies:
       '@typescript-eslint/eslint-plugin': ^8.0.0
@@ -5441,7 +5441,7 @@ snapshots:
       - eslint-import-resolver-webpack
       - supports-color
 
-  eslint-plugin-jest@29.16.6(@typescript-eslint/eslint-plugin@8.54.0(@typescript-eslint/parser@8.72.0(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3):
+  eslint-plugin-jest@29.17.0(@typescript-eslint/eslint-plugin@8.54.0(@typescript-eslint/parser@8.72.0(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(jest@30.5.2(@types/node@26.6.5)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3):
     dependencies:
       '@typescript-eslint/utils': 8.54.0(eslint@9.39.2(jiti@2.6.1)(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3)
       eslint: 9.39.2(jiti@2.6.1)(supports-color@8.1.1)
