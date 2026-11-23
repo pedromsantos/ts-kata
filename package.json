@@ -87,7 +87,7 @@
     "eslint-plugin-prettier": "^5.5.7",
     "eslint-plugin-simple-import-sort": "^14.0.0",
     "globals": "^17.14.0",
-    "fast-check": "^4.10.2",
+    "fast-check": "^4.10.3",
     "husky": "^9.1.7",
     "jest": "^30.5.2",
     "jest-extended-snapshot": "^1.1.5",
